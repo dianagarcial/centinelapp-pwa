@@ -92,6 +92,27 @@ export const useScoutStore = () => {
     }
 
   }
+  const startUpdateScoutSR = async ({ id, nombre, apellido, email, fecha_nacimiento, celular}) => {
+    
+    
+    try {
+
+      await CentinelApi.put(`scouts/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular});
+      
+      
+      swal({
+        title: "El usuario ha sido actualizado con éxito!",
+        icon: "success",
+      });
+      navigate(`/perfil`)
+
+
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
   
   const startUpdateScout = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, idScout,idRama,idRamaNueva }) => {
     
@@ -174,5 +195,5 @@ export const useScoutStore = () => {
 
 
 
-  return { startCrearScout, startListScouts, startListarRamasSelect, startUpdateScout, startDeleteScout,startUpdatePassword, startUploadingFiles, startListScoutsAdmin }
+  return { startCrearScout, startListScouts, startListarRamasSelect, startUpdateScout, startDeleteScout,startUpdatePassword, startUploadingFiles, startListScoutsAdmin, startUpdateScoutSR }
 }

@@ -54,6 +54,8 @@ import { ActPublicacion } from "../components/views/act-publicacion"
 import { VerPublicacionView } from "../components/views/scout/verPublicacion"
 import { VerEventoView } from "../components/views/scout/verEventos"
 import { MostrarScoutAdmin } from "../components/views/admin/mostrarScout"
+import { ActScout } from "../components/views/scout/act-perfil"
+import { ActAcudiente } from "../components/views/acudiente/act-perfil-acudiente"
 
 export const AppRouter = () => {
 
@@ -179,6 +181,7 @@ export const AppRouter = () => {
                 <Route path="/evento-rama/:_id" element={<EventoRamaView/>}/>
                 <Route path="/verEvento/:_id" element={<VerEventoView/>}/>
                 <Route path="/updatepassword" element={<CamContrasenaScout/>}/>
+                <Route path="/act-perfil" element={<ActScout/>}/>
             </Routes>
             )
             
@@ -190,8 +193,17 @@ export const AppRouter = () => {
             <Route path="/" element={ <HomeAcudiente/> }/>
             <Route path="/*" element={ <Navigate to="/"/> }/> 
             <Route path="/updatepassword" element={<CamContrasenaAcudiente/>}/>
-            
 
+           
+                <Route path="/pub-rama/:_id" element={<PublicacionRamaView/>}/>
+                
+                <Route path="/verPublicacion/:_id" element={<VerPublicacionView/>}/>
+            
+           
+                
+                <Route path="/evento-rama/:_id" element={<EventoRamaView/>}/>
+                <Route path="/verEvento/:_id" element={<VerEventoView/>}/>
+                <Route path="/act-perfil" element={<ActAcudiente/>}/>
             </Routes>
             )
         }

@@ -24,7 +24,7 @@ const Admin = {
 }
 export const AddUsuario = () => {
 
-  const { isFileUploading } = useSelector(state => state.scout);
+  const { isFileUploading } = useSelector(state => state.admin);
   const fileInputRefI = useRef();
 
   const { startUploadingFiles } = useAdminStore();
@@ -117,9 +117,9 @@ export const AddUsuario = () => {
           <h2>En este formulario puedes crear un nuevo usuario</h2>
           <form onSubmit={onSubmit}>
             <h3>Nombre*</h3>
-            <Input name='nombre' value={nombre} onChange={onInputChange} placeholder="Nombre del scout" type="text" />
+            <Input name='nombre' value={nombre} onChange={onInputChange} placeholder="Nombre del administrador" type="text" />
             <h3>Apellido*</h3>
-            <Input name='apellido' value={apellido} onChange={onInputChange} placeholder="Apellido del scout" type="text" />
+            <Input name='apellido' value={apellido} onChange={onInputChange} placeholder="Apellido del administrador" type="text" />
             <h3>Correo electrónico*</h3>
             <Input name='email' value={email} onChange={onInputChange} placeholder="Correo" type="email" />
             <h3>Asignar rama*</h3>

@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import { SelectScout } from "../select-scout"
 import AddIcon from '@mui/icons-material/Add';
 import { CameraAlt } from "@mui/icons-material"
-
+import { useSelector } from 'react-redux';
 const Acudiente = {
   nombre: '',
   apellido: '',
@@ -24,6 +24,8 @@ const Acudiente = {
 }
 
 export const AddUsuarioAcudiente = () => {
+  const { isFileUploading } = useSelector(state => state.acudiente);
+  const fileInputRefI = useRef();
   const { startUploadingFiles } = useAcudienteStore();
   const fecha = new Date();
   let hoy=(fecha.toISOString()).toString().split('T')[0]
@@ -36,7 +38,7 @@ export const AddUsuarioAcudiente = () => {
   let { nombre, apellido, email, fecha_nacimiento, celular, onInputChange } = useForm(Acudiente);
   let imagen;
   const [link_imagen, setLinkImagen] = useState('');
-  const fileInputRefI = useRef();
+ 
   const { startCrearAcudiente } = useAcudienteStore();
   const { startListScouts } = useScoutStore();
   const navigate = useNavigate();
@@ -133,9 +135,9 @@ export const AddUsuarioAcudiente = () => {
           <h2>En este formulario puedes crear un nuevo usuario</h2>
           <form onSubmit={onSubmit}>
             <h3>Nombre*</h3>
-            <Input name='nombre' value={nombre} onChange={onInputChange} placeholder="Nombre del scout" type="text" />
+            <Input name='nombre' value={nombre} onChange={onInputChange} placeholder="Nombre del acudiente" type="text" />
             <h3>Apellido*</h3>
-            <Input name='apellido' value={apellido} onChange={onInputChange} placeholder="Apellido del scout" type="text" />
+            <Input name='apellido' value={apellido} onChange={onInputChange} placeholder="Apellido del acudiente" type="text" />
             <h3>Correo electrónico*</h3>
             <Input name='email' value={email} onChange={onInputChange} placeholder="Correo" type="email" />
             <h3>Fecha de nacimiento*</h3>
@@ -174,7 +176,7 @@ export const AddUsuarioAcudiente = () => {
             
 
             <br/>
-            <Button type="submit" variant="contained" color="primary">Crear</Button>
+            <Button type="submit" variant="contained" color="primary" disabled={isFileUploading} >Crear</Button>
             <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
           </form>
         </div>

@@ -86,7 +86,7 @@ export const VerEventoView = () => {
                     </div>
                     <br/>
                     
-                    <Button variant="outlined" color="primary" onClick={inscripcion} >Inscribirse</Button>
+                    <Button variant="contained" color="primary" onClick={inscripcion} >Inscribirse</Button>
                     
 
                 </div>
