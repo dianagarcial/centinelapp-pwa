@@ -9,7 +9,7 @@ import { SelectCreacion } from "../selectCreacion"
 import { useRamasStore } from "../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
-//import swal from 'sweetalert';
+import swal from 'sweetalert';
 import { BotonFlotante } from "../btn-flotante"
 import { useNavigate } from 'react-router-dom';
 
@@ -25,7 +25,12 @@ export const EventosGeneral = () => {
 
     function general(e) {
         e.preventDefault();
-        navigate(`/evento-General`)
+        swal({
+          
+            title: "Esta funcion estara disponible proximamente",
+            icon: "warning",
+          });  
+        // navigate(`/evento-General`)
     }
     const navigate = useNavigate();
 
@@ -53,7 +58,7 @@ export const EventosGeneral = () => {
                         ramas.map(rama => {
                             return (
 
-                                <SelectCreacion nombre={rama.nombre} desc={rama.edadMin + "-" + rama.edadMax + " años"} onClick={publi(rama._id)}/>
+                                <SelectCreacion key={rama._id} nombre={rama.nombre} desc={rama.edadMin + "-" + rama.edadMax + " años"} onClick={publi(rama._id)}/>
 
 
                                 //<FormControlLabel value={rama._id} control={<Checkbox />} label={rama.nombre} />

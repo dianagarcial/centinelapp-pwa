@@ -25,8 +25,6 @@ export const AddPublicacion = () => {
     
      let { titulo, descripcion, onInputChange } = useForm(Publicacion);
       const { user } = useSelector(state => state.auth);
-      console.log(user)
-    
       const { startCrearPublicacion } = usePublicacionStore();
       const { startListarRamas } = useRamasStore();
       const navigate = useNavigate();
@@ -50,7 +48,7 @@ export const AddPublicacion = () => {
         let autorNom=user?.nombre
         let autorId=user?.uid
         let autorApe=user?.apellido
-        console.log(user)
+        
         let date = new Date();
         let fecha= date.toDateString()
         let ramaAsignada= document.getElementById("rama").value

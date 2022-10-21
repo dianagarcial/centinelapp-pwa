@@ -15,10 +15,10 @@ import { SelectRamaAdminVer } from "../../selectRamaAdminVer"
 export const AdminScoutsAdmin = () => {
     const { scouts } = useSelector(state => state.scout);
     const { user } = useSelector(state => state.auth);
-    const { startListScouts } = useScoutStore();
+    const { startListScoutsAdmin } = useScoutStore();
     const {startAdminRama}=useAdminStore();
     const { startListarRamasSelect } = useScoutStore();
-
+    console.log(user)
     const buscar = (e) => {
         e.preventDefault();
 
@@ -27,7 +27,7 @@ export const AdminScoutsAdmin = () => {
         console.log(id)
         if (id === '') {
             document.getElementById("Noe").innerHTML=""
-            startListScouts()
+            startListScoutsAdmin(user?.uid)
             console.log('todos')
 
         } else {
@@ -41,7 +41,7 @@ export const AdminScoutsAdmin = () => {
     }
     useEffect(() => {
         
-        startListScouts()
+        startListScoutsAdmin(user?.uid)
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startAdminRama(user?.uid);
         // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -13,6 +13,16 @@ import { useEventoStore } from "../../../Hooks/useEventoStore";
 import { useNavigate } from "react-router-dom";
 export const HomeScout = () => {
     const navigate = useNavigate();
+    const { user } = useSelector(state => state.auth);
+    const { ramaIdScout } = useSelector(state => state.rama);
+    
+    const { publicaciones } = useSelector(state => state.publicacion);
+    const { eventos } = useSelector(state => state.evento);
+  
+    const { startListScouts } = useScoutStore();
+    const { startListarRamaIDValue } = useRamasStore();
+    const { startListLastPublicacionRama } = usePublicacionStore();
+    const { startListLastEventoRama } = useEventoStore();
     
 
     var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Di"];
@@ -34,23 +44,15 @@ export const HomeScout = () => {
         navigate(`/verEvento/${id}`)
     }
 
-    const { user } = useSelector(state => state.auth);
-    const { ramaIdScout } = useSelector(state => state.rama);
-    const { publicaciones } = useSelector(state => state.publicacion);
-    const { eventos } = useSelector(state => state.evento);
-    console.log(user?.uid)
-    console.log(ramaIdScout)
-    const { startListScouts } = useScoutStore();
-    const { startListarRamaIDValue } = useRamasStore();
-    const { startListLastPublicacionRama } = usePublicacionStore();
-    const { startListLastEventoRama } = useEventoStore();
+    
+    
     
     useEffect(() => {
-        startListScouts()
+        startListarRamaIDValue(user?.uid)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     useEffect(() => {
-        startListarRamaIDValue(user?.uid)
+        startListScouts()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     useEffect(() => {
@@ -74,13 +76,17 @@ export const HomeScout = () => {
                 {
 
                     publicaciones.map(publi => {
+                        let fechaes = (publi?.fecha).toString()
+                            fechaes=fechaes.split('T')[0]
 
                         return (
-                            <Publicacion titulo={publi?.titulo}
+                            <Publicacion key={publi?.id} 
+                                titulo={publi?.titulo}
                                 conte={publi?.descripcion}
-                                persona={`${publi?.autor} `}
-                                calendario={publi?.fecha}
-                                onClick={rediPublicacion(publi?._id)} />
+                                persona={`${publi?.autor?.nombre} ${publi?.autor?.apellido} `}
+                                calendario={fechaes}
+                                onClick={rediPublicacion(publi?._id)}
+                            />
                         )
 
                     })
@@ -98,9 +104,10 @@ export const HomeScout = () => {
 
 
                         return (
-                            <Eventos nombre={event?.titulo}
+                            <Eventos 
+                                key={event?._id}
+                                nombre={event?.titulo}
                                 dia={dia}
-
                                 mes={convertir(mes)}
                                 onClick={rediEventos(event?._id)}
                             />

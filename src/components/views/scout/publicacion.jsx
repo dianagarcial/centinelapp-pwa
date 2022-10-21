@@ -9,7 +9,7 @@ import { SelectCreacion } from "../../selectCreacion"
 import { useRamasStore, useScoutStore } from "../../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
-//import swal from 'sweetalert';
+import swal from 'sweetalert';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -19,10 +19,10 @@ export const PublicacionGeneralScout = () => {
     const {user} = useSelector(state=>state.auth);
  
     const { ramas } = useSelector(state => state.rama);
-    console.log(ramas)
+    
     const { ramaIdScout } = useSelector(state => state.rama);
     const ramascoutes = ramas.find(rama => rama._id === ramaIdScout);
-    console.log(ramascoutes)
+   
     const navigate = useNavigate();
     const {startListarRamaIDValue, startListarRamas}= useRamasStore();
     const { startListScouts } = useScoutStore();
@@ -34,7 +34,11 @@ export const PublicacionGeneralScout = () => {
 
       function publigeneral (e){
         e.preventDefault();
-        navigate(`/pub-General`)
+        swal({
+          
+            title: "Esta funcion estara disponible proximamente",
+            icon: "warning",
+          });  
         }
     
     

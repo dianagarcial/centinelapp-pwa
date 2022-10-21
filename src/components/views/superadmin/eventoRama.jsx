@@ -25,10 +25,7 @@ export const EventoRama = () => {
      
     const {ramaSel}=useSelector(state => state.rama)
     const {eventos}=useSelector(state => state.evento)
-    //const { admins } = useSelector(state => state.admin);
-    //const { superadmins } = useSelector(state => state.superadmin);
-    //const [autor, setAutor] = useState('');
-    
+
     let idRama= params._id
       
     var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
@@ -42,8 +39,7 @@ export const EventoRama = () => {
     return res
     }
     
-    //const {user} = useSelector(state=>state.auth);
-    console.log(eventos)
+    
     
     const navigate = useNavigate();
 
@@ -57,20 +53,6 @@ export const EventoRama = () => {
     }
     
 
-    
-    // function autore(e) {
-    //     e.preventDefault();
-    // publicaciones.map(publi =>{
-    //     if(autor.length < 0){
-    //         autor = admins.find(admin => admin._id === (publi?.autor));
-    //     }else{
-    //         autor = superadmins.find(sadmin => sadmin._id === (publi?.autor));
-
-    //     }
-        
-    //     console.log(autor)
-    // })
-    // }
 
     
     useEffect(() => {
@@ -103,7 +85,9 @@ export const EventoRama = () => {
                             
                                 
                         return(
-                            <Eventos nombre={evento?.titulo} 
+                            <Eventos 
+                            key={evento?._id}
+                            nombre={evento?.titulo} 
                             dia={dia}
                             
                             mes= {convertir(mes)}

@@ -55,6 +55,19 @@ export const useScoutStore = () => {
     }
 
   }
+  const startListScoutsAdmin = async (id) => {
+
+    try {
+
+      const { data } = await CentinelApi.get(`admin/getAdminBranchByScout/${id}`);
+      //console.log(data.ScoutsBranchAdmin)
+      dispatch(onListScouts(data.ScoutsBranchAdmin))
+
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
 
   
 
@@ -79,6 +92,7 @@ export const useScoutStore = () => {
     }
 
   }
+  
   const startUpdateScout = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, idScout,idRama,idRamaNueva }) => {
     
     
@@ -160,5 +174,5 @@ export const useScoutStore = () => {
 
 
 
-  return { startCrearScout, startListScouts, startListarRamasSelect, startUpdateScout, startDeleteScout,startUpdatePassword, startUploadingFiles }
+  return { startCrearScout, startListScouts, startListarRamasSelect, startUpdateScout, startDeleteScout,startUpdatePassword, startUploadingFiles, startListScoutsAdmin }
 }

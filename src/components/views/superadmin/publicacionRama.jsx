@@ -70,7 +70,9 @@ export const PublicacionRama = () => {
                             
                                 
                         return(
-                            <Publicacion titulo={publi?.titulo}
+                            <Publicacion 
+                            key={publi?._id}
+                            titulo={publi?.titulo}
                             conte={publi?.descripcion}
                             persona={`${publi?.autor.nombre} ${publi?.autor.apellido} `}
                             calendario={fechaes} 

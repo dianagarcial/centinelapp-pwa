@@ -25,12 +25,7 @@ export const PublicacionRamaGeneralView = () => {
     
     
     const {publicaciones}=useSelector(state => state.publicacion)
-    //const { admins } = useSelector(state => state.admin);
-    //const { superadmins } = useSelector(state => state.superadmin);
-    //const [autor, setAutor] = useState('');
-    
-    //const {user} = useSelector(state=>state.auth);
-    console.log(publicaciones)
+
     
     const navigate = useNavigate();
 

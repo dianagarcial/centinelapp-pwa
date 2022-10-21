@@ -25,9 +25,7 @@ export const EventoRamaGeneralView = () => {
      
   
     const {eventos}=useSelector(state => state.evento)
-    //const { admins } = useSelector(state => state.admin);
-    //const { superadmins } = useSelector(state => state.superadmin);
-    //const [autor, setAutor] = useState('');
+    
     var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Di"];
 
     function convertir(mes) {    
@@ -40,32 +38,14 @@ export const EventoRamaGeneralView = () => {
     }
     
     //const {user} = useSelector(state=>state.auth);
-    console.log(eventos)
+
     const rediEventos = (id) => (e) => {
         e.preventDefault();
         navigate(`/verEvento/${id}`)
     }
 
     
-
-
-    
-    
-
-    
-    // function autore(e) {
-    //     e.preventDefault();
-    // publicaciones.map(publi =>{
-    //     if(autor.length < 0){
-    //         autor = admins.find(admin => admin._id === (publi?.autor));
-    //     }else{
-    //         autor = superadmins.find(sadmin => sadmin._id === (publi?.autor));
-
-    //     }
-        
-    //     console.log(autor)
-    // })
-    // }
+  
 
     
     useEffect(() => {

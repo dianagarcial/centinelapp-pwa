@@ -31,7 +31,7 @@ export const CamContrasenaScout = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         let email=user?.email
-        console.log(email)
+
         if(newPassword.trim() === '' || newPasswordC.trim() === '' || currentPassword.trim() === '' ){
             swal({
                 title: "Ingrese los campos obligatorios",
@@ -42,9 +42,7 @@ export const CamContrasenaScout = () => {
 
         
         if(newPasswordC===newPassword){
-            console.log(newPassword)
-            console.log(currentPassword)
-            console.log(newPasswordC)
+         
             startUpdatePassword({newPassword,currentPassword,email})
         
         }else{

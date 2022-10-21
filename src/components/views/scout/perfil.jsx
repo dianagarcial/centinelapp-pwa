@@ -19,7 +19,7 @@ export const PerfilScout= ()=>{
     const { scouts } = useSelector(state => state.scout);
     const scoutActual = scouts.find(scout => scout._id === user.uid);
     const { ramaScout } = useSelector(state => state.rama);
-    console.log(scoutActual)
+  
     
     const { startListScouts } = useScoutStore();
     const {startListarRamaID}= useRamasStore();

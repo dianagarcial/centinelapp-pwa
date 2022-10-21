@@ -88,7 +88,7 @@ export const useRamasStore = () => {
         try {
             
             const { data } = await CentinelApi.get(`scouts/scoutBranch/${id}`);
-            
+        
             dispatch(ListarIDRamaScout(data.branch._id));
         
   

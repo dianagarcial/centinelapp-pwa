@@ -34,7 +34,7 @@ export const Login = () => {
         const tipo = parseInt(document.getElementById('tipo').value);
         let tipos= document.getElementById('tipo').value
         email= emailx
-        console.log(email)
+      
         if (email === '' || password === ''|| tipos ==='') {
             swal({
                 title: "Ingrese los campos obligatorios",
@@ -53,7 +53,7 @@ export const Login = () => {
                 });
 
             }else{
-                console.log(email, password, tipo);
+                
             startLogin({ email, password, tipo });
 
             }

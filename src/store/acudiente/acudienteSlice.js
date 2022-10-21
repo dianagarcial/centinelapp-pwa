@@ -5,6 +5,7 @@ export const acudienteSlice = createSlice({
       initialState:{
          acudientes: [],
          acudienteScout:[],
+         acudienteRamas:[],
          errorMessage: null,
          isFileUploading: false,
       },
@@ -15,10 +16,13 @@ export const acudienteSlice = createSlice({
            onListAcudienteScout:(state, {payload=[]})=>{
             state.acudienteScout=payload;
            },
+           onListAcudienteRama:(state, {payload=[]})=>{
+            state.acudienteRamas=payload;
+           },
            onUploadFileAcudiente:(state, { payload })=>{
             state.isFileUploading = payload;
            }
        }
 })
 
-export const { onListAcudiente, onListAcudienteScout, onUploadFileAcudiente } = acudienteSlice.actions
+export const { onListAcudiente, onListAcudienteScout,onListAcudienteRama, onUploadFileAcudiente } = acudienteSlice.actions

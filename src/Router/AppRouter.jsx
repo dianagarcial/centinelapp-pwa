@@ -53,6 +53,7 @@ import { ActEvento } from "../components/views/act-evento"
 import { ActPublicacion } from "../components/views/act-publicacion"
 import { VerPublicacionView } from "../components/views/scout/verPublicacion"
 import { VerEventoView } from "../components/views/scout/verEventos"
+import { MostrarScoutAdmin } from "../components/views/admin/mostrarScout"
 
 export const AppRouter = () => {
 
@@ -138,16 +139,23 @@ export const AppRouter = () => {
             <Route path="/" element={ <HomeAdmin/> }/>
             <Route path="/*" element={ <Navigate to="/"/> }/> 
             <Route path="/adminscouts" element={<AdminScoutsAdmin/>}/>
+            <Route path='/scout/:_id' element={<MostrarScoutAdmin/>}/>
             <Route path="/publicaciones" element={<PublicacionGeneralAdmin/>}/>
             <Route path="/add-publicacion" element={<AddPublicacionAdmin/>}/>
 
             <Route path="/pub-rama/:_id" element={<PublicacionRama/>}/>
             <Route path="/pub-General" element={<PublicacionRamaGeneral/>}/>
+            <Route path="/verPublicacion/:_id" element={<VerPublicacion/>}/>
+            <Route path="/actPublicacion/:_id" element={<ActPublicacion/>}/>
+                        
 
             <Route path="/eventos" element={<EventoGeneralAdmin/>}/>
             <Route path="/add-evento" element={<AddEventoAdmin/>}/>
             <Route path="/evento-General" element={<EventoRamaGeneral/>}/>
             <Route path="/evento-rama/:_id" element={<EventoRama/>}/>
+            <Route path="/verEvento/:_id" element={<VerEvento/>}/>
+            <Route path="/actEvento/:_id" element={<ActEvento/>}/>
+                        
 
             <Route path="/updatepassword" element={<CamContrasenaAdmin/>}/>
             <Route path="/act-perfil" element={<ActAdmin/>}/>

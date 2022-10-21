@@ -16,22 +16,23 @@ import { useEventoStore } from "../../../Hooks/useEventoStore"
 import { SelectRamaAdmin } from "../../selectRamaAdmin"
 
 
-const Publicacion = {
-    titulo: '',
-    descripcion: '',
-    fechaYHoraInicio: '',
-    fechaYHoraFinal: '',
-   
-  
-      
-  }
+const Evento = {
+  titulo: '',
+  descripcion: '',
+  fechaYHoraInicio: '',
+  fechaYHoraFinal: '',
+ 
+
+    
+}
 export const AddEventoAdmin = () => {
     
     
-      const { titulo, descripcion, fechaYHoraInicio, fechaYHoraFinal,  onInputChange } = useForm(Publicacion);
+      const { titulo, descripcion, fechaYHoraInicio, fechaYHoraFinal,  onInputChange } = useForm(Evento);
       const { user } = useSelector(state => state.auth);
-    
-    
+      const fecha = new Date();
+      let hoy=(fecha.toISOString()).toString().split('T')[0]
+      console.log(user)
       const { startCrearEvento } = useEventoStore();
       //const {ramasAdmin}=useSelector(state => state.admin)
       const {startAdminRama}=useAdminStore();
@@ -45,11 +46,13 @@ export const AddEventoAdmin = () => {
       const onSubmit = (e) => {
         e.preventDefault();
         let linkImagen='no tiene'
-        let autor=user?.uid
-        console.log(user)
+        let autorNom=user?.nombre
+        let autorId=user?.uid
+        let autorApe=user?.apellido
+       
         let idRama= document.getElementById("rama").value
-        console.log(idRama)
-        console.log(descripcion)
+     
+        
         
         
     
@@ -63,10 +66,21 @@ export const AddEventoAdmin = () => {
           return;
     
         }else{
-          
-            startCrearEvento({ titulo, descripcion, linkImagen, autor, fechaYHoraInicio, fechaYHoraFinal, idRama })
+          if( fechaYHoraInicio>fechaYHoraFinal ){
+            swal({
+              title: "La fecha de inicio debe ser inferior a la fecha de finalizacion",
+              icon: "warning"
+      
+            });
+      
+            return;
+
+          }else{
+            startCrearEvento({ titulo, descripcion, linkImagen, autorNom, autorApe,autorId, fechaYHoraInicio, fechaYHoraFinal, idRama })
               navigate(`/home`)
             }
+
+          }
             
     
        

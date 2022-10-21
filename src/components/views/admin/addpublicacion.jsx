@@ -41,14 +41,14 @@ export const AddPublicacionAdmin = () => {
       const onSubmit = (e) => {
         e.preventDefault();
         let linkImagen='no tiene'
-        let autor=user?.uid
-        console.log(user)
-        let date = new Date();
-        let fecha= date.toLocaleDateString();
-        let ramaAsignada= document.getElementById("rama").value
-        console.log(ramaAsignada)
-        console.log(descripcion)
+        let autorNom=user?.nombre
+        let autorId=user?.uid
+        let autorApe=user?.apellido
         
+        let date = new Date();
+        let fecha= date.toDateString()
+        let ramaAsignada= document.getElementById("rama").value
+             
         
     
         if (titulo === '' || descripcion === '' ) {
@@ -62,7 +62,7 @@ export const AddPublicacionAdmin = () => {
     
         }else{
           
-              startCrearPublicacion({ titulo, descripcion, ramaAsignada, linkImagen, autor, fecha })
+              startCrearPublicacion({ titulo, descripcion, ramaAsignada, linkImagen, autorNom,autorId,autorApe, fecha })
               navigate(`/home`)
             }
             

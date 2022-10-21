@@ -102,6 +102,7 @@ export const ActEvento = () => {
                               ramas.map(rama => {
                                 let ramaes= false
                                 
+                                
                                 if(ramaAsignada[0]===rama._id){
                                     ramaes=true
                               

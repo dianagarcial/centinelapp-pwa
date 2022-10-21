@@ -90,8 +90,8 @@ export const ActPublicacion = () => {
           <div className="conte-general">
             <Header />
             <div className="conte-imp">
-              <h1>Crear una publicación</h1>
-              <h2>En este formulario puedes crear una nueva publicación</h2>
+              <h1>Actualizar una publicación</h1>
+              <h2>En este formulario puedes actualizar una nueva publicación</h2>
               <form onSubmit={onSubmit}>
                 <h3>Rama del mensaje*</h3>
                 <select id='rama'  className='cajon-select'  >
@@ -104,7 +104,8 @@ export const ActPublicacion = () => {
                                 let ramaes= false
                                 
                                 
-                                if(ramaAsignada[0]===rama._id){
+                                
+                                if(ramaAsignada[0]._id===rama._id){
                                     ramaes=true
                               
                                 }

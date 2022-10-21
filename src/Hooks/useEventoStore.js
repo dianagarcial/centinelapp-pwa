@@ -1,6 +1,6 @@
 import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
-import { onListEventos, onListEventoSelect } from "../store";
+import { onListEventos, onListEventoSelect, onListInscritosEvento } from "../store";
 import { useDispatch } from "react-redux"
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -13,9 +13,9 @@ export const useEventoStore = () => {
 const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, autorApe,autorId, fechaYHoraInicio, fechaYHoraFinal, idRama }) => {
     console.log( titulo, descripcion, linkImagen, autorNom, autorApe,autorId, fechaYHoraInicio, fechaYHoraFinal, idRama)
        try {
-      await CentinelApi.post('evento/create-evento', { titulo, descripcion, linkImagen, autor:{id:autorId, nombre:autorNom, apellido:autorApe}, fechaYHoraInicio, fechaYHoraFinal, idRama  })
+      const {data} = await CentinelApi.post('evento/create-evento', { titulo, descripcion, linkImagen, autor:{id:autorId, nombre:autorNom, apellido:autorApe}, fechaYHoraInicio, fechaYHoraFinal, idRama  })
       
-
+      console.log(data)
       swal({
         title: "El evento ha sido creado con éxito!",
         icon: "success",
@@ -44,8 +44,8 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     try {
       
       
-      const { data } = await CentinelApi.get(`evento/getEventsOfWeek/${startDate}`);
-
+      const { data } = await CentinelApi.get(`evento/getEventByDate/${startDate}`);
+      
       dispatch( onListEventos( data.Eventos_) )
 
     } catch (error) {
@@ -67,7 +67,7 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     try {
       
       
-      const { data } = await CentinelApi.get(`evento/getEventByBranch/${idRama}/${startDate}`);
+      const { data } = await CentinelApi.get(`evento/getEventByBranchAndDate/${idRama}/${startDate}`);
 
       dispatch( onListEventos( data.Eventos_) )
 
@@ -91,17 +91,7 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
       dispatch( onListEventos( data.Eventos_) )
 
     } catch (error) {
-      console.log(error.request.status)
-      if(error.request.status===404){
-        document.getElementById('nohay').innerHTML=''
-        swal({
-          
-          title: "No existen publicaciones actualmente para esta rama",
-          icon: "warning",
-        });  
-        navigate('/publicaciones')
-
-      }
+      console.log(error)
     }
 
   }
@@ -111,14 +101,12 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     try {
           
            
-      const { data } = await CentinelApi.get(`evento/getEventByBranch/${params._id}`);
+      const { data } = await CentinelApi.get(`evento/getAllEventByBranch/${params._id}`);
       
       dispatch( onListEventos( data.Eventos_) )
-      
 
-    } catch (error) {
-      if(error.request.status===404){
-        document.getElementById('nohay').innerHTML=''
+      if((data.Eventos_).length===0){
+     
         swal({
           
           title: "No existen eventos actualmente para esta rama",
@@ -127,6 +115,10 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
         navigate('/eventos')
 
       }
+      
+
+    } catch (error) {
+      console.log(error)
     }
 
   }
@@ -136,8 +128,23 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     try {
       
       const { data } = await CentinelApi.get(`evento/${params._id}`);
+     
+      dispatch( onListEventoSelect( data.Evento_) )
 
-      dispatch( onListEventoSelect( data.Eventos_) )
+    } catch (error) {
+      console.log(error)
+      
+    }
+
+  }
+
+  const startListInscritosEvento= async() => {
+
+    try {
+      
+      const { data } = await CentinelApi.get(`evento/getScoutsAsignadosEvento/${params._id}`);
+     
+      dispatch( onListInscritosEvento( data.evento_.inscritos) )
 
     } catch (error) {
       console.log(error)
@@ -173,5 +180,18 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     }
 
   }
-  return { startCrearEvento,startListLastEvento,startListLastEventoRama, startListEventoGeneral, startListEvento, startListEventoBusca, startUpdateEvento, startDeleteEvento}
+
+  const startInscribirEvento = async(id) => {
+
+    try {
+      
+      await CentinelApi.put(`evento/addScout/${params._id}/${id}`);
+ 
+      navigate(`/eventos`)
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+  return { startCrearEvento,startListLastEvento,startListLastEventoRama, startListEventoGeneral, startListEvento, startListEventoBusca, startUpdateEvento, startDeleteEvento, startInscribirEvento, startListInscritosEvento}
 }

@@ -19,56 +19,58 @@ export const VerEvento = () => {
 
     const params = useParams();
     const navigate = useNavigate();
-    
 
-    const {startListEventoGeneral, startListEventoBusca, startDeleteEvento}=useEventoStore();
+
+    const { startListEventoGeneral, startListEventoBusca, startDeleteEvento, startListInscritosEvento } = useEventoStore();
     const { eventos } = useSelector(state => state.evento)
+    const { eventoInscritos } = useSelector(state => state.evento)
+
     const eventoActual = eventos.find(evento => evento._id === params._id);
 
-    
-    function convertir(mes) {    
+
+    function convertir(mes) {
         let res
         var numeroMes = parseInt(mes);
-        if(! isNaN(numeroMes) && numeroMes >= 1  && numeroMes <= 12 ) {
+        if (!isNaN(numeroMes) && numeroMes >= 1 && numeroMes <= 12) {
             res = meses[numeroMes - 1];
         }
         return res
-        }
-        var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
-        var inicio = (eventoActual?.fechaYHoraInicio).toString();
-       var mesini= inicio.substring(5, 7)
-       var diaini= inicio.substring(8, 10)
+    }
+    var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+    var inicio = (eventoActual?.fechaYHoraInicio).toString();
+    var mesini = inicio.substring(5, 7)
+    var diaini = inicio.substring(8, 10)
 
-       var fin = (eventoActual?.fechaYHoraFinal).toString();
-       var mesfin= fin.substring(5,7)
-       var diafin= fin.substring(8, 10)
+    var fin = (eventoActual?.fechaYHoraFinal).toString();
+    var mesfin = fin.substring(5, 7)
+    var diafin = fin.substring(8, 10)
 
-       const rediEvento = (id) => (e) => {
+    const rediEvento = (id) => (e) => {
         e.preventDefault();
         navigate(`/actEvento/${id}`)
     }
     function eliminar(e) {
         e.preventDefault();
-        
-        
+
+
         swal({
             title: "Borrar evento",
             text: "¿Esta seguro de borrar todo el contenido del evento?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-                startDeleteEvento();
-                
-              
-            } else {
-                return
-            }
-          });
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    startDeleteEvento();
+
+
+                } else {
+                    return
+                }
+            });
     }
-    
+
 
 
     useEffect(() => {
@@ -77,11 +79,13 @@ export const VerEvento = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListEventoBusca();
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        startListInscritosEvento();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    
-    
 
-    
+
+
+
 
 
     return (
@@ -99,17 +103,44 @@ export const VerEvento = () => {
 
 
                         </div>
-                       
-                        <Calendar mesinicio={convertir(mesini)} diainicio={diaini} mesfin={convertir(mesfin)} diafin={diafin}/>
-                       
+
+                        <Calendar mesinicio={convertir(mesini)} diainicio={diaini} mesfin={convertir(mesfin)} diafin={diafin} />
+
                     </div>
-                    <br/>
-                    
-                    
+                    <div>
+                        <h1>Asistentes</h1>
+                        <div>
+
+                            <div className="cab-tabla-scout">
+                                <h3 className="cabtabla">Nombre</h3>
+                                <h4 className="cabtabla">Ver Autorizacion</h4>
+
+                            </div>
+                            <div id="tabla-scouts" className="tabla-scout">
+                                <div id="Noe"></div>
+                                {
+
+
+                                    eventoInscritos.map(ev => {
+                                        return (
+                                            <h3>{`${ev?.nombre} ${ev?.apellido}`}</h3>
+                                        )
+                                    })
+
+                                }
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <br />
+
+
                     <Button variant="outlined" color="primary" onClick={eliminar} >Eliminar</Button>
 
                 </div>
-                <BotonFlotanteEdit onClick={rediEvento(eventoActual?._id)}/>
+                <BotonFlotanteEdit onClick={rediEvento(eventoActual?._id)} />
             </div>
             <Navbar />
         </div>

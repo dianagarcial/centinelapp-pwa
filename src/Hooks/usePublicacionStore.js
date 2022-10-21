@@ -37,11 +37,9 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
       
       const { data } = await CentinelApi.get(`publicaciones/byBranch/${params._id}`);
       dispatch( onListPublicaciones( data.publicaciones_) )
-
-    } catch (error) {
-  
-      if(error.request.status===404){
-        document.getElementById('nohay').innerHTML=''
+      
+      if((data.publicaciones_).length===0){
+     
         swal({
           
           title: "No existen publicaciones actualmente para esta rama",
@@ -50,6 +48,10 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
         navigate('/publicaciones')
 
       }
+
+    } catch (error) {
+  
+      
     }
 
   }
@@ -59,19 +61,20 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
       
       const { data } = await CentinelApi.get(`publicaciones/allPublicaciones`);
       dispatch( onListPublicaciones( data.publicaciones_) )
+      
+      if((data.publicaciones_).length===0){
+     
+        swal({
+          
+          title: "No existen eventos actualmente para esta rama",
+          icon: "warning",
+        });  
+        navigate('/eventos')
+
+      }
 
     } catch (error) {
       
-      if(error.request.status===404){
-        document.getElementById('nohay').innerHTML=''
-        swal({
-          
-          title: "No existen publicaciones actualmente para esta rama",
-          icon: "warning",
-        });  
-        navigate('/publicaciones')
-
-      }
     }
 
   }
@@ -91,11 +94,18 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
   }
 
   const startListLastPublicacionRama= async(ramaIdScout) => {
+
     
     try {
-      
+      // console.log(user)
+      // let id= user
+      // console.log(`scouts/${id}`)
+      // let { data } = await CentinelApi.get(`scouts/scoutBranch/${id}`);
+      // let ramaIdScout = (data.branch._id)
+      // console.log(ramaIdScout)
       
       const { data } = await CentinelApi.get(`publicaciones/lastTwoPubliByBranch/${ramaIdScout}`);
+      console.log(data)
       dispatch( onListPublicaciones( data.publicaciones_) )
 
     } catch (error) {

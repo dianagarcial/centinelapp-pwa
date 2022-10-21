@@ -22,7 +22,7 @@ export const VerPublicacionView = () => {
     const { startListPublicacionGeneral, startListPublicacionBusca} = usePublicacionStore()
     const { publicaciones } = useSelector(state => state.publicacion)
     const publicacionActual = publicaciones.find(publicacion => publicacion._id === params._id);
-    console.log(publicacionActual)
+  
     
 
     useEffect(() => {
@@ -45,7 +45,7 @@ export const VerPublicacionView = () => {
                         <div className='sub-conte-1'>
                             <img classname="imgbtn" src='../images/publicacion/persona.svg' onerror="this.onerror=null; this.src='persona.png'" alt='home' />
 
-                            <h3>{publicacionActual?.autor}</h3>
+                            <h3>{`${publicacionActual?.autor?.nombre} ${publicacionActual?.autor?.apellido} `}</h3>
                         </div>
                         <div className='sub-conte-2'>
                             <img classname="imgbtn" src='../images/publicacion/calendar.svg' onerror="this.onerror=null; this.src='calendar.png'" alt='home' />

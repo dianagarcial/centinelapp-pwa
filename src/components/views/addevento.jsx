@@ -30,7 +30,7 @@ export const AddEvento = () => {
       const { user } = useSelector(state => state.auth);
       const fecha = new Date();
       let hoy=(fecha.toISOString()).toString().split('T')[0]
-    
+      console.log(user)
       const { startCrearEvento } = useEventoStore();
       const { startListarRamas } = useRamasStore();
       const navigate = useNavigate();
@@ -48,10 +48,10 @@ export const AddEvento = () => {
         let autorNom=user?.nombre
         let autorId=user?.uid
         let autorApe=user?.apellido
-        console.log(user)
+       
         let idRama= document.getElementById("rama").value
-        console.log(idRama)
-        console.log(descripcion)
+     
+        
         
         
     

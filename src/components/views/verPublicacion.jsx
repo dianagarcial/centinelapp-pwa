@@ -25,6 +25,7 @@ export const VerPublicacion = () => {
     const publicacionActual = publicaciones.find(publicacion => publicacion._id === params._id);
     
    
+   
     function eliminar(e) {
         e.preventDefault();
         
