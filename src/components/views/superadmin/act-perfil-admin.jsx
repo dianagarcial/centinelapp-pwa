@@ -116,7 +116,7 @@ export const ActPerfilAdmin = () => {
                     <Input name='apellido' value={apellido} type="text" onChange={onInputChange}  />
 
                     <h3>Email</h3>
-                    <Input name='email' value={email} type="email" onChange={onInputChange} />
+                    <Input name='email' value={email} type="email" onChange={onInputChange} disabled/>
 
                    
                     <h3>Asignar rama*</h3>

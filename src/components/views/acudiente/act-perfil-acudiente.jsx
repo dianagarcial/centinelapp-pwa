@@ -104,7 +104,7 @@ export const ActAcudiente = () => {
             <Input name='apellido' value={apellido} type="text" onChange={onInputChange} />
 
             <h3>Email</h3>
-            <Input name='email' value={email} type="email" onChange={onInputChange} />
+            <Input name='email' value={email} type="email" onChange={onInputChange} disabled/>
 
             <h3>Fecha de nacimiento</h3>
             <Input name='fecha_nacimiento' value={fecha_nacimiento} type="date" onChange={onInputChange} />

@@ -101,7 +101,7 @@ export const ActAdmin = () => {
                     <Input name='apellido' value={apellido} type="text" onChange={onInputChange}  />
 
                     <h3>Email</h3>
-                    <Input name='email' value={email} type="email" onChange={onInputChange} />
+                    <Input name='email' value={email} type="email" onChange={onInputChange} disabled/>
 
                    
                     <Button type="submit" variant="contained" color="primary">Guardar</Button>
