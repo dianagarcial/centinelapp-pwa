@@ -7,6 +7,7 @@ import "../../styles/styles.css"
 import "../../styles/login.css"
 import swal from 'sweetalert';
 import { Header } from "../header"
+import { Done } from '@mui/icons-material';
 
 import { useForm, useRamasStore, useAdminStore } from "../../Hooks"
 import { useEffect, useState, useRef } from 'react'
@@ -57,6 +58,15 @@ export const AddUsuario = () => {
     if (target.files === 0) return;
     const link = await startUploadingFiles(target.files, 'Imagenes')
     setLinkImagen(link);
+    console.log(link.length)
+    if(link.length > 0){
+      document.getElementById("img-sel").style.display="none"
+      document.getElementById("camaras").style.display="none"
+      document.getElementById("yes").style.display="block"
+      document.getElementById("check-img").style.display="block"      
+      
+
+    }
   }
 
   // const verificarcheck =(e)=>{
@@ -156,8 +166,10 @@ export const AddUsuario = () => {
                 fileInputRefI.current.click()
               }}
             >
-              <CameraAlt style={{ color: '#D5D5D5', fontSize: '35px' }}/>
-              <h2 className="sel">Seleccione una foto de perfil*</h2>
+              <CameraAlt style={{ color: '#D5D5D5', fontSize: '35px' }} id="camaras"/>
+              <Done id='check-img' style={{ display: 'none'}}/>
+              <h2 className="sel2" id="yes" >Archivo cargado</h2>
+              <h2 className="sel" id="img-sel">Seleccione una foto de perfil*</h2>
             </button>
             <br/>
 

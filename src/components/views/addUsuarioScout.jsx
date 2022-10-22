@@ -1,6 +1,7 @@
 import { Input } from "../input"
 import { Navbar } from "../navbar"
 import Button from '@mui/material/Button'
+import { Done } from '@mui/icons-material';
 import "../../styles/boton.css"
 import "../../styles/styles.css"
 import "../../styles/login.css"
@@ -52,12 +53,32 @@ export const AddUsuarioFicha = () => {
     if (target.files === 0) return;
     const link = await startUploadingFiles(target.files, 'Fichas-Medicas')
     setlink_ficha_medica(link);
+    console.log(link.length)
+    if(link.length > 0){
+      document.getElementById("yes2").style.display="block"
+      document.getElementById("check-arch").style.display="block"
+      document.getElementById("arch-sel").style.display="none"
+      document.getElementById("archivo").style.display="none"
+
+      
+      
+
+    }
   }
 
   const onFileInputChangeI = async ({ target }) => {
     if (target.files === 0) return;
     const link = await startUploadingFiles(target.files, 'Imagenes')
     setLinkImagen(link);
+    console.log(link.length)
+    if(link.length > 0){
+      document.getElementById("img-sel").style.display="none"
+      document.getElementById("camaras").style.display="none"
+      document.getElementById("yes").style.display="block"
+      document.getElementById("check-img").style.display="block"      
+      
+
+    }
   }
 
   function redirect(e) {
@@ -143,8 +164,10 @@ export const AddUsuarioFicha = () => {
                 fileInputRef.current.click()
               }}
             >
-              <UploadFile style={{ color: '#D5D5D5', fontSize: '35px' }} />
-              <h2 className="sel">Seleccione un archivo*</h2>
+              <UploadFile id='archivo' style={{ color: '#D5D5D5', fontSize: '35px' }} />
+              <Done id='check-arch' style={{ display: 'none'}} />
+              <h2 className="sel2" id="yes2">Archivo cargado</h2>
+              <h2 className="sel" id="arch-sel" >Seleccione un archivo*</h2>
             </button>
 
             <h3>Foto*</h3>
@@ -164,8 +187,10 @@ export const AddUsuarioFicha = () => {
                 fileInputRefI.current.click()
               }}
             >
-              <CameraAlt style={{ color: '#D5D5D5', fontSize: '35px' }}/>
-              <h2 className="sel">Seleccione una foto de perfil*</h2>
+              <CameraAlt style={{ color: '#D5D5D5', fontSize: '35px' }} id="camaras"/>
+              <Done id='check-img' style={{ display: 'none'}}/>
+              <h2 className="sel2" id="yes" >Archivo cargado</h2>
+              <h2 className="sel" id="img-sel">Seleccione una foto de perfil*</h2>
             </button>
             <br/>
             <Button type="submit" variant="contained" color="primary" disabled={isFileUploading} style={{fontFamily: 'Ubuntu'}}>Crear</Button>

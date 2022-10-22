@@ -135,6 +135,15 @@ button.subir {
     
 
 }
+.sel2 {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: none;
+}
 img.foto {
     width: 200px;
     height: 200px;

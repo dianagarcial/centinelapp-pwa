@@ -5,6 +5,7 @@ import "../../styles/boton.css"
 import "../../styles/styles.css"
 import "../../styles/login.css"
 import { Header } from "../header"
+import { Done } from '@mui/icons-material';
 
 import { useEffect, useState, useRef } from 'react'
 import { useForm, useScoutStore, useAcudienteStore } from "../../Hooks"
@@ -52,6 +53,15 @@ export const AddUsuarioAcudiente = () => {
     if (target.files === 0) return;
     const link = await startUploadingFiles(target.files, 'Imagenes')
     setLinkImagen(link);
+    console.log(link.length)
+    if(link.length > 0){
+      document.getElementById("img-sel").style.display="none"
+      document.getElementById("camaras").style.display="none"
+      document.getElementById("yes").style.display="block"
+      document.getElementById("check-img").style.display="block"      
+      
+
+    }
   }
 
   const onSubmit = (e) => {
@@ -160,8 +170,10 @@ export const AddUsuarioAcudiente = () => {
                 fileInputRefI.current.click()
               }}
             >
-              <CameraAlt style={{ color: '#D5D5D5', fontSize: '35px' }}/>
-              <h2 className="sel">Seleccione una foto de perfil*</h2>
+              <CameraAlt style={{ color: '#D5D5D5', fontSize: '35px' }} id="camaras"/>
+              <Done id='check-img' style={{ display: 'none'}}/>
+              <h2 className="sel2" id="yes" >Archivo cargado</h2>
+              <h2 className="sel" id="img-sel">Seleccione una foto de perfil*</h2>
             </button>
             <br/>
             <h3>Asignar scouts*</h3>

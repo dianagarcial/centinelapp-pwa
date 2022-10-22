@@ -2,10 +2,11 @@ import { useDispatch } from "react-redux";
 import { CentinelApi } from "../Api"
 import { ListarRamas, ListarRamaScout, ListarIDRamaScout, ListarRamasSel} from "../store";
 import swal from 'sweetalert';
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 export const useRamasStore = () => {
     const params = useParams();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const startCrearRama = async ({ nombre, edadMax, edadMin}) => {
       
 
@@ -18,7 +19,7 @@ export const useRamasStore = () => {
                     icon: "success",
                   });
             
-           
+           navigate('/')
             
             //Alertas con el ok que viene en la data if(data.ok === true )
 

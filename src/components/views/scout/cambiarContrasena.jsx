@@ -83,16 +83,16 @@ export const CamContrasenaScout = () => {
                     <br />
                     <form onSubmit={onSubmit}>
                     <h3>Contraseña actual</h3>
-                    <InputPassword name='currentPassword' value={currentPassword} placeholder="Nombre del scout" type="text" onChange={onInputChange} />
+                    <InputPassword name='currentPassword' value={currentPassword} placeholder="Contraseña actual del scout" type="text" onChange={onInputChange} />
                     <br />
 
                     <h3>Nueva contraseña</h3>
-                    <InputPassword name='newPassword' value={newPassword} placeholder="Nombre del scout" type="text" onChange={onInputChange} />
+                    <InputPassword name='newPassword' value={newPassword} placeholder="Contraseña nueva del scout" type="text" onChange={onInputChange} />
 
 
                     <br/>
                     <h3>Confirmar nueva contraseña</h3>
-                    <InputPassword name='newPasswordC' value={newPasswordC} placeholder="Nombre del scout" type="text" onChange={onInputChange} />
+                    <InputPassword name='newPasswordC' value={newPasswordC} placeholder="Confirmacion de Contraseña nueva" type="text" onChange={onInputChange} />
 
                     <br/>
                     <Button type="submit" variant="contained" color="primary">Cambiar contraseña</Button>
