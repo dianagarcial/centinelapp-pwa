@@ -18,17 +18,17 @@ export const AdminScoutsAdmin = () => {
     const { startListScoutsAdmin } = useScoutStore();
     const {startAdminRama}=useAdminStore();
     const { startListarRamasSelect } = useScoutStore();
-    console.log(user)
+
     const buscar = (e) => {
         e.preventDefault();
 
         const id = document.getElementById("rama").value
 
-        console.log(id)
+
         if (id === '') {
             document.getElementById("Noe").innerHTML=""
             startListScoutsAdmin(user?.uid)
-            console.log('todos')
+     
 
         } else {
             startListarRamasSelect({ id })

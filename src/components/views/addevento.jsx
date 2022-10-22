@@ -30,7 +30,7 @@ export const AddEvento = () => {
       const { user } = useSelector(state => state.auth);
       const fecha = new Date();
       let hoy=(fecha.toISOString()).toString().split('T')[0]
-      console.log(user)
+     
       const { startCrearEvento } = useEventoStore();
       const { startListarRamas } = useRamasStore();
       const navigate = useNavigate();
@@ -91,7 +91,7 @@ export const AddEvento = () => {
         
     
     
-        //console.log({nombre, apellido, correo, fechaNacimiento, celular})
+
         
       useEffect(() => {
         startListarRamas();

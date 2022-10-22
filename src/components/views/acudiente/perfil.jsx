@@ -17,11 +17,13 @@ import { useSelector } from "react-redux"
 export const PerfilAcudiente= ()=>{
     const { startLogout } = useAuthStore();
     const {user} = useSelector(state=>state.auth);
+ 
     const { acudientes } = useSelector(state => state.acudiente);
     const acudienteActual = acudientes.find(acudiente => acudiente._id === user.uid);
-    console.log(acudienteActual)
-    
-    const { startListAcudientes } = useAcudienteStore();
+
+    const { acudienteScout } = useSelector(state => state.acudiente);
+   
+    const { startListAcudientes, startListScoutsAcudienteUser } = useAcudienteStore();
     
 
   
@@ -37,6 +39,8 @@ export const PerfilAcudiente= ()=>{
     }
     useEffect(() => {
         startListAcudientes()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        startListScoutsAcudienteUser(user?.uid)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
    
@@ -67,6 +71,20 @@ export const PerfilAcudiente= ()=>{
 
         <h3>Numero de celular</h3>
         <h5>{acudienteActual?.celular}</h5>
+        <h3>Scout asociado</h3>
+                    <div className="conte-ramas">
+                    <ul>
+                 
+                    {                       
+                        acudienteScout.map(acu =>{
+                        return(
+                            <li id="scou">{`${acu.nombre} ${acu.apellido} `}</li>
+                        )
+                       
+                    })
+                    } 
+                    </ul>
+                    </div>
 
         
         <Button variant="contained" color="primary" onClick={contrasena}>Cambiar contraseña</Button>

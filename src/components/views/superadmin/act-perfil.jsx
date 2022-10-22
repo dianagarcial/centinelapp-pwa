@@ -34,9 +34,8 @@ export const ActPerfilScout = () => {
       });
     }
     let { nombre='', apellido='', email='', fecha_nacimiento='', celular='', onInputChange } = useForm(scoutActual);
-    //fecha_nacimiento=reformatDateString(fecha_nacimiento);
-    //console.log(ramaIdScout)
-    //document.querySelector('#rama').value=ramaIdScout
+    
+
     console.log(ramaIdScout)
     
     

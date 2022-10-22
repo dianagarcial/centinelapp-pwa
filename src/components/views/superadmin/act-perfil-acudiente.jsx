@@ -34,7 +34,7 @@ export const ActPerfilAcudiente = () => {
 
   let { nombre = '', apellido = '', email = '', fecha_nacimiento = '', celular = '', onInputChange } = useForm(acudienteActual);
   //fecha_nacimiento=reformatDateString(fecha_nacimiento);
-  //console.log(ramaIdScout)
+
   //document.querySelector('#rama').value=ramaIdScout
 
   

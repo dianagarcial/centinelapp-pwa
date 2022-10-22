@@ -23,11 +23,11 @@ export const AdminScouts = () => {
 
         const id = document.getElementById("rama").value
 
-        console.log(id)
+     
         if (id === '') {
             document.getElementById("Noe").innerHTML=""
             startListScouts()
-            console.log('todos')
+           
 
         } else {
             startListarRamasSelect({ id })

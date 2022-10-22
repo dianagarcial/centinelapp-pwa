@@ -63,7 +63,7 @@ export const AddUsuarioAcudiente = () => {
     
     nombre=nombrex
     apellido=apellidox
-    console.log(link_imagen)
+
 
     if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idScout1 === ''|| link_imagen ==='') {
       swal({
@@ -108,7 +108,7 @@ export const AddUsuarioAcudiente = () => {
     
 
 
-    //console.log({nombre, apellido, correo, fechaNacimiento, celular})
+
 
     
   }

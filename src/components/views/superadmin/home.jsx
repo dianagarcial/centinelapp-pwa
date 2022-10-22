@@ -17,7 +17,7 @@ export const HomeSuperAd = () => {
     const { startListLastEvento } = useEventoStore()
     const { publicaciones } = useSelector(state => state.publicacion)
     const { eventos } = useSelector(state => state.evento)
-    var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Di"];
+    var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
 
     function convertir(mes) {    
     let res

@@ -68,6 +68,20 @@ export const useAcudienteStore = () => {
         }
     
       }
+      const startListScoutsAcudienteUser= async(id) => {
+
+        try {
+          
+          const { data } = await CentinelApi.get(`acudientes/getScouts/${id}`);
+          
+       
+         dispatch( onListAcudienteScout( data.scouts_.Scout) )
+    
+        } catch (error) {
+          console.log(error);
+        }
+    
+      }
       const startDeleteAcudiente = async() => {
 
         try {
@@ -143,5 +157,5 @@ export const useAcudienteStore = () => {
         
       }
 
-    return { startListAcudientes, startCrearAcudiente, startListScoutsAcudiente,startDeleteAcudiente,startUpdateAcudiente, startUpdatePassword, startUploadingFiles}
+    return { startListAcudientes, startCrearAcudiente,startListScoutsAcudienteUser, startListScoutsAcudiente,startDeleteAcudiente,startUpdateAcudiente, startUpdatePassword, startUploadingFiles}
 }

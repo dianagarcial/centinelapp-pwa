@@ -21,7 +21,7 @@ export const MostrarAcudiente = () => {
     
     const acudienteActual = acudientes.find(acudiente => acudiente._id === (params._id));
     const { acudienteScout } = useSelector(state => state.acudiente);
-    console.log(acudienteScout)
+
     
    
     function eliminar(e) {

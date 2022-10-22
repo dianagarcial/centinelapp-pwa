@@ -18,7 +18,7 @@ export const Perfil = () => {
     const { user } = useSelector(state => state.auth);
     const { scouts } = useSelector(state => state.scout);
     const scoutActual = scouts.find(scout => scout._id === user.uid);
-    console.log(scoutActual)
+
 
     const { startListScouts } = useScoutStore();
 

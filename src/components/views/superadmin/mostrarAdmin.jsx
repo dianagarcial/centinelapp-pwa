@@ -22,7 +22,7 @@ export const MostrarAdmin = () => {
     const adminActual = admins.find(admin => admin._id === (params._id));
     const { startListAdmin, startDeleteAdmin } = useAdminStore();
     const { startAdminRama } = useAdminStore();
-    console.log(ramasAdmin)
+
 
 
 
@@ -35,7 +35,7 @@ export const MostrarAdmin = () => {
     function eliminar(e) {
 
         e.preventDefault();
-        console.log(params._id)
+    
 
         swal({
             title: "Borrar administrador",

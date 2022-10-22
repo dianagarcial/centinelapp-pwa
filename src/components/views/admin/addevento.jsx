@@ -30,9 +30,9 @@ export const AddEventoAdmin = () => {
     
       const { titulo, descripcion, fechaYHoraInicio, fechaYHoraFinal,  onInputChange } = useForm(Evento);
       const { user } = useSelector(state => state.auth);
-      const fecha = new Date();
-      let hoy=(fecha.toISOString()).toString().split('T')[0]
-      console.log(user)
+      
+     
+
       const { startCrearEvento } = useEventoStore();
       //const {ramasAdmin}=useSelector(state => state.admin)
       const {startAdminRama}=useAdminStore();

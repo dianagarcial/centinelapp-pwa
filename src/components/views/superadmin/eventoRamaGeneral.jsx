@@ -40,7 +40,7 @@ export const EventoRamaGeneral = () => {
     }
     
     //const {user} = useSelector(state=>state.auth);
-    console.log(eventos)
+
     
     const navigate = useNavigate();
 

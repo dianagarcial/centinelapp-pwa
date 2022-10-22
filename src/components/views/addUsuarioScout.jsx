@@ -97,8 +97,6 @@ export const AddUsuarioFicha = () => {
     }
 
 
-    //console.log({nombre, apellido, correo, fechaNacimiento, celular})
-    //console.log({link_imagen,link_ficha_medica})
 
   }
 

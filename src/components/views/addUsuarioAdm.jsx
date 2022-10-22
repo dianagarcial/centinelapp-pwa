@@ -93,15 +93,15 @@ export const AddUsuario = () => {
       return;
 
     }else{
-      console.log(nombre, apellido, email, ramasAsignadas, link_imagen)
+      
       startCrearAdmin({ nombre, apellido, email, ramasAsignadas, link_imagen })
 
     }
 
 
 
-    //console.log({nombre, apellido, correo, fechaNacimiento, celular})
 
+  
     
   }
   useEffect(() => {

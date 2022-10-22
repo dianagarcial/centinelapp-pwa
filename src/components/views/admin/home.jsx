@@ -10,7 +10,7 @@ import { Publicacion } from "../../publicacion";
 import { Eventos } from "../../eventos";
 import { useSelector } from 'react-redux';
 import { useEffect } from "react";
-import { useAdminStore, usePublicacionStore } from "../../../Hooks"
+import { usePublicacionStore } from "../../../Hooks"
 import { useEventoStore } from "../../../Hooks/useEventoStore";
 
 export const HomeAdmin= ()=>{
@@ -21,7 +21,7 @@ export const HomeAdmin= ()=>{
     const { startListLastEvento } = useEventoStore()
     const { publicaciones } = useSelector(state => state.publicacion)
     const { eventos } = useSelector(state => state.evento)
-    var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Di"];
+    var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
 
     function convertir(mes) {    
     let res

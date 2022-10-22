@@ -37,14 +37,13 @@ export const ActAdmin = () => {
       const onSubmit = (e) => {
         e.preventDefault();
         let id= user?.uid
-        console.log(id)
-        console.log(user)
+        
         let nombrex = capitalizar(nombre)
         let apellidox = capitalizar(apellido)
         
         nombre=nombrex
         apellido=apellidox
-        console.log(nombre, apellido)
+     
         
         if (nombre === '' || apellido === '' || email === '' ) {
           swal({

@@ -20,7 +20,7 @@ export const HomeScout = () => {
     const { eventos } = useSelector(state => state.evento);
   
     const { startListScouts } = useScoutStore();
-    const { startListarRamaIDValue } = useRamasStore();
+    const { startListarRamaIDValue, startListarRamas } = useRamasStore();
     const { startListLastPublicacionRama } = usePublicacionStore();
     const { startListLastEventoRama } = useEventoStore();
     
@@ -48,21 +48,18 @@ export const HomeScout = () => {
     
     
     useEffect(() => {
+        startListarRamas();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         startListarRamaIDValue(user?.uid)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-    useEffect(() => {
         startListScouts()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-    useEffect(() => {
         startListLastPublicacionRama(ramaIdScout)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-    useEffect(() => {
         startListLastEventoRama(ramaIdScout)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+    
     
 
     return (

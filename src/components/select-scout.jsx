@@ -11,7 +11,7 @@ export function SelectScout(props) {
                 {
                     scouts.map(scout => {
                         return (
-                            <option value={scout._id}>{scout.nombre}</option>
+                            <option value={scout._id}>{scout.nombre} {scout.apellido} </option>
                         )
                     })
                 }

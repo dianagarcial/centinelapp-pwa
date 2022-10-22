@@ -19,7 +19,7 @@ export const EventoGeneralAdmin = () => {
     const {startAdminRama}=useAdminStore();
     const {ramasAdmin}=useSelector(state => state.admin)
     const {user} = useSelector(state=>state.auth);
-    console.log(ramasAdmin)
+
     
     const navigate = useNavigate();
 

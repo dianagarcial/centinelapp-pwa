@@ -20,7 +20,7 @@ export const PerfilAdmin = () => {
 
     const adminActual = admins.find(admin => admin._id === user.uid);
 
-    console.log(adminActual)
+   
 
     const { startListAdmin, startAdminRama } = useAdminStore();
 

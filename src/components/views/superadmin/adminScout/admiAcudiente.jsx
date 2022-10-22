@@ -18,7 +18,7 @@ export const AdminAcudiente = () => {
     const { user } = useSelector(state => state.auth);
     
     const { startListAcudientes } = useAcudienteStore();
-    console.log(acudientes)
+
     
     useEffect(() => {
         startListAcudientes()

@@ -22,8 +22,8 @@ export const MostrarScout = () => {
     const { scouts } = useSelector(state => state.scout);
     const scoutActual = scouts.find(scout => scout._id === (params._id));
     const { ramaScout } = useSelector(state => state.rama);
-    const { ramaIdScout } = useSelector(state => state.rama);
-    console.log(ramaIdScout)
+    //const { ramaIdScout } = useSelector(state => state.rama);
+ 
 
 
 
@@ -35,8 +35,7 @@ export const MostrarScout = () => {
     }
     function eliminar(e) {
         e.preventDefault();
-        console.log(params._id)
-
+      
         swal({
             title: "Borrar scout",
             text: "Si acepta borrar el scout se eliminaran todos los registros del usuario",
@@ -94,7 +93,7 @@ export const MostrarScout = () => {
                             <h5>{ramaScout}</h5>
                         </div>
                     </div>
-                    <a id="des" href={scoutActual?.link_ficha_medica} filename={`${scoutActual?.nombre}_${scoutActual?.apellido}_fichaMedica.docx`}><Button variant="contained" color="primary">Descargar Ficha Medica</Button></a>
+                    <a id="des" href={scoutActual?.link_ficha_medica} download><Button variant="contained" color="primary">Descargar Ficha Medica</Button></a>
                     <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>
                     <Button variant="contained" color="primary" onClick={eliminar}>Eliminar usuario</Button>
 

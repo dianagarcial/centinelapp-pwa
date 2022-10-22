@@ -27,7 +27,7 @@ export const ActPerfilAdmin = () => {
     const { admins } = useSelector(state => state.admin);
     const {ramasAdmin}=useSelector(state => state.admin)
     const adminActual = admins.find(admin => admin._id === (params._id));
-    console.log(ramasAdmin)
+
     function capitalizar(str) {
       return str.replace(/\w\S*/g, function(txt){
           return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
@@ -37,7 +37,7 @@ export const ActPerfilAdmin = () => {
     
     let { nombre='', apellido='', email='', onInputChange } = useForm(adminActual);
     //fecha_nacimiento=reformatDateString(fecha_nacimiento);
-    //console.log(ramaIdScout)
+
     //document.querySelector('#rama').value=ramaIdScout
      
   
@@ -49,7 +49,7 @@ export const ActPerfilAdmin = () => {
         
         nombre=nombrex
         apellido=apellidox
-        console.log(nombre, apellido)
+
         let ramamas=[]
         ramas.forEach(rama => {
           if (document.getElementById(rama._id).checked) {
@@ -68,7 +68,7 @@ export const ActPerfilAdmin = () => {
           return;
     
         }else{
-            console.log(RamasNuevas)
+
             startUpdateAdmin({ id,nombre,apellido,email,RamasNuevas })
             navigate(`/admin/${params._id}`)
         }
