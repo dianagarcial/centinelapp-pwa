@@ -126,7 +126,7 @@ export const useScoutStore = () => {
         title: "El usuario ha sido actualizado con éxito!",
         icon: "success",
       });
-      navigate(`/scout/${params._id}`)
+      navigate(`/`)
 
 
     } catch (error) {
