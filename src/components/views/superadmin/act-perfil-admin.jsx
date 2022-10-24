@@ -7,7 +7,7 @@ import "../../../styles/login.css"
 import swal from 'sweetalert';
 
 import { Header } from "../../header"
-import {useForm,useAdminStore } from '../../../Hooks';
+import {useForm,useAdminStore, useRamasStore } from '../../../Hooks';
 
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux'
@@ -22,7 +22,7 @@ export const ActPerfilAdmin = () => {
     const params = useParams();
     
     const { startListAdmin, startAdminRama, startUpdateAdmin} = useAdminStore();
-   
+    const { startListarRamas } = useRamasStore();
     const { ramas } = useSelector(state => state.rama);
     
     const { admins } = useSelector(state => state.admin);
@@ -96,6 +96,8 @@ export const ActPerfilAdmin = () => {
 
       
     useEffect(() => {
+      startListarRamas()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
         startListAdmin();
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startAdminRama(params._id)
