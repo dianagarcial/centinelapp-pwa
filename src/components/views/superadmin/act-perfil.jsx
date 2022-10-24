@@ -14,6 +14,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { InputD } from "../../input-d"
 
 
 
@@ -107,7 +108,7 @@ export const ActPerfilScout = () => {
                     <Input name='apellido' value={apellido} type="text" onChange={onInputChange}  />
 
                     <h3>Email</h3>
-                    <Input name='email' value={email} type="email" onChange={onInputChange} disabled/>
+                    <InputD name='email' value={email} type="email" onChange={onInputChange} disabled/>
 
                     <h3>Fecha de nacimiento</h3>
                     <Input name='fecha_nacimiento' value={fecha_nacimiento} type="date" onChange={onInputChange}  />

@@ -13,6 +13,7 @@ import {useForm,useAdminStore } from '../../../Hooks';
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { InputD } from "../../input-d"
 
 
 
@@ -101,7 +102,7 @@ export const ActAdmin = () => {
                     <Input name='apellido' value={apellido} type="text" onChange={onInputChange}  />
 
                     <h3>Email</h3>
-                    <Input name='email' value={email} type="email" onChange={onInputChange} disabled/>
+                    <InputD name='email' value={email} type="email" onChange={onInputChange} />
 
                    
                     <Button type="submit" variant="contained" color="primary">Guardar</Button>
