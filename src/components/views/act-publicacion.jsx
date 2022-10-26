@@ -105,12 +105,12 @@ export const ActPublicacion = () => {
                                 
                                 
                                 
-                                if(ramaAsignada[0]._id===rama._id){
+                                if(ramaAsignada[0]?._id===rama._id){
                                     ramaes=true
                               
                                 }
                                   return (
-                                      <option value={rama._id} selected={ramaes}>{rama.nombre} </option>
+                                      <option key={rama._id} value={rama._id} selected={ramaes}>{rama.nombre} </option>
                                   )
                               })
                           }

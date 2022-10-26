@@ -37,7 +37,7 @@ export const ActPerfilScout = () => {
     let { nombre='', apellido='', email='', fecha_nacimiento='', celular='', onInputChange } = useForm(scoutActual);
     
 
-    console.log(ramaIdScout)
+  
     
     
       const onSubmit = (e) => {

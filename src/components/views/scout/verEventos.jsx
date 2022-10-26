@@ -36,11 +36,11 @@ export const VerEventoView = () => {
         return res
         }
         var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
-        var inicio = (eventoActual?.fechaYHoraInicio).toString();
+        var inicio = (eventoActual?.fechaYHoraInicio)?.toString() || '';
        var mesini= inicio.substring(5, 7)
        var diaini= inicio.substring(8, 10)
 
-       var fin = (eventoActual?.fechaYHoraFinal).toString();
+       var fin = (eventoActual?.fechaYHoraFinal)?.toString() || '';
        var mesfin= fin.substring(5,7)
        var diafin= fin.substring(8, 10)
 

@@ -22,7 +22,8 @@ export const VerPublicacionView = () => {
     const { startListPublicacionGeneral, startListPublicacionBusca} = usePublicacionStore()
     const { publicaciones } = useSelector(state => state.publicacion)
     const publicacionActual = publicaciones.find(publicacion => publicacion._id === params._id);
-  
+    var fecha = (publicacionActual?.fecha)?.toString() || '';
+    var formFecha = fecha.substring(0,10)
     
 
     useEffect(() => {
@@ -49,7 +50,7 @@ export const VerPublicacionView = () => {
                         </div>
                         <div className='sub-conte-2'>
                             <img classname="imgbtn" src='../images/publicacion/calendar.svg' onerror="this.onerror=null; this.src='calendar.png'" alt='home' />
-                            <h3>{publicacionActual?.fecha}</h3>
+                            <h3>{formFecha}</h3>
                         </div>
                     </div>
                     <br/>

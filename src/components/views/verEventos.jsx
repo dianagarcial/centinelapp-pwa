@@ -24,7 +24,10 @@ export const VerEvento = () => {
     const { startListEventoGeneral, startListEventoBusca, startDeleteEvento, startListInscritosEvento } = useEventoStore();
     const { eventos } = useSelector(state => state.evento)
     const { eventoInscritos } = useSelector(state => state.evento)
-
+    if (eventoInscritos?.length === 0) {
+        //console.log('No hay inscritos')
+    //document.getElementById('insc').innerHTML='No hay'
+    }
     const eventoActual = eventos.find(evento => evento._id === params._id);
 
 
@@ -37,13 +40,16 @@ export const VerEvento = () => {
         return res
     }
     var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
-    var inicio = (eventoActual?.fechaYHoraInicio).toString();
+    var inicio = (eventoActual?.fechaYHoraInicio)?.toString() || '';
     var mesini = inicio.substring(5, 7)
     var diaini = inicio.substring(8, 10)
 
-    var fin = (eventoActual?.fechaYHoraFinal).toString();
+    var fin = (eventoActual?.fechaYHoraFinal)?.toString() || '';
     var mesfin = fin.substring(5, 7)
     var diafin = fin.substring(8, 10)
+
+
+
 
     const rediEvento = (id) => (e) => {
         e.preventDefault();
@@ -97,7 +103,7 @@ export const VerEvento = () => {
                     <h2>{eventoActual?.descripcion}</h2>
                     <div className='sub-conte-gen'>
                         <div className='sub-conte-1'>
-                            <img classname="imgbtn" src='../images/publicacion/persona.svg' onerror="this.onerror=null; this.src='persona.png'" alt='home' />
+                            <img className="imgbtn" src='../images/publicacion/persona.svg' onerror="this.onerror=null; this.src='persona.png'" alt='home' />
 
                             <h3>{`${eventoActual?.autor?.nombre} ${eventoActual?.autor?.apellido} `}</h3>
 
@@ -117,17 +123,23 @@ export const VerEvento = () => {
 
                             </div>
                             <div id="tabla-scouts" className="tabla-scout">
-                                <div id="Noe"></div>
                                 {
 
 
                                     eventoInscritos.map(ev => {
-                                        return (
-                                            <h3>{`${ev?.nombre} ${ev?.apellido}`}</h3>
-                                        )
+                                        
+                                            return (
+                                                <h3 id='insc'>{`${ev?.nombre} ${ev?.apellido}`}</h3> 
+                                            )
+
+                                        
+
+
                                     })
 
                                 }
+
+
                             </div>
                         </div>
 

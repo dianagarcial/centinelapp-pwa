@@ -12,7 +12,7 @@ export function Publicacion(props) {
                     </div>
                     <div className='sub-conte-gen'>
                         <div className='sub-conte-1'>
-                            <img classname="imgbtn" src='./images/publicacion/persona.svg' onerror="this.onerror=null; this.src='persona.png'" alt='home' />
+                            <img className="imgbtn" src='./images/publicacion/persona.svg' onerror="this.onerror=null; this.src='persona.png'" alt='home' />
 
                             <h3>{props.persona}</h3>
                         </div>
