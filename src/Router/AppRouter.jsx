@@ -1,11 +1,12 @@
 import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { Layout } from "../components"
-import { AddRama, AddUsuario, AddUsuarioFicha, Login, PublicacionGeneral } from "../components/views"
+import { ActEvento, ActPublicacion,AddEvento,AddPublicacion, AddRama, AddUsuarioAcudiente, AddUsuario, AddUsuarioFicha, EventosGeneral, Loading, Login, PublicacionGeneral, Publicacion, VerEvento, VerPublicacion   } from "../components/views"
+
 import { PerfilAcudiente } from "../components/views/acudiente/perfil"
 import { PerfilAdmin } from "../components/views/admin/perfil"
 import { HomeScout } from "../components/views/scout/home"
-import { Loading } from "../components/views/loading"
+
 import { PerfilScout } from "../components/views/scout/perfil"
 import { PerfilSuperAdmin } from "../components/views/superadmin/perfil"
 import { useAuthStore } from "../Hooks"
@@ -15,7 +16,7 @@ import { HomeAcudiente } from "../components/views/acudiente/home"
 import { AdminScouts } from "../components/views/superadmin/adminScout/admiScout"
 import { MostrarScout } from "../components/views/superadmin/mostrarScout"
 import { ActPerfilScout } from "../components/views/superadmin/act-perfil"
-import { AddUsuarioAcudiente } from "../components/views/addUsuarioAcudiente"
+
 import { AddUser } from "../components/views/superadmin/addUser"
 import { AdminAdmins } from "../components/views/superadmin/adminScout/admiAdmin"
 import { MostrarAdmin } from "../components/views/superadmin/mostrarAdmin"
@@ -24,11 +25,10 @@ import { AdminAcudiente } from "../components/views/superadmin/adminScout/admiAc
 import { MostrarAcudiente } from "../components/views/superadmin/mostrarAcudiente"
 import { ActPerfilAcudiente } from "../components/views/superadmin/act-perfil-acudiente"
 import { ActPerfilAdmin } from "../components/views/superadmin/act-perfil-admin"
-import {AddPublicacion} from "../components/views/addpublicacion"
+
 import { PublicacionGeneralAdmin } from "../components/views/admin/publicacion"
 import { EventoGeneralAdmin } from "../components/views/admin/evento"
-import { EventosGeneral } from "../components/views/eventos"
-import { AddEvento } from "../components/views/addevento"
+
 import { AddPublicacionAdmin } from "../components/views/admin/addpublicacion"
 import { AddEventoAdmin } from "../components/views/admin/addevento"
 import { AdminScoutsAdmin } from "../components/views/admin/admiScout"
@@ -47,10 +47,9 @@ import { PublicacionRamaView } from "../components/views/scout/publicacionRama"
 import { PublicacionRamaGeneralView } from "../components/views/scout/publicacionRamaGeneral"
 import { EventoRamaGeneralView } from "../components/views/scout/eventoRamaGeneral"
 import { EventoRamaView } from "../components/views/scout/eventoRama"
-import { VerPublicacion } from "../components/views/verPublicacion"
-import { VerEvento } from "../components/views/verEventos"
-import { ActEvento } from "../components/views/act-evento"
-import { ActPublicacion } from "../components/views/act-publicacion"
+
+
+
 import { VerPublicacionView } from "../components/views/scout/verPublicacion"
 import { VerEventoView } from "../components/views/scout/verEventos"
 import { MostrarScoutAdmin } from "../components/views/admin/mostrarScout"
