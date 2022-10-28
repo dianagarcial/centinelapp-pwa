@@ -7,15 +7,16 @@ import "../../../styles/login.css"
 import swal from 'sweetalert';
 
 import { Header } from "../../header"
-import { useForm, useAcudienteStore } from '../../../Hooks';
+import { useForm, useAcudienteStore, useScoutStore } from '../../../Hooks';
 
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { InputD } from "../../input-d"
+import { SelectScout } from "../../select-scout"
 // import { SelectScout } from "../../select-scout";
-// import AddIcon from '@mui/icons-material/Add';
+import AddIcon from '@mui/icons-material/Add';
 
 
 
@@ -24,6 +25,7 @@ export const ActPerfilAcudiente = () => {
   const params = useParams();
 
   const { startListAcudientes, startUpdateAcudiente } = useAcudienteStore();
+  const { startListScouts } = useScoutStore();
   const { acudientes } = useSelector(state => state.acudiente);
   const acudienteActual = acudientes.find(acudiente => acudiente._id === (params._id));
   function capitalizar(str) {
@@ -41,10 +43,12 @@ export const ActPerfilAcudiente = () => {
   
   const onSubmit = (e) => {
     e.preventDefault();
+    const idScout1 = document.getElementById('scouts1').value;
+    const idScout2 = document.getElementById('scouts2').value;
     const id = params._id
     let nombrex = capitalizar(nombre)
     let apellidox = capitalizar(apellido)
-    
+    console.log(idScout1)
     nombre=nombrex
     apellido=apellidox
     
@@ -56,10 +60,33 @@ export const ActPerfilAcudiente = () => {
         'error'
       )
     } else {
-      startUpdateAcudiente({ id, nombre, apellido, email, fecha_nacimiento, celular })
-      navigate(`/scout/${params._id}`)
-    }
+      if (celular <= 0) {
+        swal({
+          title: "Ingrese un numero de celular valido",
+          icon: "warning"
+
+        });
+
+      }else{
+        if(idScout1===idScout2){
+          swal({
+            title: "Ingrese un scout diferente",
+            icon: "warning"
+  
+          });
+        }else{
+          let Scouts=[]
+          Scouts.push(idScout1)
+          if(idScout2.length > 0 ){
+            Scouts.push(idScout2)
+          }
+          startUpdateAcudiente({ id, nombre, apellido, email, fecha_nacimiento, celular, Scouts })
+          navigate(`/scout/${params._id}`)
+        }
+    
+      }
   }
+}
 
 
   const RegreNoG = (e) => {
@@ -79,14 +106,16 @@ export const ActPerfilAcudiente = () => {
         }
       });
   }
-  // const mostrar1= (e) =>{
-  //   e.preventDefault();
-  //   document.getElementById('scout2').style.display="flex"
+  const mostrar1= (e) =>{
+    e.preventDefault();
+    document.getElementById('scout2').style.display="flex"
       
-  // }
+  }
 
   useEffect(() => {
     startListAcudientes()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    startListScouts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
@@ -95,7 +124,7 @@ export const ActPerfilAcudiente = () => {
         <Header />
         <div className="conte-imp">
           <h1>Actualizar datos</h1>
-          <h2>Aqui estan tus datos personales</h2>
+          <h2>Actualiza los datos personales del acudiente</h2>
           <form onSubmit={onSubmit}>
             <h3>Nombre</h3>
             <Input name='nombre' value={nombre} type="text" onChange={onInputChange} />
@@ -113,15 +142,15 @@ export const ActPerfilAcudiente = () => {
             <h3>Numero de celular</h3>
             <Input name='celular' value={celular} type="text" onChange={onInputChange} />
 
-            {/* <h3>Asignar scouts*</h3>
+            <h3>Asignar scouts*</h3>
             <div className="asigScout">
-              <SelectScout id='scouts1' placeholder="Selecciona una opción" />
-              <Button id='mas-scout' variant="contained" color="primary" onClick={mostrar1}><AddIcon /></Button>
+            <SelectScout id='scouts1' placeholder="Selecciona una opción" />
+            <Button id='mas-scout'  variant="contained" color="primary" onClick={mostrar1}><AddIcon/></Button>
             </div>
             <div className="asigScout" id="scout2">
-              <SelectScout id='scouts2' placeholder="Selecciona una opción" />
-              <Button id='mas-scout' variant="contained" color="primary" onClick={mostrar1}><AddIcon /></Button>
-            </div> */}
+            <SelectScout id='scouts2' placeholder="Selecciona una opción" />
+            <Button id='mas-scout'  variant="contained" color="primary" onClick={mostrar1}><AddIcon/></Button>
+            </div>
 
             <Button type="submit" variant="contained" color="primary">Guardar</Button>
 

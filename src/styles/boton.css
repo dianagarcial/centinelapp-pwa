@@ -81,11 +81,11 @@ button.subir-imagen {
 }
 
 #maxedad{
-    width: 45%;
+    width:90%;
     margin-right: 6%;
 }
 #minedad{
-    width: 45%;
+    width: 90%;
 }
 .rama-in{
     display: flex;

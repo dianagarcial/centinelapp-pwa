@@ -66,7 +66,7 @@ export const ActRama = () => {
         <Header />
         <div className="conte-imp">
           <h1>Actualizar rama</h1>
-          <h2>En este formulario puedes actualizar una nueva rama</h2>
+          <h2>En este formulario puedes actualizar una rama</h2>
           <form onSubmit={onSubmit}>
             <h3>Nombre*</h3>
             <Input name='nombre' value={nombre} onChange={onInputChange} placeholder="Nombre de la rama" type="text" />

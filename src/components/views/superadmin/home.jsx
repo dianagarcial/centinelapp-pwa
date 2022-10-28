@@ -116,7 +116,7 @@ export const HomeSuperAd = () => {
                 <SelectCreacion nombre="Registrar usuario" desc="Registrar un nuevo usuario" onClick={registrar} />
                 <SelectCreacion nombre="Gestionar usuarios" desc="Consulta y edita los datos de los usuarios" onClick={gestionar} />
 
-                <SelectCreacion nombre="Gestionar ramas" desc="Crea una nueva rama" onClick={rama} />
+                <SelectCreacion nombre="Gestionar ramas" desc="Consulta y edita los datos de las ramas" onClick={rama} />
 
 
             </div>

@@ -97,12 +97,12 @@ export const useAcudienteStore = () => {
     
       }
       
-      const startUpdateAcudiente = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, scouts }) => {
+      const startUpdateAcudiente = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, Scouts }) => {
         
         try {
     
-          await CentinelApi.put(`acudientes/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular, scouts });
-          
+          await CentinelApi.put(`acudientes/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular, Scouts });
+          console.log(id, nombre, apellido, email, fecha_nacimiento, celular, Scouts)
          
           swal({
             title: "El usuario ha sido actualizado con éxito!",

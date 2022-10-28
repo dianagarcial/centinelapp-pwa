@@ -35,23 +35,36 @@ export const AddRama = () => {
       });
       return;
 
-    }else{
-      if(edadMax< 1 ||edadMin < 1 ){
+    } else {
+      if (edadMax < 1 || edadMin < 1) {
         swal({
           title: "Las edades deben ser superiores o iguales a 1 año",
           icon: "warning"
         });
         return;
 
-      }else{
-        startCrearRama({ nombre, edadMax, edadMin })
+      } else {
+        if (edadMax > edadMin) {
+          swal({
+            title: "La edad maxima debe ser mayor que la edad minima",
+            icon: "warning"
+          });
+          return;
+        }
+          else{
+            startCrearRama({ nombre, edadMax, edadMin })
+
+          }
+
+
+        
       }
-      
+
 
     }
 
 
-    
+
   }
 
 
@@ -65,12 +78,18 @@ export const AddRama = () => {
           <form onSubmit={onSubmit}>
             <h3>Nombre*</h3>
             <Input name='nombre' value={nombre} onChange={onInputChange} placeholder="Nombre de la rama" type="text" />
-            <h3>Edades*</h3>
+           
             <div className="hori-edad">
-              <Input name='edadMax' iddiv='maxedad' value={edadMax} onChange={onInputChange} placeholder="Max" type="number" min="1"/>
-              <Input name='edadMin' iddiv='minedad' value={edadMin} onChange={onInputChange} placeholder="Min" type="number" min= "1"/>
+              <div className="edades">
+                <h3>Edad minima*</h3>
+                <Input name='edadMin' iddiv='minedad' value={edadMin} onChange={onInputChange} placeholder="Min" type="number" min="1" />
+              </div>
+              <div className="edades">
+                <h3>Edad maxima*</h3>
+                <Input name='edadMax' iddiv='maxedad' value={edadMax} onChange={onInputChange} placeholder="Max" type="number" min="1" />
+              </div>
             </div>
-            <br/>
+            <br />
             <Button type="submit" variant="contained" color="primary">Crear</Button>
             <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
           </form>
