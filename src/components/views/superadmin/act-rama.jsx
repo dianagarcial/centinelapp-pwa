@@ -46,6 +46,7 @@ export const ActRama = () => {
 
       }else{
         startUpdateRama({ nombre, edadMax, edadMin })
+        navigate(`/home`)
       }
       
 

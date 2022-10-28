@@ -90,9 +90,11 @@ export const AddUsuarioFicha = () => {
     e.preventDefault();
     let nombrex = capitalizar(nombre)
     let apellidox = capitalizar(apellido)
+    let emailx= email.toLowerCase()
 
     nombre = nombrex
     apellido = apellidox
+    email=emailx
     const idRama = document.getElementById('rama').value;
     if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idRama === ''||link_imagen ===''||link_ficha_medica==='') {
       swal({
@@ -113,7 +115,7 @@ export const AddUsuarioFicha = () => {
 
       } else {
         startCrearScout({ nombre, apellido, email, fecha_nacimiento, celular, link_imagen, link_ficha_medica, idRama })
-
+        navigate(`/home`)
       }
     }
 

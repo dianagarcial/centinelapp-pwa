@@ -53,7 +53,7 @@ export const AddRama = () => {
         }
           else{
             startCrearRama({ nombre, edadMax, edadMin })
-
+            navigate(`/home`)
           }
 
 

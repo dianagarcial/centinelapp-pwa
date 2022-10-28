@@ -11,7 +11,7 @@ import {useForm,useAdminStore, useRamasStore } from '../../../Hooks';
 
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { InputD } from "../../input-d"
 
@@ -73,7 +73,7 @@ export const ActPerfilAdmin = () => {
         }else{
 
             startUpdateAdmin({ id,nombre,apellido,email,RamasNuevas })
-            navigate(`/admin/${params._id}`)
+            navigate(`/home`)
         }
       }
 
@@ -89,7 +89,7 @@ export const ActPerfilAdmin = () => {
         })
         .then((willDelete) => {
           if (willDelete) {
-            navigate(`/scout/${params._id}`)
+            navigate(`/admin/${params._id}`)
           } else {
             swal("Continua editando");
           }

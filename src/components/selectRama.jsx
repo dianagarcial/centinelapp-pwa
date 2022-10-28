@@ -11,7 +11,7 @@ export function SelectRama(props) {
                 {
                     ramas.map(rama => {
                         return (
-                            <option value={rama._id}>{rama.nombre}</option>
+                            <option key ={rama._id} value={rama._id}>{rama.nombre}</option>
                         )
                     })
                 }

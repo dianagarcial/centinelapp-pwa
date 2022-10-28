@@ -70,9 +70,11 @@ export const AddUsuarioAcudiente = () => {
     const idScout2 = document.getElementById('scouts2').value;
     let nombrex = capitalizar(nombre)
     let apellidox = capitalizar(apellido)
+    let emailx= email.toLowerCase()
     
     nombre=nombrex
     apellido=apellidox
+    email=emailx
 
 
     if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idScout1 === ''|| link_imagen ==='') {

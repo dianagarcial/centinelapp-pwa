@@ -164,3 +164,31 @@ a#des {
     font-weight: 300;
     
 }
+.sel-general {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+ .nom-sel{
+      font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    color: #292929;
+    margin-left: 3%;
+    /* margin-top: 0; */
+    margin-right: 3%;
+}
+#general input:checked ~ .checkmark{
+    background-color: #C1121F;
+    border:none;
+}

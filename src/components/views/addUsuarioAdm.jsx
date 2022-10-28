@@ -84,9 +84,11 @@ export const AddUsuario = () => {
     //verificarcheck();
     let nombrex = capitalizar(nombre)
     let apellidox = capitalizar(apellido)
+    let emailx= email.toLowerCase()
     
     nombre=nombrex
     apellido=apellidox
+    email=emailx
     ramas.forEach(rama => {
       if (document.getElementById(rama._id).checked) {
 
@@ -105,7 +107,7 @@ export const AddUsuario = () => {
     }else{
       
       startCrearAdmin({ nombre, apellido, email, ramasAsignadas, link_imagen })
-
+      navigate(`/home`)
     }
 
 

@@ -60,7 +60,7 @@ export const ActPerfilScout = () => {
           )
         }else{
             startUpdateScout({ id,nombre,apellido,email,fecha_nacimiento,celular,idRama, idScout,idRamaNueva })
-            
+            navigate(`/home`)
         }
       }
 

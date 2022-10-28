@@ -68,7 +68,7 @@ export const ActPerfilAcudiente = () => {
         });
 
       }else{
-        if(idScout1===idScout2){
+        if(idScout1!= '' && idScout1===idScout2){
           swal({
             title: "Ingrese un scout diferente",
             icon: "warning"
@@ -90,7 +90,7 @@ export const ActPerfilAcudiente = () => {
           //   Scout.push(idScout2)
           // }
           startUpdateAcudiente({ id, nombre, apellido, email, fecha_nacimiento, celular, Scout })
-          
+          navigate(`/home`)
         }
     
       }
@@ -109,7 +109,7 @@ export const ActPerfilAcudiente = () => {
     })
       .then((willDelete) => {
         if (willDelete) {
-          navigate(`/adminacudiente`)
+          navigate(`/acudientes/${params._id}`)
         } else {
           swal("Continua editando");
         }

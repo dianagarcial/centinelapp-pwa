@@ -127,13 +127,19 @@ export const VerEvento = () => {
 
 
                                     eventoInscritos.map(ev => {
+                                        {/* if(eventoInscritos.length ===0){
+                                            document.getElementById('insc').innerHTML='No hay inscritos'
+                                            return
+                                        }else{ */}
+
+                                        
                                         
                                             return (
                                                 <h3 id='insc'>{`${ev?.nombre} ${ev?.apellido}`}</h3> 
                                             )
 
                                         
-
+                                        {/* } */}
 
                                     })
 

@@ -60,7 +60,7 @@ export const ActEvento = () => {
         }else{
           
           startUpdateEvento({ titulo, descripcion, linkImagen,  fechaYHoraInicio, fechaYHoraFinal, idRama })
-            
+          navigate(`/home`)
             }
             
     
