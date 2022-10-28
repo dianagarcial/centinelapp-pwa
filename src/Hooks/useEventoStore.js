@@ -10,10 +10,10 @@ export const useEventoStore = () => {
   const params = useParams();
   const navigate = useNavigate();
 
-const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, autorApe,autorId, fechaYHoraInicio, fechaYHoraFinal, idRama }) => {
+const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, autorApe,autorId, fechaYHoraInicio, fechaYHoraFinal, idRama, isGeneral }) => {
     console.log( titulo, descripcion, linkImagen, autorNom, autorApe,autorId, fechaYHoraInicio, fechaYHoraFinal, idRama)
        try {
-      const {data} = await CentinelApi.post('evento/create-evento', { titulo, descripcion, linkImagen, autor:{id:autorId, nombre:autorNom, apellido:autorApe}, fechaYHoraInicio, fechaYHoraFinal, idRama  })
+      const {data} = await CentinelApi.post('evento/create-evento', { titulo, descripcion, linkImagen, autor:{id:autorId, nombre:autorNom, apellido:autorApe}, fechaYHoraInicio, fechaYHoraFinal, idRama, isGeneral  })
       
       console.log(data)
       swal({
@@ -86,7 +86,7 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
 
     try {
       
-      const { data } = await CentinelApi.get(`evento/allEvents`);
+      const { data } = await CentinelApi.get(`evento/allGeneralEvents`);
       
       dispatch( onListEventos( data.Eventos_) )
 

@@ -42,7 +42,7 @@ export const HomeSuperAd = () => {
 
     function rama(e) {
         e.preventDefault();
-        navigate(`/addRama`)
+        navigate(`/ramas`)
     }
     function registrar(e) {
         e.preventDefault();

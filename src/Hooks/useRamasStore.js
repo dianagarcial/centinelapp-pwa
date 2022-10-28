@@ -98,9 +98,42 @@ export const useRamasStore = () => {
         }
   
     }
+    const startUpdateRama= async({nombre, edadMax, edadMin}) => {
+
+        try {
+          
+          await CentinelApi.put(`rama/${params._id}`,{nombre, edadMax, edadMin});
+          
+          navigate(`/ramas`)
+          
+    
+        } catch (error) {
+          console.log(error)
+          
+        }
+    
+      }
+      const startDeleteRama = async() => {
+
+        try {
+          console.log(params._id)
+          await CentinelApi.delete(`rama/${params._id}`);
+          
+          
+          navigate(`/ramas`)
+          swal({
+            title: "Eliminado correctamente",
+            text: "Esta rama ha sido eliminada correctamente!",
+            icon: "success",
+          });
+        } catch (error) {
+          console.log(error)
+        }
+    
+      }
     
 
     
 
-    return{ startCrearRama, startListarRamas, startListarRamaID, startListarRamaIDValue, startListarRamasSel}
+    return{ startCrearRama, startListarRamas, startListarRamaID, startListarRamaIDValue, startListarRamasSel, startUpdateRama, startDeleteRama}
 }

@@ -13,6 +13,7 @@ import { Select } from "../select"
 import { TextArea } from "../textArea"
 import { useSelector } from 'react-redux';
 import { useEventoStore } from "../../Hooks/useEventoStore"
+import { Checkbox } from "@mui/material"
 
 const Evento = {
     titulo: '',
@@ -48,9 +49,13 @@ export const AddEvento = () => {
         let autorNom=user?.nombre
         let autorId=user?.uid
         let autorApe=user?.apellido
+        let isGeneral= false
        
         let idRama= document.getElementById("rama").value
-     
+        if (document.getElementById('men-general').checked) {
+          isGeneral= true
+          idRama=null
+        }
         
         
         
@@ -75,7 +80,7 @@ export const AddEvento = () => {
             return;
 
           }else{
-            startCrearEvento({ titulo, descripcion, linkImagen, autorNom, autorApe,autorId, fechaYHoraInicio, fechaYHoraFinal, idRama })
+            startCrearEvento({ titulo, descripcion, linkImagen, autorNom, autorApe,autorId, fechaYHoraInicio, fechaYHoraFinal, idRama, isGeneral })
               navigate(`/home`)
             }
 
@@ -106,6 +111,7 @@ export const AddEvento = () => {
               <h1>Crear un evento</h1>
               <h2>En este formulario puedes crear un nuevo evento</h2>
               <form onSubmit={onSubmit}>
+              <Checkbox color="secondary" id='men-general'/><label>Evento general</label>
                 <h3>Rama del evento*</h3>
                 <Select id='rama' placeholder="Selecciona una opción" />
                 <h3>Titulo*</h3>

@@ -1,17 +1,16 @@
-import { Input } from "../input"
 import { Navbar } from "../navbar"
 import Button from '@mui/material/Button'
 import "../../styles/boton.css"
 import "../../styles/styles.css"
 import "../../styles/login.css"
-import { useForm, useRamaStore } from "../../Hooks"
+
 import { useNavigate } from 'react-router-dom';
-import swal from 'sweetalert';
+
 import { Header } from "../header"
 import { useAuthStore } from "../../Hooks/useAuthStore"
 import { useSelector } from 'react-redux'
-import { useScoutStore } from '../../Hooks';
-import React, { useEffect } from 'react'
+
+import React from 'react'
 
 export const Perfil = () => {
     const { startLogout } = useAuthStore();
@@ -20,7 +19,7 @@ export const Perfil = () => {
     const scoutActual = scouts.find(scout => scout._id === user.uid);
 
 
-    const { startListScouts } = useScoutStore();
+
 
 
 
@@ -30,9 +29,7 @@ export const Perfil = () => {
         e.preventDefault();
         navigate(`/act-perfil`)
     }
-    useEffect(() => {
-        startListScouts()
-    }, [])
+
 
 
 

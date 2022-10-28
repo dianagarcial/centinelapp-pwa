@@ -1,40 +1,38 @@
 
-import { Navbar } from "../navbar"
+import { Navbar } from "../../navbar"
 
-import "../../styles/boton.css"
-import "../../styles/styles.css"
-import "../../styles/login.css"
-import { Header } from "../header"
-import { SelectCreacion } from "../selectCreacion"
-import { useRamasStore } from "../../Hooks"
+import "../../../styles/boton.css"
+import "../../../styles/styles.css"
+import "../../../styles/login.css"
+import { Header } from "../../header"
+import { SelectCreacion } from "../../selectCreacion"
+import { useRamasStore } from "../../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
-import swal from 'sweetalert';
-import { BotonFlotante } from "../btn-flotante"
+import { BotonFlotante } from "../../btn-flotante"
 import { useNavigate } from 'react-router-dom';
 
-export const EventosGeneral = () => {
+export const RamasList = () => {
 
     const { startListarRamas } = useRamasStore();
     const { ramas } = useSelector(state => state.rama);
-    const publi = (idrama) => (e) => {
-        e.preventDefault();
-        navigate(`/evento-rama/${ idrama }`)
-      }
-    
-
-    function general(e) {
-        e.preventDefault();
-         
-         navigate(`/evento-General`)
-    }
+   
     const navigate = useNavigate();
 
     function redireccion(e) {
         e.preventDefault();
-        navigate(`/add-evento`)
+        navigate(`/addRama`)
     }
 
+    const publi = (idrama) => (e) => {
+        e.preventDefault();
+        navigate(`/rama/${ idrama }`)
+      }
+
+      
+    
+    
+      
 
     
     useEffect(() => {
@@ -47,9 +45,9 @@ export const EventosGeneral = () => {
             <div className="conte-general-rela">
                 <Header />
                 <div className="conte-imp">
-                    <h1>Eventos</h1>
-                    <h3>Selecciona una rama para ver sus eventos, en icono + púedes crear un nuevo evento</h3>
-                    <SelectCreacion nombre="General" desc="Publicaciones para todos" onClick={general}/>
+                    <h1>Gestionar ramas</h1>
+                    <h3>Selecciona una rama ver su informacion detallada</h3>
+                   
                     {
                         ramas.map(rama => {
                             return (

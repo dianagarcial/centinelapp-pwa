@@ -48,11 +48,17 @@ export const AddPublicacion = () => {
         let autorNom=user?.nombre
         let autorId=user?.uid
         let autorApe=user?.apellido
-        
+        let isGeneral= false
         let date = new Date();
         let fecha= date.toDateString()
         let ramaAsignada= document.getElementById("rama").value
              
+        if (document.getElementById('men-general').checked) {
+          isGeneral= true
+          ramaAsignada=null
+        }
+        
+        
         
     
         if (titulo === '' || descripcion === '' ) {
@@ -66,7 +72,7 @@ export const AddPublicacion = () => {
     
         }else{
           
-              startCrearPublicacion({ titulo, descripcion, ramaAsignada, linkImagen, autorNom,autorId,autorApe, fecha })
+              startCrearPublicacion({ titulo, descripcion, ramaAsignada, linkImagen, autorNom,autorId,autorApe, fecha, isGeneral })
               navigate(`/home`)
             }
             
@@ -93,7 +99,7 @@ export const AddPublicacion = () => {
               <h1>Crear una publicación</h1>
               <h2>En este formulario puedes crear una nueva publicación</h2>
               <form onSubmit={onSubmit}>
-              <Checkbox color="secondary" id='men-general'/><label>Mensaje general</label>
+              <Checkbox color="secondary" id='men-general'/><label>Publicación general</label>
                 <div id='ramaform'>
                 <h3>Rama del mensaje*</h3>
                 <Select id='rama' placeholder="Selecciona una opción" />

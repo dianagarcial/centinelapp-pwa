@@ -32,12 +32,12 @@ export const PublicacionGeneral = () => {
 
       function publigeneral (e){
         e.preventDefault();
-        swal({
+        // swal({
           
-            title: "Esta funcion estara disponible proximamente",
-            icon: "warning",
-          });  
-        // navigate(`/pub-General`)
+        //     title: "Esta funcion estara disponible proximamente",
+        //     icon: "warning",
+        //   });  
+         navigate(`/pub-General`)
         }
     
     

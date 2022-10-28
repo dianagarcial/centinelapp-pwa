@@ -10,11 +10,11 @@ export const usePublicacionStore = () => {
   const dispatch = useDispatch()
   const params = useParams();
   const navigate = useNavigate();
-const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkImagen, autorNom,autorId,autorApe, fecha  }) => {
+const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkImagen, autorNom,autorId,autorApe, fecha, isGeneral  }) => {
     
     
     try {
-      await CentinelApi.post('publicaciones/create-publicacion', { titulo, descripcion, ramaAsignada, linkImagen, autor:{id:autorId, nombre:autorNom, apellido:autorApe}, fecha})
+      await CentinelApi.post('publicaciones/create-publicacion', { titulo, descripcion, ramaAsignada, linkImagen, autor:{id:autorId, nombre:autorNom, apellido:autorApe}, fecha, isGeneral})
       
 
       swal({
@@ -59,7 +59,7 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
 
     try {
       
-      const { data } = await CentinelApi.get(`publicaciones/allPublicaciones`);
+      const { data } = await CentinelApi.get(`publicaciones/allGeneralPosts`);
       dispatch( onListPublicaciones( data.publicaciones_) )
       
       if((data.publicaciones_).length===0){

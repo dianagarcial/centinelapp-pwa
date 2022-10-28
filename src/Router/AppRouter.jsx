@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { Layout } from "../components"
+import { useAuthStore } from "../Hooks"
 
 import { 
     ActEvento, ActPublicacion, AddEvento, AddPublicacion, 
@@ -34,8 +35,10 @@ import {
     AddUser, AdminAcudiente, AdminAdmins, AdminScouts, 
     CamContrasenaSuperAdmin, EventoRama, EventoRamaGeneral, 
     GestionUser, HomeSuperAd, MostrarAcudiente, MostrarAdmin, 
-    MostrarScout, PerfilSuperAdmin, PublicacionRama, PublicacionRamaGeneral 
+    MostrarScout, PerfilSuperAdmin, PublicacionRama, PublicacionRamaGeneral,
+    RamasList, RamaSel, ActRama
 } from "../components/views/superadmin"
+
 
 
 export const AppRouter = () => {
@@ -75,6 +78,10 @@ export const AppRouter = () => {
                         <Route path="/addUser" element={<AddUser/>}/>
                         <Route path="/addAdministrador" element={ <AddUsuario/> }/>
                         <Route path="/addRama" element={ <AddRama/> }/>
+                        <Route path="/ramas" element={ <RamasList/> }/>
+                        <Route path="/rama/:_id" element={ <RamaSel/> }/>
+                        <Route path="/act-rama/:_id" element={ <ActRama/> }/>
+                        
                         <Route path="/addScout" element={ <AddUsuarioFicha/>}/>
                         <Route path="/addAcudiente" element={<AddUsuarioAcudiente/>}/>
                         <Route path="/perfil" element={ <PerfilSuperAdmin/>}/>
@@ -230,58 +237,3 @@ export const AppRouter = () => {
 
     }
 
-// import { ActEvento, ActPublicacion,AddEvento,AddPublicacion, AddRama, AddUsuarioAcudiente, AddUsuario, AddUsuarioFicha, EventosGeneral, Loading, Login, PublicacionGeneral, Publicacion, VerEvento, VerPublicacion   } from "../components/views"
-
-// import { PerfilAcudiente } from "../components/views/acudiente/perfil"
-// import { PerfilAdmin } from "../components/views/admin/perfil"
-// import { HomeScout } from "../components/views/scout/home"
-
-// import { PerfilScout } from "../components/views/scout/perfil"
-// import { PerfilSuperAdmin } from "../components/views/superadmin/perfil"
-// import { useAuthStore } from "../Hooks"
-// import { HomeSuperAd } from "../components/views/superadmin/home"
-// import { HomeAdmin } from "../components/views/admin/home"
-// import { HomeAcudiente } from "../components/views/acudiente/home"
-// import { AdminScouts } from "../components/views/superadmin/adminScout/admiScout"
-// import { MostrarScout } from "../components/views/superadmin/mostrarScout"
-// import { ActPerfilScout } from "../components/views/superadmin/act-perfil"
-
-// import { AddUser } from "../components/views/superadmin/addUser"
-// import { AdminAdmins } from "../components/views/superadmin/adminScout/admiAdmin"
-// import { MostrarAdmin } from "../components/views/superadmin/mostrarAdmin"
-// import { GestionUser } from "../components/views/superadmin/gestionUser"
-// import { AdminAcudiente } from "../components/views/superadmin/adminScout/admiAcudiente"
-// import { MostrarAcudiente } from "../components/views/superadmin/mostrarAcudiente"
-// import { ActPerfilAcudiente } from "../components/views/superadmin/act-perfil-acudiente"
-// import { ActPerfilAdmin } from "../components/views/superadmin/act-perfil-admin"
-
-// import { PublicacionGeneralAdmin } from "../components/views"
-
-// import { EventoGeneralAdmin } from "../components/views/admin/evento"
-
-// import { AddPublicacionAdmin } from "../components/views/admin/addpublicacion"
-// import { AddEventoAdmin } from "../components/views/admin/addevento"
-// import { AdminScoutsAdmin } from "../components/views/admin/admiScout"
-// import { CamContrasenaAdmin } from "../components/views/admin/cambiarContrasena"
-// import { ActAdmin } from "../components/views/admin/act-perfil"
-// import { PublicacionRama } from "../components/views/superadmin/publicacionRama"
-// import { CamContrasenaScout } from "../components/views/scout/cambiarContrasena"
-// import { CamContrasenaAcudiente } from "../components/views/acudiente/cambiarContrasena"
-// import { CamContrasenaSuperAdmin } from "../components/views/superadmin/cambiarContrasena"
-// import { PublicacionRamaGeneral } from "../components/views/superadmin/publicacionRamaGeneral"
-// import { EventoRamaGeneral } from "../components/views/superadmin/eventoRamaGeneral"
-// import { EventoRama } from "../components/views/superadmin/eventoRama"
-// import { PublicacionGeneralScout } from "../components/views/scout/publicacion"
-// import { EventoGeneralScout } from "../components/views/scout/eventos"
-// import { PublicacionRamaView } from "../components/views/scout/publicacionRama"
-// import { PublicacionRamaGeneralView } from "../components/views/scout/publicacionRamaGeneral"
-// import { EventoRamaGeneralView } from "../components/views/scout/eventoRamaGeneral"
-// import { EventoRamaView } from "../components/views/scout/eventoRama"
-
-
-
-// import { VerPublicacionView } from "../components/views/scout/verPublicacion"
-// import { VerEventoView } from "../components/views/scout/verEventos"
-// import { MostrarScoutAdmin } from "../components/views/admin/mostrarScout"
-// import { ActScout } from "../components/views/scout/act-perfil"
-// import { ActAcudiente } from "../components/views/acudiente/act-perfil-acudiente"
