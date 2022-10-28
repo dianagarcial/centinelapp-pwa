@@ -17,7 +17,7 @@ import { Publicacion } from "../publicacioncompo"
 
 export const PublicacionRamaGeneral = () => {
     
-    const {startListPublicacionGeneral}=usePublicacionStore();
+    const {startListPublicacionEsGeneral}=usePublicacionStore();
     
     const { startListSuperAdmin } = useSuperAdminStore();
     const { startListAdmin } = useAdminStore();
@@ -48,7 +48,7 @@ export const PublicacionRamaGeneral = () => {
     useEffect(() => {
         
         
-        startListPublicacionGeneral();
+        startListPublicacionEsGeneral();
         // eslint-disable-next-line react-hooks/exhaustive-deps
         
         startListAdmin();

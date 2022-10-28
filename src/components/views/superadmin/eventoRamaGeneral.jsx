@@ -19,7 +19,7 @@ import { Eventos } from "../../eventos"
 
 export const EventoRamaGeneral = () => {
     
-    const {startListEventoGeneral}=useEventoStore();
+    const {startListEventoEsGeneral}=useEventoStore();
     const { startListSuperAdmin } = useSuperAdminStore();
     const { startListAdmin } = useAdminStore();
      
@@ -72,7 +72,7 @@ export const EventoRamaGeneral = () => {
     
     useEffect(() => {
         
-        startListEventoGeneral();
+        startListEventoEsGeneral();
         // eslint-disable-next-line react-hooks/exhaustive-deps
         
         startListAdmin();

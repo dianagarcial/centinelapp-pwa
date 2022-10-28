@@ -59,21 +59,40 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
 
     try {
       
+      const { data } = await CentinelApi.get(`publicaciones/allPublicaciones`);
+      dispatch( onListPublicaciones( data.publicaciones_) )
+      
+      
+
+    } catch (error) {
+      
+      
+      
+    }
+
+  }
+
+  const startListPublicacionEsGeneral= async() => {
+
+    try {
+      
       const { data } = await CentinelApi.get(`publicaciones/allGeneralPosts`);
       dispatch( onListPublicaciones( data.publicaciones_) )
       
-      if((data.publicaciones_).length===0){
+      
+
+    } catch (error) {
+      
+      if(error.response.status===404){
      
         swal({
           
-          title: "No existen eventos actualmente para esta rama",
+          title: "No existen publicaciones enviadas de forma general actualmente",
           icon: "warning",
         });  
-        navigate('/eventos')
+        navigate('/publicaciones')
 
       }
-
-    } catch (error) {
       
     }
 
@@ -161,5 +180,5 @@ const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkIm
   
 
 
-  return { startCrearPublicacion, startListPublicacionGeneral, startListPublicacion, startListLastPublicacion, startListLastPublicacionRama, startListPublicacionBusca, startUpdatePublicacion, startDeletePublicacion}
+  return { startCrearPublicacion, startListPublicacionGeneral, startListPublicacion, startListLastPublicacion, startListLastPublicacionRama, startListPublicacionBusca, startUpdatePublicacion, startDeletePublicacion, startListPublicacionEsGeneral}
 }

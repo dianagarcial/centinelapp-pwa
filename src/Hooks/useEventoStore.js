@@ -86,12 +86,34 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
 
     try {
       
+      const { data } = await CentinelApi.get(`evento/allEvents`);
+      
+      dispatch( onListEventos( data.Eventos_) )
+
+    } catch (error) {
+     
+    }
+
+  }
+  const startListEventoEsGeneral= async() => {
+
+    try {
+      
       const { data } = await CentinelApi.get(`evento/allGeneralEvents`);
       
       dispatch( onListEventos( data.Eventos_) )
 
     } catch (error) {
-      console.log(error)
+      if(error.response.status===404){
+     
+        swal({
+          
+          title: "No existen eventos enviados de forma general actualmente",
+          icon: "warning",
+        });  
+        navigate('/eventos')
+
+      }
     }
 
   }
@@ -193,5 +215,5 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     }
 
   }
-  return { startCrearEvento,startListLastEvento,startListLastEventoRama, startListEventoGeneral, startListEvento, startListEventoBusca, startUpdateEvento, startDeleteEvento, startInscribirEvento, startListInscritosEvento}
+  return { startCrearEvento,startListLastEvento,startListLastEventoRama, startListEventoGeneral, startListEvento, startListEventoBusca, startUpdateEvento, startDeleteEvento, startInscribirEvento, startListInscritosEvento, startListEventoEsGeneral}
 }
