@@ -11,7 +11,7 @@ import {useForm,useAdminStore, useRamasStore } from '../../../Hooks';
 
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { InputD } from "../../input-d"
 
@@ -28,6 +28,8 @@ export const ActPerfilAdmin = () => {
     const { admins } = useSelector(state => state.admin);
     const {ramasAdmin}=useSelector(state => state.admin)
     const adminActual = admins.find(admin => admin._id === (params._id));
+
+    let asignada = false
 
     function capitalizar(str) {
       return str.replace(/\w\S*/g, function(txt){
@@ -94,6 +96,15 @@ export const ActPerfilAdmin = () => {
         });
       }
 
+      const onRamaChange = (e) => {
+        e.preventDefault();
+        const input = document.getElementById(e.target.id)
+        if(input.checked === true){
+          asignada = false;
+        }else{
+          asignada = true;
+        }
+      }
       
     useEffect(() => {
       startListarRamas()
@@ -126,24 +137,19 @@ export const ActPerfilAdmin = () => {
 
             <div className="rama-in">
               {
-                ramas.map(ramaSE => {
-                  let asignada= false
-                  ramasAdmin.forEach((ramaA)=>{
-                    if(ramaSE._id=== ramaA._id){
-                    
-                    asignada=true
+                ramas.map((ramaSE, index) => {
 
+                  let rama = ramasAdmin[index];
+
+                  if(  rama?._id === ramaSE._id ){
+                    asignada = true
+                    return <label key={ ramaSE._id } className="la-rama"><input className="rama la-rama" type='checkbox' id={ramaSE._id} value={ramaSE._id} defaultChecked={asignada} onChange={onRamaChange}/><h3>{ramaSE.nombre}</h3></label>
+ 
+                  }else{
+                    asignada = false
+                    return <label key={ ramaSE._id } className="la-rama"><input className="rama la-rama" type='checkbox' id={ramaSE._id} value={ramaSE._id} defaultChecked={asignada} onChange={onRamaChange}/><h3>{ramaSE.nombre}</h3></label>
                   }
-
-                  })
                   
-                  return (
-
-                    <label className="la-rama"><input className="rama" type='checkbox' id={ramaSE._id} value={ramaSE._id} checked={asignada} /><h3>{ramaSE.nombre}</h3></label>
-                    //<FormControlLabel value={rama._id} control={<Checkbox />} label={rama.nombre} />
-
-                  )
-
 
                 })
               }
