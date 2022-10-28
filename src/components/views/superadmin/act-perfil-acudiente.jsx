@@ -75,13 +75,13 @@ export const ActPerfilAcudiente = () => {
   
           });
         }else{
-          let Scouts=[]
-          Scouts.push(idScout1)
+          let Scout=[]
+          Scout.push(idScout1)
           if(idScout2.length > 0 ){
-            Scouts.push(idScout2)
+            Scout.push(idScout2)
           }
-          startUpdateAcudiente({ id, nombre, apellido, email, fecha_nacimiento, celular, Scouts })
-          navigate(`/scout/${params._id}`)
+          startUpdateAcudiente({ id, nombre, apellido, email, fecha_nacimiento, celular, Scout })
+          
         }
     
       }

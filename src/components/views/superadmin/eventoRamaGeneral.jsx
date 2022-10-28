@@ -99,7 +99,9 @@ export const EventoRamaGeneral = () => {
                             
                                 
                         return(
-                            <Eventos nombre={evento?.titulo} 
+                            <Eventos 
+                            key={evento?._id}
+                            nombre={evento?.titulo} 
                             dia={dia}
                             
                             mes= {convertir(mes)}

@@ -1,6 +1,4 @@
-
 import { Navbar } from "../../navbar"
-
 import "../../../styles/boton.css"
 import "../../../styles/styles.css"
 import "../../../styles/login.css"
@@ -68,27 +66,29 @@ export const PublicacionRamaGeneral = () => {
                    
                     {
                         
-                            publicaciones.map(publi =>{
+                        publicaciones.map(publi =>{
+                        let fechaes = (publi?.fecha).toString()
+                        fechaes=fechaes.split('T')[0]
+                        
                             
-                            let fechaes = (publi?.fecha).toString()
-                            fechaes=fechaes.split('T')[0]
-                                
-                        return(
-                            <Publicacion titulo={publi?.titulo}
-                            conte={publi?.descripcion}
-                            persona={`${publi?.autor} `}
-                            calendario={fechaes} 
-                            onClick={rediPublicacion(publi?._id)}
-                            />
-                        )
+                    return(
+                        <Publicacion 
+                        key={publi?._id}
+                        titulo={publi?.titulo}
+                        conte={publi?.descripcion}
+                        persona={`${publi?.autor.nombre} ${publi?.autor.apellido} `}
+                        calendario={fechaes} 
+                        onClick={rediPublicacion(publi?._id)}
+                        />
+                    )
+                
+                })
+
                     
-                    })
+                    
+                    
 
-                        
-                        
-                        
-
-                    }
+                }
                     
                     
                     
