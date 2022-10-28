@@ -103,7 +103,7 @@ export const VerEvento = () => {
                     <h2>{eventoActual?.descripcion}</h2>
                     <div className='sub-conte-gen'>
                         <div className='sub-conte-1'>
-                            <img className="imgbtn" src='../images/publicacion/persona.svg' onerror="this.onerror=null; this.src='persona.png'" alt='home' />
+                            <img className="imgbtn" src='../images/publicacion/persona.svg'  alt='home' />
 
                             <h3>{`${eventoActual?.autor?.nombre} ${eventoActual?.autor?.apellido} `}</h3>
 

@@ -98,7 +98,7 @@ export const ActPerfilScout = () => {
                 <Header />
                 <div className="conte-imp">
                     <h1>Actualizar datos</h1>
-                    <h2>Aqui estan tus datos personales</h2>
+                    <h2>Actualiza los datos personales del scout</h2>
                     <form onSubmit={onSubmit}>
                     <h3>Nombre</h3>
                     <Input name='nombre' value={nombre} type="text" onChange={onInputChange}  />

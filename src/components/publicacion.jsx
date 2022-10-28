@@ -12,12 +12,12 @@ export function Publicacion(props) {
                     </div>
                     <div className='sub-conte-gen'>
                         <div className='sub-conte-1'>
-                            <img className="imgbtn" src='./images/publicacion/persona.svg' onerror="this.onerror=null; this.src='persona.png'" alt='home' />
+                            <img className="imgbtn" src='./images/publicacion/persona.svg'  alt='home' />
 
                             <h3>{props.persona}</h3>
                         </div>
                         <div className='sub-conte-2'>
-                            <img className="imgbtn" src='./images/publicacion/calendar.svg' onerror="this.onerror=null; this.src='calendar.png'" alt='home' />
+                            <img className="imgbtn" src='./images/publicacion/calendar.svg'  alt='home' />
                             <h3>{props.calendario}</h3>
                         </div>
                     </div>
