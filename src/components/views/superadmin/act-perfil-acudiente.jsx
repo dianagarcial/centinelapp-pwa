@@ -68,7 +68,7 @@ export const ActPerfilAcudiente = () => {
         });
 
       }else{
-        if(idScout1!= '' && idScout1===idScout2){
+        if(idScout1!== '' && idScout1===idScout2){
           swal({
             title: "Ingrese un scout diferente",
             icon: "warning"

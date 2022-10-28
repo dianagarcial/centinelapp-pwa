@@ -127,10 +127,7 @@ export const VerEvento = () => {
 
 
                                     eventoInscritos.map(ev => {
-                                        {/* if(eventoInscritos.length ===0){
-                                            document.getElementById('insc').innerHTML='No hay inscritos'
-                                            return
-                                        }else{ */}
+                                       
 
                                         
                                         
@@ -139,7 +136,7 @@ export const VerEvento = () => {
                                             )
 
                                         
-                                        {/* } */}
+                                       
 
                                     })
 
