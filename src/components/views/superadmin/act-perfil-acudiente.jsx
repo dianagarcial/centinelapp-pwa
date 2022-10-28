@@ -75,11 +75,20 @@ export const ActPerfilAcudiente = () => {
   
           });
         }else{
-          let Scout=[]
+
+          let Scout = [
+            ...acudienteActual.Scout,
+          ]
+
           Scout.push(idScout1)
-          if(idScout2.length > 0 ){
-            Scout.push(idScout2)
-          }
+
+          // console.log(Scout)
+
+          // let Scout=[]
+          // Scout.push(idScout1)
+          // if(idScout2.length > 0 ){
+          //   Scout.push(idScout2)
+          // }
           startUpdateAcudiente({ id, nombre, apellido, email, fecha_nacimiento, celular, Scout })
           
         }

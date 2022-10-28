@@ -7,7 +7,7 @@ export const Loading = () => {
 
     return (
         <div className="loading">
-            <img className="imgbtn" src='./images/inicio/logo.svg' onerror="this.onerror=null; this.src='logo.png'" alt='home' />
+            <img className="imgbtn" src='./images/inicio/logo.svg' alt='home' />
             <LinearProgress />
         </div>
 

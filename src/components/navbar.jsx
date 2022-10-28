@@ -35,7 +35,7 @@ export function Navbar() {
                     </div>
                     <div className="messages">
                         <button onClick={messages} className="btn-nav">
-                            <img src='https://i.ibb.co/8mmRVPn/jam-messages-f-1.png' onerror="this.onerror=null; this.src='messages.png'" alt='mensaje' />
+                            <img src='https://i.ibb.co/8mmRVPn/jam-messages-f-1.png' alt='mensaje' />
 
                         </button>
 

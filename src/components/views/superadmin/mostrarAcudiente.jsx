@@ -97,7 +97,7 @@ export const MostrarAcudiente = () => {
                     {                       
                         acudienteScout.map(acu =>{
                         return(
-                            <li id="scou">{`${acu.nombre} ${acu.apellido} `}</li>
+                            <li key={acu._id} id="scou">{`${acu.nombre} ${acu.apellido} `}</li>
                         )
                        
                     })
