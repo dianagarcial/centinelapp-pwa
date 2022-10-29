@@ -10,13 +10,15 @@ import { Publicacion } from "../../publicacion";
 import { Eventos } from "../../eventos";
 import { useSelector } from 'react-redux';
 import { useEffect } from "react";
-import { usePublicacionStore } from "../../../Hooks"
+import { useAdminStore, usePublicacionStore } from "../../../Hooks"
 import { useEventoStore } from "../../../Hooks/useEventoStore";
 
 export const HomeAdmin= ()=>{
     const navigate = useNavigate();
     
     const {user} = useSelector(state=>state.auth);
+    const {ramasAdmin}=useSelector(state => state.admin)
+    const {startAdminRama}=useAdminStore();
     const { startListLastPublicacion } = usePublicacionStore()
     const { startListLastEvento } = useEventoStore()
     const { publicaciones } = useSelector(state => state.publicacion)
@@ -45,6 +47,8 @@ export const HomeAdmin= ()=>{
     }
     
     useEffect(() => {
+        startAdminRama(user?.uid);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         startListLastPublicacion();
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListLastEvento();
@@ -65,6 +69,7 @@ publicaciones.map(publi => {
         fechaes=fechaes.split('T')[0]
 
     return (
+        
         <Publicacion key={publi?.id} 
             titulo={publi?.titulo}
             conte={publi?.descripcion}
