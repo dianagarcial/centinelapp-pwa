@@ -25,19 +25,23 @@ export const AddPublicacion = () => {
 
   let { titulo, descripcion, onInputChange } = useForm(Publicacion);
   const { user } = useSelector(state => state.auth);
-  const { startCrearPublicacion } = usePublicacionStore();
+  const { startCrearPublicacion, startCrearPublicacionGeneral } = usePublicacionStore();
   const { startListarRamas } = useRamasStore();
   const navigate = useNavigate();
+  var isGeneral = false
 
 
   const handleChange = () => {
 
-
-    if (document.getElementById("general").checked === true) {
-
+    const general= document.getElementById("general");
+    //general.checked = false;
+    if (general.checked === true) {
+      isGeneral = true
       document.getElementById('ramaform').style.display = 'none'
+      console.log('gen')
     } else {
       document.getElementById('ramaform').style.display = 'block'
+      isGeneral = false
     }
 
 
@@ -56,17 +60,12 @@ export const AddPublicacion = () => {
     let autorNom = user?.nombre
     let autorId = user?.uid
     let autorApe = user?.apellido
-    let isGeneral = false
+    
     let date = new Date();
     let fecha = date.toDateString()
-    let ramaAsignada = document.getElementById("rama").value
-
-    if (document.getElementById('men-general').checked) {
-      isGeneral = true
-      ramaAsignada = null
-    }
-
-
+    let ramaAsignada =null
+   
+    
 
 
     if (titulo === '' || descripcion === '') {
@@ -80,7 +79,19 @@ export const AddPublicacion = () => {
 
     } else {
 
+    const general= document.getElementById("general");
+    
+    if (general.checked === false) 
+ 
+    {
+      ramaAsignada = document.getElementById("rama").value
       startCrearPublicacion({ titulo, descripcion, ramaAsignada, linkImagen, autorNom, autorId, autorApe, fecha, isGeneral })
+    }else{
+      isGeneral=true
+
+      startCrearPublicacionGeneral({ titulo, descripcion, linkImagen, autorNom, autorId, autorApe, fecha, isGeneral })
+    }
+      
       navigate(`/home`)
     }
 
@@ -108,7 +119,9 @@ export const AddPublicacion = () => {
           <h2>En este formulario puedes crear una nueva publicación</h2>
           <form onSubmit={onSubmit}>
             <div className="sel-general">
-              <input type='checkbox' id="general" onChange={handleChange} /><h4 className="nom-sel">Publicación general</h4>
+              <input type='checkbox' id="general" 
+              onChange={handleChange} 
+               /><h4 className="nom-sel">Publicación general</h4>
             </div>
             <div id='ramaform'>
               <h3>Rama del mensaje*</h3>

@@ -99,7 +99,7 @@ export const useAuthStore = () => {
             const { data } = await CentinelApi.get('admin/',{ token });
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime() );
-            dispatch( onLogin({ nombre: data.nombre, uid: data.uid, email: data.email, rol: data.rol}) );
+            dispatch( onLogin({ nombre: data.nombre, apellido: data.apellido, uid: data.uid, email: data.email, rol: data.rol}) );
 
         } catch (error) {
             localStorage.clear();

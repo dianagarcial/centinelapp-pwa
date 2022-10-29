@@ -47,7 +47,7 @@ export const useScoutStore = () => {
     try {
 
       const { data } = await CentinelApi.get('scouts/allScouts');
-      // console.log(data)
+
       dispatch(onListScouts(data.scouts_))
 
     } catch (error) {
@@ -78,7 +78,7 @@ export const useScoutStore = () => {
       const { data } = await CentinelApi.get(`rama/getScoutsAsignados/${id}`);
      
       if (data.rama.Scout.length === 0) {
-        console.log('No hat scouts')
+        
         document.getElementById("Noe").innerHTML="No existen scouts registrados en esta rama"
         dispatch(onListScouts(data.rama.Scout))
       }
@@ -166,7 +166,7 @@ export const useScoutStore = () => {
 
 
     } catch (error) {
-      console.log(error.response.status)
+      
       if(error.request.status===400){
         swal({
           title: "La contraseña actual es incorrecta!",

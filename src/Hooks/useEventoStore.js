@@ -11,11 +11,11 @@ export const useEventoStore = () => {
   const navigate = useNavigate();
 
 const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, autorApe,autorId, fechaYHoraInicio, fechaYHoraFinal, idRama, isGeneral }) => {
-    console.log( titulo, descripcion, linkImagen, autorNom, autorApe,autorId, fechaYHoraInicio, fechaYHoraFinal, idRama)
+    
        try {
-      const {data} = await CentinelApi.post('evento/create-evento', { titulo, descripcion, linkImagen, autor:{id:autorId, nombre:autorNom, apellido:autorApe}, fechaYHoraInicio, fechaYHoraFinal, idRama, isGeneral  })
+       await CentinelApi.post('evento/create-evento', { titulo, descripcion, linkImagen, autor:{id:autorId, nombre:autorNom, apellido:autorApe}, fechaYHoraInicio, fechaYHoraFinal, idRama, isGeneral  })
       
-      console.log(data)
+      
       swal({
         title: "El evento ha sido creado con éxito!",
         icon: "success",
@@ -33,6 +33,30 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     }
 
   }
+  const startCrearEventoGeneral = async ({ titulo, descripcion, linkImagen, autorNom, autorApe,autorId, fechaYHoraInicio, fechaYHoraFinal, isGeneral }) => {
+    
+       try {
+      await CentinelApi.post('evento/create-evento', { titulo, descripcion, linkImagen, autor:{id:autorId, nombre:autorNom, apellido:autorApe}, fechaYHoraInicio, fechaYHoraFinal, isGeneral  })
+      
+      
+      swal({
+        title: "El evento ha sido creado con éxito!",
+        icon: "success",
+      });
+
+
+
+      //Alertas con el ok que viene en la data if(data.ok === true )
+
+    } catch (error) {
+  
+
+
+      console.log(error)
+    }
+
+  }
+
 
   const startListLastEvento= async() => {
     
@@ -101,7 +125,7 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
       
       const { data } = await CentinelApi.get(`evento/allGeneralEvents`);
       
-      dispatch( onListEventos( data.Eventos_) )
+      dispatch( onListEventos( data.eventos_) )
 
     } catch (error) {
       if(error.response.status===404){
@@ -215,5 +239,5 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     }
 
   }
-  return { startCrearEvento,startListLastEvento,startListLastEventoRama, startListEventoGeneral, startListEvento, startListEventoBusca, startUpdateEvento, startDeleteEvento, startInscribirEvento, startListInscritosEvento, startListEventoEsGeneral}
+  return { startCrearEvento,startCrearEventoGeneral,startListLastEvento,startListLastEventoRama, startListEventoGeneral, startListEvento, startListEventoBusca, startUpdateEvento, startDeleteEvento, startInscribirEvento, startListInscritosEvento, startListEventoEsGeneral}
 }

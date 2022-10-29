@@ -27,8 +27,8 @@ export const useSuperAdminStore = () => {
        
         try {
     
-          const { data } = await CentinelApi.post(`superAdmin/changePassword`, { newPassword,currentPassword,email });
-          console.log(data)
+          await CentinelApi.post(`superAdmin/changePassword`, { newPassword,currentPassword,email });
+         
           
           swal({
             title: "La contraseña ha sido actualizada con éxito!",
@@ -38,7 +38,7 @@ export const useSuperAdminStore = () => {
     
     
         } catch (error) {
-          console.log(error.response.status)
+      
           if(error.request.status===400){
             swal({
               title: "La contraseña actual es incorrecta!",

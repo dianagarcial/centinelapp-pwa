@@ -116,7 +116,7 @@ export const useRamasStore = () => {
       const startDeleteRama = async() => {
 
         try {
-          console.log(params._id)
+          
           await CentinelApi.delete(`rama/${params._id}`);
           
           

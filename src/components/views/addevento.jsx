@@ -32,9 +32,10 @@ export const AddEvento = () => {
   const fecha = new Date();
   let hoy = (fecha.toISOString()).toString().split('T')[0]
 
-  const { startCrearEvento } = useEventoStore();
+  const { startCrearEvento, startCrearEventoGeneral } = useEventoStore();
   const { startListarRamas } = useRamasStore();
   const navigate = useNavigate();
+  let isGeneral = false
 
   const handleChange = () => {
 
@@ -42,8 +43,10 @@ export const AddEvento = () => {
     if (document.getElementById("general").checked === true) {
 
       document.getElementById('ramaform').style.display = 'none'
+      isGeneral = true
     } else {
       document.getElementById('ramaform').style.display = 'block'
+      isGeneral = false
     }
 
 
@@ -60,13 +63,15 @@ export const AddEvento = () => {
     let autorNom = user?.nombre
     let autorId = user?.uid
     let autorApe = user?.apellido
-    let isGeneral = false
+    
+    let idRama=null
 
-    let idRama = document.getElementById("rama").value
-    if (document.getElementById('men-general').checked) {
-      isGeneral = true
-      idRama = null
+    
+    if(isGeneral=== false)
+    {
+      
     }
+    
 
 
 
@@ -91,7 +96,22 @@ export const AddEvento = () => {
         return;
 
       } else {
-        startCrearEvento({ titulo, descripcion, linkImagen, autorNom, autorApe, autorId, fechaYHoraInicio, fechaYHoraFinal, idRama, isGeneral })
+        const general= document.getElementById("general");
+    
+    if (general.checked === false) 
+ 
+    {
+      idRama = document.getElementById("rama").value
+      startCrearEvento({ titulo, descripcion, linkImagen, autorNom, autorApe, autorId, fechaYHoraInicio, fechaYHoraFinal, idRama, isGeneral })
+    }else{
+      isGeneral=true
+      startCrearEventoGeneral({ titulo, descripcion, linkImagen, autorNom, autorApe, autorId, fechaYHoraInicio, fechaYHoraFinal, isGeneral })
+
+
+    }
+      
+
+        
         navigate(`/home`)
       }
 
