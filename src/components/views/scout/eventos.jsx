@@ -32,15 +32,11 @@ export const EventoGeneralScout = () => {
         navigate(`/evento-rama/${ idrama }`)
       }
 
-      function publigeneral (e){
+      function general(e) {
         e.preventDefault();
-        swal({
-          
-            title: "Esta funcion estara disponible proximamente",
-            icon: "warning",
-          });  
-        // navigate(`/evento-General`)
-        }
+         
+         navigate(`/evento-General`)
+    }
     
     
       
@@ -61,10 +57,10 @@ export const EventoGeneralScout = () => {
                 <div className="conte-imp">
                     <h1>Eventos</h1>
                     <h3>Selecciona una rama para ver sus eventos</h3>
-                    <SelectCreacion nombre="General" desc="Publicaciones para todos" onClick={publigeneral}/>
+                    <SelectCreacion  nombre="General" desc="Publicaciones para todos" onClick={general}/>
                   
 
-                     <SelectCreacion nombre={ramascoutes?.nombre} desc={ramascoutes?.edadMin + "-" + ramascoutes?.edadMax + " años"} onClick={publi(ramascoutes?._id)}/>
+                     <SelectCreacion key ={ramascoutes?._id} nombre={ramascoutes?.nombre} desc={ramascoutes?.edadMin + "-" + ramascoutes?.edadMax + " años"} onClick={publi(ramascoutes?._id)}/>
 
 
                           

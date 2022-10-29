@@ -59,23 +59,29 @@ export const PublicacionRamaGeneralView = () => {
                    
                     {
                         
-                            publicaciones.map(publi =>{
-                                
-                        return(
-                            <Publicacion titulo={publi?.titulo}
-                            conte={publi?.descripcion}
-                            persona={`${publi?.autor} `}
-                            calendario={publi?.fecha}
-                            onClick={rediPublicacion(publi?._id)} />
-                        )
+                        publicaciones.map(publi =>{
+                        let fechaes = (publi?.fecha).toString()
+                        fechaes=fechaes.split('T')[0]
+                        
+                            
+                    return(
+                        <Publicacion 
+                        key={publi?._id}
+                        titulo={publi?.titulo}
+                        conte={publi?.descripcion}
+                        persona={`${publi?.autor.nombre} ${publi?.autor.apellido} `}
+                        calendario={fechaes} 
+                        onClick={rediPublicacion(publi?._id)}
+                        />
+                    )
+                
+                })
+
                     
-                    })
+                    
+                    
 
-                        
-                        
-                        
-
-                    }
+                }
                     
                     
                     

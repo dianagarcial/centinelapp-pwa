@@ -21,8 +21,8 @@ export const HomeScout = () => {
   
     const { startListScouts } = useScoutStore();
     const { startListarRamaIDValue, startListarRamas } = useRamasStore();
-    const { startListLastPublicacionRama } = usePublicacionStore();
-    const { startListLastEventoRama } = useEventoStore();
+    const { startListPublicacionEsGeneral } = usePublicacionStore();
+    const { startListEventoGeneral } = useEventoStore();
     
 
     var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Di"];
@@ -54,10 +54,11 @@ export const HomeScout = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListScouts()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListLastPublicacionRama(ramaIdScout)
+        startListPublicacionEsGeneral();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListLastEventoRama(ramaIdScout)
+        startListEventoGeneral();
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        
     }, [])
     
     

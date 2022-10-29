@@ -22,86 +22,127 @@ const Publicacion = {
   
   }
 export const AddPublicacionAdmin = () => {
+
+  
+  let { titulo, descripcion, onInputChange } = useForm(Publicacion);
+  const { user } = useSelector(state => state.auth);
+  const { startCrearPublicacion, startCrearPublicacionGeneral } = usePublicacionStore();
+  const {startAdminRama}=useAdminStore();
+
+  const navigate = useNavigate();
+  var isGeneral = false
+
+
+  const handleChange = () => {
+
+    const general= document.getElementById("general");
+    //general.checked = false;
+    if (general.checked === true) {
+      isGeneral = true
+      document.getElementById('ramaform').style.display = 'none'
+      console.log('gen')
+    } else {
+      document.getElementById('ramaform').style.display = 'block'
+      isGeneral = false
+    }
+
+
+  };
+
+
+
+  function redirect(e) {
+    e.preventDefault();
+    navigate(`/publicaciones`)
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    let linkImagen = 'no tiene'
+    let autorNom = user?.nombre
+    let autorId = user?.uid
+    let autorApe = user?.apellido
     
+    let date = new Date();
+    let fecha = date.toDateString()
+    let ramaAsignada =null
+   
     
-      const { titulo, descripcion, onInputChange } = useForm(Publicacion);
-      const { user } = useSelector(state => state.auth);
+
+
+    if (titulo === '' || descripcion === '') {
+      swal({
+        title: "Ingrese los campos obligatorios",
+        icon: "warning"
+
+      });
+
+      return;
+
+    } else {
+
+    const general= document.getElementById("general");
     
-    
-      const { startCrearPublicacion } = usePublicacionStore();
+    if (general.checked === false) 
+ 
+    {
+      ramaAsignada = document.getElementById("rama").value
+      startCrearPublicacion({ titulo, descripcion, ramaAsignada, linkImagen, autorNom, autorId, autorApe, fecha, isGeneral })
+    }else{
+      isGeneral=true
+
+      startCrearPublicacionGeneral({ titulo, descripcion, linkImagen, autorNom, autorId, autorApe, fecha, isGeneral })
+    }
       
-      const {startAdminRama}=useAdminStore();
-      const navigate = useNavigate();
-    
-      function redirect(e) {
-        e.preventDefault();
-        navigate(`/publicaciones`)
-      }
-    
-      const onSubmit = (e) => {
-        e.preventDefault();
-        let linkImagen='no tiene'
-        let autorNom=user?.nombre
-        let autorId=user?.uid
-        let autorApe=user?.apellido
-        
-        let date = new Date();
-        let fecha= date.toDateString()
-        let ramaAsignada= document.getElementById("rama").value
-             
-        
-    
-        if (titulo === '' || descripcion === '' ) {
-          swal({
-            title: "Ingrese los campos obligatorios",
-            icon: "warning"
-    
-          });
-    
-          return;
-    
-        }else{
-          
-              startCrearPublicacion({ titulo, descripcion, ramaAsignada, linkImagen, autorNom,autorId,autorApe, fecha })
-              navigate(`/home`)
-            }
-            
-    
-       
-          
-        }
-    
-        
-    
-    
-        //console.log({nombre, apellido, correo, fechaNacimiento, celular})
-        
-      useEffect(() => {
-        startAdminRama(user?.uid);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [])
-    
-      return (
-        <div className="contenido">
-          <div className="conte-general">
-            <Header />
-            <div className="conte-imp">
-              <h1>Crear una publicación</h1>
-              <h2>En este formulario puedes crear una nueva publicación</h2>
-              <form onSubmit={onSubmit}>
-                <h3>Rama del mensaje*</h3>
-                <SelectRamaAdmin id='rama' placeholder="Selecciona una opción" />
-                <h3>Titulo de la publicación*</h3>
-                <Input name='titulo' value={titulo} onChange={onInputChange} placeholder="Titulo de la publicación" type="text" />
-                <h3>Mensaje*</h3>
-                <TextArea name='descripcion' value={descripcion} onChange={onInputChange} placeholder="Descripción de la publicación" type="text" />
-                 <br/>             
-      
-                <Button type="submit" variant="contained" color="primary">Crear</Button>
-                <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
-              </form>
+      navigate(`/home`)
+    }
+
+
+
+
+  }
+
+
+
+
+
+
+  useEffect(() => {
+    startAdminRama(user?.uid);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return (
+    <div className="contenido">
+      <div className="conte-general">
+        <Header />
+        <div className="conte-imp">
+          <h1>Crear una publicación</h1>
+          <h2>En este formulario puedes crear una nueva publicación</h2>
+          <form onSubmit={onSubmit}>
+            <div className="sel-general">
+              <input type='checkbox' id="general" 
+              onChange={handleChange} 
+               /><h4 className="nom-sel">Publicación general</h4>
             </div>
-          </div>
-          <Navbar />
+            <div id='ramaform'>
+              <h3>Rama del mensaje*</h3>
+              <SelectRamaAdmin id='rama' placeholder="Selecciona una opción" />
+            </div>
+            <h3>Titulo de la publicación*</h3>
+            <Input name='titulo' value={titulo} onChange={onInputChange} placeholder="Titulo de la publicación" type="text" />
+            <h3>Mensaje*</h3>
+            <TextArea name='descripcion' value={descripcion} onChange={onInputChange} placeholder="Descripción de la publicación" type="text" />
+            <br />
+
+            <Button type="submit" variant="contained" color="primary">Crear</Button>
+            <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
+          </form>
         </div>
-)}
+      </div>
+      <Navbar />
+    </div>
+  )
+}
+
+    

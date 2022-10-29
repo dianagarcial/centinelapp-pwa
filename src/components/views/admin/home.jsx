@@ -19,8 +19,9 @@ export const HomeAdmin= ()=>{
     const {user} = useSelector(state=>state.auth);
     const {ramasAdmin}=useSelector(state => state.admin)
     const {startAdminRama}=useAdminStore();
-    const { startListLastPublicacion } = usePublicacionStore()
-    const { startListLastEvento } = useEventoStore()
+    const { startListPublicacionEsGeneral } = usePublicacionStore();
+    const { startListEventoGeneral } = useEventoStore();
+    
     const { publicaciones } = useSelector(state => state.publicacion)
     const { eventos } = useSelector(state => state.evento)
     var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
@@ -49,9 +50,9 @@ export const HomeAdmin= ()=>{
     useEffect(() => {
         startAdminRama(user?.uid);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListLastPublicacion();
+        startListPublicacionEsGeneral();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListLastEvento();
+        startListEventoGeneral();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

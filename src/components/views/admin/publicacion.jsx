@@ -9,7 +9,7 @@ import { SelectCreacion } from "../../selectCreacion"
 import { useAdminStore } from "../../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
-import swal from 'sweetalert';
+
 import { BotonFlotante } from "../../btn-flotante"
 import { useNavigate } from 'react-router-dom';
 
@@ -29,13 +29,8 @@ export const PublicacionGeneralAdmin = () => {
     }
     function publigeneral (e){
         e.preventDefault();
-        swal({
-          
-            title: "Esta funcion estara disponible proximamente",
-            icon: "warning",
-          });  
         
-    
+         navigate(`/pub-General`)
         }
     const publi = (idrama) => (e) => {
         e.preventDefault();

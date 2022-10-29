@@ -34,11 +34,8 @@ export const PublicacionGeneralScout = () => {
 
       function publigeneral (e){
         e.preventDefault();
-        swal({
-          
-            title: "Esta funcion estara disponible proximamente",
-            icon: "warning",
-          });  
+        
+         navigate(`/pub-General`)
         }
     
     
