@@ -25,9 +25,6 @@ export const HomeAdmin= ()=>{
     const { eventos } = useSelector(state => state.evento)
     var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
 
-    const publicacionesAdmin = publicaciones.filter(publi => publi.name === ramasAdmin.name);
-    console.log(publicacionesAdmin);
-
     function convertir(mes) {    
     let res
     var numeroMes = parseInt(mes);
