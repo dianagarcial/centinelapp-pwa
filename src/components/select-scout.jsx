@@ -13,7 +13,9 @@ export function SelectScout(props) {
                         return (
                             <option key={scout._id} value={scout._id}>{scout.nombre} {scout.apellido} </option>
                         )
+                        
                     })
+                    
                 }
             </select>
 

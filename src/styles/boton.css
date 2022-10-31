@@ -109,6 +109,15 @@ button.subir-imagen {
 div#scout2{
     display: none;
 }
+div#scout3{
+    display: none;
+}
+div#scout4{
+    display: none;
+}
+div#scout5{
+    display: none;
+}
 button.subir {
     background: #EEEEEE;
     border: 2px dashed #292929;

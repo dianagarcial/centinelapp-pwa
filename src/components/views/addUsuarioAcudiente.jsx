@@ -5,7 +5,7 @@ import "../../styles/boton.css"
 import "../../styles/styles.css"
 import "../../styles/login.css"
 import { Header } from "../header"
-import { Done } from '@mui/icons-material';
+import { Done, HighlightOff } from '@mui/icons-material';
 
 import { useEffect, useState, useRef } from 'react'
 import { useForm, useScoutStore, useAcudienteStore } from "../../Hooks"
@@ -29,17 +29,18 @@ export const AddUsuarioAcudiente = () => {
   const fileInputRefI = useRef();
   const { startUploadingFiles } = useAcudienteStore();
   const fecha = new Date();
-  let hoy=(fecha.toISOString()).toString().split('T')[0]
+  let hoy = (fecha.toISOString()).toString().split('T')[0]
+  let Scouts = []
   function capitalizar(str) {
-    return str.replace(/\w\S*/g, function(txt){
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   }
 
   let { nombre, apellido, email, fecha_nacimiento, celular, onInputChange } = useForm(Acudiente);
   let imagen;
   const [link_imagen, setLinkImagen] = useState('');
- 
+
   const { startCrearAcudiente } = useAcudienteStore();
   const { startListScouts } = useScoutStore();
   const navigate = useNavigate();
@@ -54,30 +55,34 @@ export const AddUsuarioAcudiente = () => {
     const link = await startUploadingFiles(target.files, 'Imagenes')
     setLinkImagen(link);
     console.log(link.length)
-    if(link.length > 0){
-      document.getElementById("img-sel").style.display="none"
-      document.getElementById("camaras").style.display="none"
-      document.getElementById("yes").style.display="block"
-      document.getElementById("check-img").style.display="block"      
-      
+    if (link.length > 0) {
+      document.getElementById("img-sel").style.display = "none"
+      document.getElementById("camaras").style.display = "none"
+      document.getElementById("yes").style.display = "block"
+      document.getElementById("check-img").style.display = "block"
+
 
     }
   }
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const idScout1 = document.getElementById('scouts1').value;
-    const idScout2 = document.getElementById('scouts2').value;
+    const idScout1 = document.getElementById('scouts1-value').value;
+    const idScout2 = document.getElementById('scouts2-value').value;
+    const idScout3 = document.getElementById('scouts3-value').value;
+    const idScout4 = document.getElementById('scouts4-value').value;
+    const idScout5 = document.getElementById('scouts5-value').value;
     let nombrex = capitalizar(nombre)
     let apellidox = capitalizar(apellido)
-    let emailx= email.toLowerCase()
-    
-    nombre=nombrex
-    apellido=apellidox
-    email=emailx
+    let emailx = email.toLowerCase()
+
+    nombre = nombrex
+    apellido = apellidox
+    email = emailx
+    console.log(email)
 
 
-    if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idScout1 === ''|| link_imagen ==='') {
+    if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idScout1 === '' || link_imagen === '') {
       swal({
         title: "Ingrese los campos obligatorios",
         icon: "warning"
@@ -86,7 +91,7 @@ export const AddUsuarioAcudiente = () => {
 
       return;
 
-    }else{
+    } else {
       if (celular <= 0) {
         swal({
           title: "Ingrese un numero de celular valido",
@@ -94,41 +99,176 @@ export const AddUsuarioAcudiente = () => {
 
         });
 
-      }else{
-        if(idScout1===idScout2){
-          swal({
-            title: "Ingrese un scout diferente",
-            icon: "warning"
-  
-          });
-        }else{
-          let Scouts=[]
+      } else {
+        if (idScout1 !== "" && idScout2 === "" && idScout3 === "" && idScout4 === "" && idScout5 === "") {
+          let Scouts = []
           Scouts.push(idScout1)
-          if(idScout2.length > 0 ){
-            Scouts.push(idScout2)
-          }
           startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen })
           navigate(`/home`)
+
         }
-        
+        else {
+          if (idScout1 !== "" && idScout2 !== "" && idScout3 == "" && idScout4 === "" && idScout5 === "") {
+            if (idScout1 === idScout2) {
+              swal({
+                title: "Ingrese un scout diferente",
+                icon: "warning"
+
+              });
+            
+            } else {
+
+              Scouts.push(idScout1)
+              Scouts.push(idScout2)
+            }
+            startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen })
+            navigate(`/home`)
+          } else {
+            if (idScout1 !== "" && idScout2 !== "" && idScout3 !== "" && idScout4 == "" && idScout5 == "") {
+              if (idScout1 === idScout2 || idScout1 === idScout3 || idScout2 === idScout3) {
+                swal({
+                  title: "Ingrese un scout diferente",
+                  icon: "warning"
+
+                });
+              } else {
+
+                Scouts.push(idScout1)
+                Scouts.push(idScout2)
+                Scouts.push(idScout3)
+              }
+              startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen })
+              navigate(`/home`)
+            } else {
+              if (idScout1 !== "" && idScout2 !== "" && idScout3 !== "" && idScout4 !== "" && idScout5 == "") {
+                if (idScout1 === idScout2 || idScout1 === idScout3 || idScout1 === idScout4 || idScout2 === idScout3 || idScout2 === idScout4 || idScout3 === idScout4) {
+                  swal({
+                    title: "Ingrese un scout diferente",
+                    icon: "warning"
+
+                  });
+                } else {
+
+                  Scouts.push(idScout1)
+                  Scouts.push(idScout2)
+                  Scouts.push(idScout3)
+                  Scouts.push(idScout4)
+                }
+                startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen })
+                navigate(`/home`)
+              } else {
+                if (idScout1 !== "" && idScout2 !== "" && idScout3 !== "" && idScout4 !== "" && idScout5 !== "") {
+                  if (idScout1 === idScout2 || idScout1 === idScout3 || idScout1 === idScout4 || idScout1 === idScout5 || idScout2 === idScout3 || idScout2 === idScout4 || idScout2 === idScout5 || idScout3 === idScout4 || idScout3 === idScout5 || idScout4 === idScout5) {
+                    swal({
+                      title: "Ingrese un scout diferente",
+                      icon: "warning"
+
+                    });
+                  } else {
+
+                    Scouts.push(idScout1)
+                    Scouts.push(idScout2)
+                    Scouts.push(idScout3)
+                    Scouts.push(idScout4)
+                    Scouts.push(idScout5)
+                  }
+                  startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen })
+                  navigate(`/home`)
+
+                }
+                else {
+                  swal({
+                    title: "Error al ingresar un nuevo acudiente",
+                    icon: "warning"
+
+                  });
+
+                }
+
+              }
+
+            }
+
+          }
+        }
+
+
+
+
+
+
+
+
+
+
 
       }
 
-      
+
     }
 
-    
 
 
 
 
-    
+
+
   }
 
-  const mostrar1= (e) =>{
+  const mostrar1 = (e) => {
     e.preventDefault();
-    document.getElementById('scout2').style.display="flex"
-      
+    document.getElementById('scout2').style.display = "flex"
+
+  }
+  const ocultar1 = (e) => {
+    e.preventDefault();
+    document.getElementById('scout2').style.display = "none"
+    //document.getElementById('scout2-value').value= ""
+
+  }
+  const mostrar2 = (e) => {
+    e.preventDefault();
+    document.getElementById('scout3').style.display = "flex"
+
+  }
+  const ocultar2 = (e) => {
+    e.preventDefault();
+    document.getElementById('scout3').style.display = "none"
+    //document.getElementById('scout3-value').value= ""
+
+  }
+  const mostrar3 = (e) => {
+    e.preventDefault();
+    document.getElementById('scout4').style.display = "flex"
+
+  }
+  const ocultar3 = (e) => {
+    e.preventDefault();
+    document.getElementById('scout4').style.display = "none"
+    //document.getElementById('scout4-value').value= ""
+
+  }
+  const mostrar4 = (e) => {
+    e.preventDefault();
+    document.getElementById('scout5').style.display = "flex"
+
+  }
+  const ocultar4 = (e) => {
+    e.preventDefault();
+    //document.getElementById('scout5-value').value= ""
+    document.getElementById('scout5').style.display = "none"
+
+
+
+  }
+  const mostrar5 = (e) => {
+    e.preventDefault();
+    swal({
+      title: "No se pueden agregar mas scouts",
+      icon: "warning"
+
+    });
+
   }
 
 
@@ -153,7 +293,7 @@ export const AddUsuarioAcudiente = () => {
             <h3>Correo electrónico*</h3>
             <Input name='email' value={email} onChange={onInputChange} placeholder="Correo" type="email" />
             <h3>Fecha de nacimiento*</h3>
-            <Input name='fecha_nacimiento' value={fecha_nacimiento} onChange={onInputChange} placeholder="Fecha de nacimiento" type="date" max={hoy}/>
+            <Input name='fecha_nacimiento' value={fecha_nacimiento} onChange={onInputChange} placeholder="Fecha de nacimiento" type="date" max={hoy} />
             <h3>Número celular*</h3>
             <Input name='celular' value={celular} onChange={onInputChange} placeholder="Número de celular" type="number" />
             <h3>Foto*</h3>
@@ -172,24 +312,62 @@ export const AddUsuarioAcudiente = () => {
                 fileInputRefI.current.click()
               }}
             >
-              <CameraAlt style={{ color: '#D5D5D5', fontSize: '35px' }} id="camaras"/>
-              <Done id='check-img' style={{ display: 'none'}}/>
+              <CameraAlt style={{ color: '#D5D5D5', fontSize: '35px' }} id="camaras" />
+              <Done id='check-img' style={{ display: 'none' }} />
               <h2 className="sel2" id="yes" >Archivo cargado</h2>
               <h2 className="sel" id="img-sel">Seleccione una foto de perfil*</h2>
             </button>
-            <br/>
+            <br />
             <h3>Asignar scouts*</h3>
             <div className="asigScout">
-            <SelectScout id='scouts1' placeholder="Selecciona una opción" />
-            <Button id='mas-scout'  variant="contained" color="primary" onClick={mostrar1}><AddIcon/></Button>
+              <SelectScout id='scouts1-value' placeholder="Selecciona una opción" />
+              <div className="btn-mas-div">
+                <Button id='mas-scout' variant="contained" color="primary" onClick={mostrar1}><AddIcon /></Button>
+              </div>
             </div>
             <div className="asigScout" id="scout2">
-            <SelectScout id='scouts2' placeholder="Selecciona una opción" />
-            <Button id='mas-scout'  variant="contained" color="primary" onClick={mostrar1}><AddIcon/></Button>
+              <SelectScout id='scouts2-value' placeholder="Selecciona una opción" />
+              <div className="btn-mas-div">
+                <Button id='mas-scout' variant="contained" color="primary" onClick={mostrar2}><AddIcon /></Button>
+              </div>
+              <div className="div-elim">
+                <button className="elim" onClick={ocultar1}><HighlightOff /></button>
+              </div>
             </div>
-            
 
-            <br/>
+            <div className="asigScout" id="scout3">
+              <SelectScout id='scouts3-value' placeholder="Selecciona una opción" />
+              <div className="btn-mas-div">
+                <Button id='mas-scout' variant="contained" color="primary" onClick={mostrar3}><AddIcon /></Button>
+              </div>
+              <div className="div-elim">
+                <button className="elim" onClick={ocultar2}><HighlightOff /></button>
+              </div>
+            </div>
+
+            <div className="asigScout" id="scout4">
+              <SelectScout id='scouts4-value' placeholder="Selecciona una opción" />
+              <div className="btn-mas-div">
+                <Button id='mas-scout' variant="contained" color="primary" onClick={mostrar4}><AddIcon /></Button>
+              </div>
+              <div className="div-elim">
+                <button className="elim" onClick={ocultar3}><HighlightOff /></button>
+              </div>
+            </div>
+
+            <div className="asigScout" id="scout5">
+              <SelectScout id='scouts5-value' placeholder="Selecciona una opción" />
+              <div className="btn-mas-div">
+                <Button id='mas-scout' variant="contained" color="primary" onClick={mostrar5}><AddIcon /></Button>
+              </div>
+              <div className="div-elim">
+                <button className="elim" onClick={ocultar4}><HighlightOff /></button>
+              </div>
+            </div>
+
+
+
+            <br />
             <Button type="submit" variant="contained" color="primary" disabled={isFileUploading} >Crear</Button>
             <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
           </form>
