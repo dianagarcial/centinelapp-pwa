@@ -54,7 +54,7 @@ export const AddUsuarioAcudiente = () => {
     if (target.files === 0) return;
     const link = await startUploadingFiles(target.files, 'Imagenes')
     setLinkImagen(link);
-    console.log(link.length)
+
     if (link.length > 0) {
       document.getElementById("img-sel").style.display = "none"
       document.getElementById("camaras").style.display = "none"
@@ -72,6 +72,7 @@ export const AddUsuarioAcudiente = () => {
     const idScout3 = document.getElementById('scouts3-value').value;
     const idScout4 = document.getElementById('scouts4-value').value;
     const idScout5 = document.getElementById('scouts5-value').value;
+
     let nombrex = capitalizar(nombre)
     let apellidox = capitalizar(apellido)
     let emailx = email.toLowerCase()
@@ -79,7 +80,7 @@ export const AddUsuarioAcudiente = () => {
     nombre = nombrex
     apellido = apellidox
     email = emailx
-    console.log(email)
+
 
 
     if (nombre === '' || apellido === '' || email === '' || fecha_nacimiento === '' || celular === '' || idScout1 === '' || link_imagen === '') {
@@ -98,64 +99,71 @@ export const AddUsuarioAcudiente = () => {
           icon: "warning"
 
         });
+        return;
 
       } else {
         if (idScout1 !== "" && idScout2 === "" && idScout3 === "" && idScout4 === "" && idScout5 === "") {
-          let Scouts = []
+
           Scouts.push(idScout1)
           startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen })
           navigate(`/home`)
 
         }
         else {
-          if (idScout1 !== "" && idScout2 !== "" && idScout3 == "" && idScout4 === "" && idScout5 === "") {
+          if (idScout1 !== "" && idScout2 !== "" && idScout3 === "" && idScout4 === "" && idScout5 === "") {
             if (idScout1 === idScout2) {
               swal({
                 title: "Ingrese un scout diferente",
                 icon: "warning"
 
               });
-            
+              return;
+
             } else {
 
               Scouts.push(idScout1)
               Scouts.push(idScout2)
+              startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen })
+              navigate(`/home`)
             }
-            startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen })
-            navigate(`/home`)
+
           } else {
-            if (idScout1 !== "" && idScout2 !== "" && idScout3 !== "" && idScout4 == "" && idScout5 == "") {
+            if (idScout1 !== "" && idScout2 !== "" && idScout3 !== "" && idScout4 === "" && idScout5 === "") {
               if (idScout1 === idScout2 || idScout1 === idScout3 || idScout2 === idScout3) {
                 swal({
                   title: "Ingrese un scout diferente",
                   icon: "warning"
 
                 });
+                return;
               } else {
 
                 Scouts.push(idScout1)
                 Scouts.push(idScout2)
                 Scouts.push(idScout3)
+                startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen })
+                navigate(`/home`)
               }
-              startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen })
-              navigate(`/home`)
+
             } else {
-              if (idScout1 !== "" && idScout2 !== "" && idScout3 !== "" && idScout4 !== "" && idScout5 == "") {
+              if (idScout1 !== "" && idScout2 !== "" && idScout3 !== "" && idScout4 !== "" && idScout5 === "") {
                 if (idScout1 === idScout2 || idScout1 === idScout3 || idScout1 === idScout4 || idScout2 === idScout3 || idScout2 === idScout4 || idScout3 === idScout4) {
                   swal({
                     title: "Ingrese un scout diferente",
                     icon: "warning"
 
                   });
+                  return;
                 } else {
 
                   Scouts.push(idScout1)
                   Scouts.push(idScout2)
                   Scouts.push(idScout3)
                   Scouts.push(idScout4)
+                  startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen })
+                  navigate(`/home`)
                 }
-                startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen })
-                navigate(`/home`)
+
               } else {
                 if (idScout1 !== "" && idScout2 !== "" && idScout3 !== "" && idScout4 !== "" && idScout5 !== "") {
                   if (idScout1 === idScout2 || idScout1 === idScout3 || idScout1 === idScout4 || idScout1 === idScout5 || idScout2 === idScout3 || idScout2 === idScout4 || idScout2 === idScout5 || idScout3 === idScout4 || idScout3 === idScout5 || idScout4 === idScout5) {
@@ -164,6 +172,7 @@ export const AddUsuarioAcudiente = () => {
                       icon: "warning"
 
                     });
+                    return;
                   } else {
 
                     Scouts.push(idScout1)
@@ -171,9 +180,10 @@ export const AddUsuarioAcudiente = () => {
                     Scouts.push(idScout3)
                     Scouts.push(idScout4)
                     Scouts.push(idScout5)
+                    startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen })
+                    navigate(`/home`)
                   }
-                  startCrearAcudiente({ nombre, apellido, email, fecha_nacimiento, celular, Scouts, link_imagen })
-                  navigate(`/home`)
+
 
                 }
                 else {
@@ -222,8 +232,9 @@ export const AddUsuarioAcudiente = () => {
   }
   const ocultar1 = (e) => {
     e.preventDefault();
+    document.getElementById('scouts2-value').value = ""
     document.getElementById('scout2').style.display = "none"
-    //document.getElementById('scout2-value').value= ""
+
 
   }
   const mostrar2 = (e) => {
@@ -233,8 +244,9 @@ export const AddUsuarioAcudiente = () => {
   }
   const ocultar2 = (e) => {
     e.preventDefault();
+    document.getElementById('scouts3-value').value = ""
     document.getElementById('scout3').style.display = "none"
-    //document.getElementById('scout3-value').value= ""
+
 
   }
   const mostrar3 = (e) => {
@@ -244,8 +256,9 @@ export const AddUsuarioAcudiente = () => {
   }
   const ocultar3 = (e) => {
     e.preventDefault();
+    document.getElementById('scouts4-value').value = ""
     document.getElementById('scout4').style.display = "none"
-    //document.getElementById('scout4-value').value= ""
+
 
   }
   const mostrar4 = (e) => {
@@ -255,9 +268,10 @@ export const AddUsuarioAcudiente = () => {
   }
   const ocultar4 = (e) => {
     e.preventDefault();
-    //document.getElementById('scout5-value').value= ""
+    document.getElementById('scouts5-value').value = ""
     document.getElementById('scout5').style.display = "none"
 
+    
 
 
   }

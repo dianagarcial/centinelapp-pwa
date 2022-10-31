@@ -53,7 +53,9 @@ export const AdminScouts = () => {
                 <h3>Hola {user?.nombre}, usando esta tabla podras administrar los scouts creados en el sistema</h3>
                 <div className="filtro-rama">
                     <SelectRama idcls="idclass" id='rama' placeholder="Selecciona una opción" />
+                    <div className="Lupa">
                     <Button id='busq-filtro' type="submit" variant="contained" color="primary" onClick={buscar}><img id="lupa" src="https://i.ibb.co/Q8WyQVv/busqueda-de-lupa.png" alt="busqueda-de-lupa" /></Button>
+                    </div>
                 </div>
 
                 <div className="cab-tabla-scout">

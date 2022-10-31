@@ -44,7 +44,7 @@ export const AddRama = () => {
         return;
 
       } else {
-        if (edadMax > edadMin) {
+        if (edadMin > edadMax) {
           swal({
             title: "La edad maxima debe ser mayor que la edad minima",
             icon: "warning"
