@@ -14,7 +14,8 @@ import {
     ActAcudiente,
     CamContrasenaAcudiente,
     HomeAcudiente,
-    PerfilAcudiente,PublicacionGeneralAcudiente, EventoGeneralAcudiente
+    PerfilAcudiente,PublicacionGeneralAcudiente, EventoGeneralAcudiente,
+    EventoRamaGeneralAcuView, VerPublicacionAcuView, VerEventoAcuView
 } from "../components/views/acudiente"
 
 import {
@@ -185,10 +186,11 @@ export const AppRouter = () => {
                     
                     <Route path="/pub-rama/:_id" element={<PublicacionRamaView />} />
 
-                    <Route path="/verPublicacion/:_id" element={<VerPublicacionView />} />
+                    <Route path="/verPublicacion/:_id" element={<VerPublicacionAcuView />} />
                     <Route path="/eventos" element={<EventoGeneralAcudiente />} />
                     <Route path="/evento-rama/:_id" element={<EventoRamaView />} />
-                    <Route path="/verEvento/:_id" element={<VerEventoView />} />
+                    <Route path="/verEvento/:_id" element={<VerEventoAcuView />} />
+                    <Route path="/evento-General" element={<EventoRamaGeneralAcuView />} />
                     <Route path="/act-perfil" element={<ActAcudiente />} />
                 </Routes>
             )

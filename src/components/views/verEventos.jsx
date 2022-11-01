@@ -13,6 +13,7 @@ import { useSelector } from "react-redux"
 import { BotonFlotanteEdit } from "../btn-flotante-edit"
 import { useEventoStore } from "../../Hooks/useEventoStore"
 import { Calendar } from "../calendar"
+import { ObjEvento } from "./obj-evento"
 
 export const VerEvento = () => {
 
@@ -136,7 +137,7 @@ export const VerEvento = () => {
                                         
                                         
                                             return (
-                                                <h3 id='insc'>{`${ev?.nombre} ${ev?.apellido}`}</h3> 
+                                                <ObjEvento evento={ev}/> 
                                             )
 
                                         

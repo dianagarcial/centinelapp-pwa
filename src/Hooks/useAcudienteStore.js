@@ -62,6 +62,7 @@ export const useAcudienteStore = () => {
           
        
          dispatch( onListAcudienteRama( data.branchObj) )
+         dispatch( onListAcudienteScout(data.scoutsBranchId))
     
         } catch (error) {
           console.log(error);

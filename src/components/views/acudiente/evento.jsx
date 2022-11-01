@@ -6,11 +6,11 @@ import "../../../styles/styles.css"
 import "../../../styles/login.css"
 import { Header } from "../../header"
 import { SelectCreacion } from "../../selectCreacion"
-import { useAcudienteStore, useAdminStore } from "../../../Hooks"
+import { useAcudienteStore } from "../../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
 
-import { BotonFlotante } from "../../btn-flotante"
+
 import { useNavigate } from 'react-router-dom';
 
 
@@ -21,10 +21,7 @@ export const EventoGeneralAcudiente = () => {
     
     const navigate = useNavigate();
 
-    function redireccion(e) {
-        e.preventDefault();
-        navigate(`/add-evento`)
-    }
+
     const publi = (idrama) => (e) => {
         e.preventDefault();
         navigate(`/evento-rama/${ idrama }`)

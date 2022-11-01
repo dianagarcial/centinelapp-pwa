@@ -253,7 +253,11 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     try {
       
       await CentinelApi.put(`evento/addScout/${params._id}/${id}`);
- 
+      swal({
+          
+        title: "Se ha inscrito con exito",
+        icon: "success",
+      });  
       navigate(`/eventos`)
     } catch (error) {
       console.log(error)
