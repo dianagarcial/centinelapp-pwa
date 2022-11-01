@@ -21,9 +21,11 @@ export const VerEvento = () => {
     const navigate = useNavigate();
 
 
-    const { startListEventoGeneral, startListEventoBusca, startDeleteEvento, startListInscritosEvento } = useEventoStore();
+    const { startListEventoGeneral, startListEventoBusca, startDeleteEvento, startListInscritosEvento, startListNroInscritosEvento } = useEventoStore();
     const { eventos } = useSelector(state => state.evento)
     const { eventoInscritos } = useSelector(state => state.evento)
+    const { eventoNroInscritos } = useSelector(state => state.evento)
+    
     if (eventoInscritos?.length === 0) {
         //console.log('No hay inscritos')
     //document.getElementById('insc').innerHTML='No hay'
@@ -47,8 +49,7 @@ export const VerEvento = () => {
     var fin = (eventoActual?.fechaYHoraFinal)?.toString() || '';
     var mesfin = fin.substring(5, 7)
     var diafin = fin.substring(8, 10)
-
-
+   
 
 
     const rediEvento = (id) => (e) => {
@@ -87,6 +88,8 @@ export const VerEvento = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListInscritosEvento();
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        startListNroInscritosEvento();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
@@ -119,10 +122,11 @@ export const VerEvento = () => {
 
                             <div className="cab-tabla-scout">
                                 <h3 className="cabtabla">Nombre</h3>
-                                <h4 className="cabtabla">Ver Autorizacion</h4>
+                                
 
                             </div>
                             <div id="tabla-scouts" className="tabla-scout">
+                                <h3 id='nohay-insc'>No exiten actualmente scouts inscritos</h3>
                                 {
 
 
@@ -141,9 +145,14 @@ export const VerEvento = () => {
                                     })
 
                                 }
+                                
 
 
                             </div>
+
+                            <div className="total-inscrip">
+                                <h3>Total de inscritos: {eventoNroInscritos}</h3>
+                                </div>
                         </div>
 
 

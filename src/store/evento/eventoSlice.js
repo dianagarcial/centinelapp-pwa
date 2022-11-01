@@ -6,6 +6,7 @@ export const eventoSlice = createSlice({
          eventos: [],
          eventoSelect:[],
          eventoInscritos:[],
+         eventoNroInscritos:'',
          errorMessage: null,
       },
       reducers:{
@@ -18,8 +19,12 @@ export const eventoSlice = createSlice({
            onListInscritosEvento:(state, {payload=[]})=>{
             state.eventoInscritos=payload;
            },
+           onListNroInscritosEvento:(state, {payload=[]})=>{
+            state.eventoNroInscritos=payload;
+           },
+
            
        }
 })
 
-export const { onListEventos, onListEventoSelect, onListInscritosEvento } = eventoSlice.actions
+export const { onListEventos, onListEventoSelect, onListInscritosEvento, onListNroInscritosEvento } = eventoSlice.actions

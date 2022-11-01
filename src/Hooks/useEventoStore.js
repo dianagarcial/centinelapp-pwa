@@ -1,6 +1,6 @@
 import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
-import { onListEventos, onListEventoSelect, onListInscritosEvento } from "../store";
+import { onListEventos, onListEventoSelect, onListInscritosEvento, onListNroInscritosEvento } from "../store";
 import { useDispatch } from "react-redux"
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -189,8 +189,28 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     try {
       
       const { data } = await CentinelApi.get(`evento/getScoutsAsignadosEvento/${params._id}`);
-     
+      document.getElementById('nohay-insc').style.display='none'
       dispatch( onListInscritosEvento( data.evento_.inscritos) )
+
+
+    } catch (error) {
+      if(error.response.status === 404){
+        document.getElementById('nohay-insc').style.display='block'
+
+      }
+      
+      
+    }
+
+  }
+
+  const startListNroInscritosEvento= async() => {
+
+    try {
+      
+      const { data } = await CentinelApi.get(`evento/countInscritos/${params._id}`);
+     
+      dispatch( onListNroInscritosEvento( data.Inscritos) )
 
     } catch (error) {
       console.log(error)
@@ -198,6 +218,7 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     }
 
   }
+  
 
   const startUpdateEvento= async({titulo, descripcion, linkImagen, fechaYHoraInicio, fechaYHoraFinal, idRama}) => {
 
@@ -239,5 +260,5 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     }
 
   }
-  return { startCrearEvento,startCrearEventoGeneral,startListLastEvento,startListLastEventoRama, startListEventoGeneral, startListEvento, startListEventoBusca, startUpdateEvento, startDeleteEvento, startInscribirEvento, startListInscritosEvento, startListEventoEsGeneral}
+  return { startCrearEvento,startCrearEventoGeneral,startListLastEvento,startListLastEventoRama, startListEventoGeneral, startListEvento, startListEventoBusca, startUpdateEvento, startDeleteEvento, startInscribirEvento, startListNroInscritosEvento, startListInscritosEvento, startListEventoEsGeneral}
 }

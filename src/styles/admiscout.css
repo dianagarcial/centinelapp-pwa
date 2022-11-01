@@ -87,3 +87,17 @@ div#idclass {
 img#lupa{
     width: 80%;
 }
+.total-inscrip {
+    /* background: bisque; */
+    display: flex;
+    align-items: center;
+    background: #C1121F;
+    border-radius: 10px;
+    align-content: center;
+    margin: 3%;
+    padding: 3%;
+}
+.total-inscrip h3{
+    margin: auto;
+    color: #FAFAFA;
+}

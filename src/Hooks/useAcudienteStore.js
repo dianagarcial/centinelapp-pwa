@@ -1,6 +1,6 @@
 import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
-import { onListAcudiente, onListAcudienteScout, onUploadFileAcudiente } from "../store";
+import { onListAcudiente, onListAcudienteRama, onListAcudienteScout, onUploadFileAcudiente } from "../store";
 import { useDispatch } from "react-redux"
 import {  useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -48,6 +48,20 @@ export const useAcudienteStore = () => {
           const { data } = await CentinelApi.get('acudientes/allAcudientes');
          
           dispatch( onListAcudiente( data.acudientes_) )
+    
+        } catch (error) {
+          console.log(error);
+        }
+    
+      }
+      const startListRamasAcudiente= async(id) => {
+
+        try {
+          
+          const { data } = await CentinelApi.get(`acudientes/getScoutsBranch/${id}`);
+          
+       
+         dispatch( onListAcudienteRama( data.branchObj) )
     
         } catch (error) {
           console.log(error);
@@ -157,5 +171,5 @@ export const useAcudienteStore = () => {
         
       }
 
-    return { startListAcudientes, startCrearAcudiente,startListScoutsAcudienteUser, startListScoutsAcudiente,startDeleteAcudiente,startUpdateAcudiente, startUpdatePassword, startUploadingFiles}
+    return { startListAcudientes, startCrearAcudiente,startListScoutsAcudienteUser, startListScoutsAcudiente,startListRamasAcudiente,startDeleteAcudiente,startUpdateAcudiente, startUpdatePassword, startUploadingFiles}
 }

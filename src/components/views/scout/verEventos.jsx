@@ -1,5 +1,5 @@
 import { Navbar } from "../../navbar"
-import Button from '@mui/material/Button'
+//import Button from '@mui/material/Button'
 import "../../../styles/boton.css"
 import "../../../styles/styles.css"
 import "../../../styles/login.css"
@@ -21,8 +21,8 @@ export const VerEventoView = () => {
     
     
 
-    const {startListEventoGeneral, startListEventoBusca, startInscribirEvento}=useEventoStore();
-    const {user} = useSelector(state=>state.auth);
+    const {startListEventoGeneral, startListEventoBusca}=useEventoStore();
+    // const {user} = useSelector(state=>state.auth);
     const { eventos } = useSelector(state => state.evento)
     const eventoActual = eventos.find(evento => evento._id === params._id);
 
@@ -44,10 +44,10 @@ export const VerEventoView = () => {
        var mesfin= fin.substring(5,7)
        var diafin= fin.substring(8, 10)
 
-       function inscripcion(e) {
-        e.preventDefault();
-        startInscribirEvento(user?.uid);
-       }
+    //    function inscripcion(e) {
+    //     e.preventDefault();
+    //     startInscribirEvento(user?.uid);
+    //    }
     
     
 
@@ -86,7 +86,7 @@ export const VerEventoView = () => {
                     </div>
                     <br/>
                     
-                    <Button variant="contained" color="primary" onClick={inscripcion} >Inscribirse</Button>
+                    {/* <Button variant="contained" color="primary" onClick={inscripcion} >Inscribirse</Button> */}
                     
 
                 </div>
