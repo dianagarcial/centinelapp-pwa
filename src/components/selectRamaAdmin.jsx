@@ -11,7 +11,7 @@ export function SelectRamaAdmin(props) {
                 {
                     ramasAdmin.map(rama => {
                         return (
-                            <option value={rama._id}>{rama.nombre}</option>
+                            <option value={rama._id} key={rama._id}>{rama.nombre}</option>
                         )
                     })
                 }

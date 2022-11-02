@@ -110,7 +110,7 @@ export const ActEvento = () => {
                               
                                 }
                                   return (
-                                      <option value={rama._id} selected={ramaes}>{rama.nombre} </option>
+                                      <option value={rama._id} key={rama._id} selected={ramaes}>{rama.nombre} </option>
                                   )
                               })
                           }

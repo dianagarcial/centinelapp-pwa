@@ -138,7 +138,7 @@ export const VerEvento = () => {
                                         
                                         
                                             return (
-                                                <ObjEvento evento={ev}/> 
+                                                <ObjEvento key={ev._id} evento={ev}/> 
                                             )
 
                                         

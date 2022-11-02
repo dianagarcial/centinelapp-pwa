@@ -50,7 +50,7 @@ export const EventoGeneralAcudiente = () => {
                     <SelectCreacion nombre="General" desc="Publicaciones para todos" onClick={general}/>
                     {acudienteRamas.map(rama =>{
                         return(
-                            <SelectCreacion nombre={rama.nombre} desc={rama.edadMin + "-" + rama.edadMax + " años"} onClick={publi(rama._id)}/>
+                            <SelectCreacion key={rama._id} nombre={rama.nombre} desc={rama.edadMin + "-" + rama.edadMax + " años"} onClick={publi(rama._id)}/>
                         )
                     })
 

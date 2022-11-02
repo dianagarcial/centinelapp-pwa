@@ -189,13 +189,20 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     try {
       
       const { data } = await CentinelApi.get(`evento/getScoutsAsignadosEvento/${params._id}`);
+      if(data.evento_.inscritos.length === 0){
+        document.getElementById('nohay-insc').style.display='block'
+        dispatch( onListInscritosEvento(data.evento_.inscritos) )
+
+      }else{
       document.getElementById('nohay-insc').style.display='none'
       dispatch( onListInscritosEvento( data.evento_.inscritos) )
+      }
 
 
     } catch (error) {
       if(error.response.status === 404){
-        document.getElementById('nohay-insc').style.display='block'
+        console.log('nojj')
+
 
       }
       

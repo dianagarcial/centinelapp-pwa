@@ -149,7 +149,7 @@ export const AddUsuario = () => {
                 ramas.map(rama => {
                   return (
 
-                    <label className="la-rama"><input className="rama" type='checkbox' id={rama._id} value={rama._id} /><h3>{rama.nombre}</h3></label>
+                    <label className="la-rama" key={rama._id}><input className="rama" type='checkbox' key={rama._id} id={rama._id} value={rama._id} /><h3>{rama.nombre}</h3></label>
                     //<FormControlLabel value={rama._id} control={<Checkbox />} label={rama.nombre} />
 
                   )

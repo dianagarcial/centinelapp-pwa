@@ -79,7 +79,7 @@ export const VerEventoAcuView = () => {
                     <h2>{eventoActual?.descripcion}</h2>
                     <div className='sub-conte-gen'>
                         <div className='sub-conte-1'>
-                            <img classname="imgbtn" src='../images/publicacion/persona.svg' alt='home' />
+                            <img className="imgbtn" src='../images/publicacion/persona.svg' alt='home' />
 
                             <h3>{`${eventoActual?.autor?.nombre} ${eventoActual?.autor?.apellido} `}</h3>
 
@@ -101,7 +101,7 @@ export const VerEventoAcuView = () => {
 
                             acudienteScout.map((acud) => (
 
-                                <ObjAcudienteInsc acudientes={acud} />
+                                <ObjAcudienteInsc acudientes={acud} key={acud?.Scout?._id}/>
 
 
 

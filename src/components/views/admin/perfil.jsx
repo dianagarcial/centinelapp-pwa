@@ -76,7 +76,7 @@ export const PerfilAdmin = () => {
                                 <ul>
                                     {ramasAdmin.map(ramaA => {
                                         return (
-                                            <li>{ramaA.nombre}</li>
+                                            <li key={ramaA._id}>{ramaA.nombre}</li>
                                         )
                                     })
 

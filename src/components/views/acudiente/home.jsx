@@ -61,7 +61,7 @@ export const HomeAcudiente= ()=>{
                             fechaes=fechaes.split('T')[0]
 
                         return (
-                            <Publicacion key={publi?.id} 
+                            <Publicacion key={publi?._id} 
                                 titulo={publi?.titulo}
                                 conte={publi?.descripcion}
                                 persona={`${publi?.autor?.nombre} ${publi?.autor?.apellido} `}

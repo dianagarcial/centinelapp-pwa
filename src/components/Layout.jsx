@@ -45,7 +45,7 @@ export default function Layout(props) {
   return (
     <div className="App">
       <div className="inicio">
-        <img classname="imgbtn" src='./images/inicio/logo.svg'  alt='home' />
+        <img className="imgbtn-lay" src='./images/inicio/logo.svg'  alt='home' />
         <h1 className="ini-h1"> CENTINELAPP</h1>
         {isReadyForInstall && (
           <Button type="submit" onClick={downloadApp} variant="contained" color="primary">Descargar</Button>

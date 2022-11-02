@@ -183,7 +183,7 @@ export const AppRouter = () => {
                     <Route path="/*" element={<Navigate to="/" />} />
                     <Route path="/updatepassword" element={<CamContrasenaAcudiente />} />
                     <Route path="/publicaciones" element={<PublicacionGeneralAcudiente />} />
-                    
+                    <Route path="/pub-General" element={<PublicacionRamaGeneralView />} />
                     <Route path="/pub-rama/:_id" element={<PublicacionRamaView />} />
 
                     <Route path="/verPublicacion/:_id" element={<VerPublicacionAcuView />} />

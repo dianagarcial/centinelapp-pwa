@@ -45,12 +45,12 @@ export const VerPublicacionView = () => {
                     <h2>{publicacionActual?.descripcion}</h2>
                     <div className='sub-conte-gen'>
                         <div className='sub-conte-1'>
-                            <img classname="imgbtn" src='../images/publicacion/persona.svg' alt='home' />
+                            <img className="imgbtn" src='../images/publicacion/persona.svg' alt='home' />
 
                             <h3>{`${publicacionActual?.autor?.nombre} ${publicacionActual?.autor?.apellido} `}</h3>
                         </div>
                         <div className='sub-conte-2'>
-                            <img classname="imgbtn" src='../images/publicacion/calendar.svg'  alt='home' />
+                            <img className="imgbtn" src='../images/publicacion/calendar.svg'  alt='home' />
                             <h3>{formFecha}</h3>
                         </div>
                     </div>

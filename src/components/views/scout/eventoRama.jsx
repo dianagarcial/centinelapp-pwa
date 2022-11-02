@@ -84,7 +84,7 @@ export const EventoRamaView = () => {
                         return(
                             <Eventos nombre={evento?.titulo} 
                             dia={dia}
-                            
+                            key={evento?._id}
                             mes= {convertir(mes)}
                             onClick={rediEventos(evento?._id)}
                              />
