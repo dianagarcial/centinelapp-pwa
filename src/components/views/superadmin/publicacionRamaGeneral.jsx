@@ -60,6 +60,7 @@ export const PublicacionRamaGeneral = () => {
             <div className="conte-general-rela">
                 <Header />
                 <div className="conte-imp" id="conte-sel">
+                <div className="conte-marg-form">
                     <h1>Rama:General</h1>
                     <h3>Aqui estan los mensajes de todas las ramas</h3>
                     
@@ -96,6 +97,7 @@ export const PublicacionRamaGeneral = () => {
 
                     
                 </div>
+            </div>
             </div>
             <Navbar />
         </div>

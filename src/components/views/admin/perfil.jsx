@@ -20,7 +20,7 @@ export const PerfilAdmin = () => {
 
     const adminActual = admins.find(admin => admin._id === user.uid);
 
-   
+
 
     const { startListAdmin, startAdminRama } = useAdminStore();
 
@@ -50,38 +50,46 @@ export const PerfilAdmin = () => {
             <div className="conte-general">
                 <Header />
                 <div className="conte-imp">
-                    <h1>Hola, {adminActual?.nombre}</h1>
-                    <h2>Aqui estan tus datos personales</h2>
-                    {/* AQUI VA LA FOTO DEL USUARIO */}
-                    <img src={adminActual?.link_imagen} className='foto' alt="foto" />
+                    <div className="conte-marg-form">
+                        <h1>Hola, {adminActual?.nombre}</h1>
+                        <h2>Aqui estan tus datos personales</h2>
 
-                    <h3>Nombre</h3>
-                    <h5>{adminActual?.nombre}</h5>
+                        <img src={adminActual?.link_imagen} className='foto' alt="foto" />
+                        <div className="form-div">
+                            <h3>Nombre</h3>
+                            <h5>{adminActual?.nombre}</h5>
+                        </div>
 
-                    <h3>Apellido</h3>
-                    <h5>{adminActual?.apellido}</h5>
+                        <div className="form-div">
+                            <h3>Apellido</h3>
+                            <h5>{adminActual?.apellido}</h5>
+                        </div>
 
-                    <h3>Email</h3>
-                    <h5>{adminActual?.email}</h5>
+                        <div className="form-div">
+                            <h3>Email</h3>
+                            <h5>{adminActual?.email}</h5>
+                        </div>
 
+                        <div className="form-div">
+                            <div className="conte-ramas">
+                                <h3>Ramas administradas</h3>
+                                <ul>
+                                    {ramasAdmin.map(ramaA => {
+                                        return (
+                                            <li>{ramaA.nombre}</li>
+                                        )
+                                    })
 
-                    <div className="conte-ramas">
-                        <h3>Ramas administradas</h3>
-                        <ul>
-                            {ramasAdmin.map(ramaA => {
-                                return (
-                                    <li>{ramaA.nombre}</li>
-                                )
-                            })
+                                    }
+                                </ul>
+                            </div>
+                        </div>
 
-                            }
-                        </ul>
+                        <Button variant="contained" color="primary" onClick={contrasena}>Cambiar contraseña</Button>
+                        <Button variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>
+                        <Button variant="outlined" color="primary" onClick={startLogout}>Cerrar sesión</Button>
+
                     </div>
-
-                    <Button variant="contained" color="primary" onClick={contrasena}>Cambiar contraseña</Button>
-                    <Button variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>
-                    <Button variant="outlined" color="primary" onClick={startLogout}>Cerrar sesión</Button>
-
                 </div>
             </div>
             <Navbar />

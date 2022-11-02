@@ -6,7 +6,7 @@ import "../../../styles/styles.css"
 import "../../../styles/login.css"
 import { Header } from "../../header"
 import { SelectCreacion } from "../../selectCreacion"
-import { useAcudienteStore, useAdminStore } from "../../../Hooks"
+import { useAcudienteStore } from "../../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
 
@@ -44,6 +44,7 @@ export const PublicacionGeneralAcudiente = () => {
             <div className="conte-general-rela">
                 <Header />
                 <div className="conte-imp">
+                <div className="conte-marg-form">
                     <h1>Publicaciones</h1>
                     <h3>Selecciona una rama para ver sus mensajes, en icono + púedes crear una nueva publicacion</h3>
                     <SelectCreacion nombre="General" desc="Publicaciones para todos" onClick={publigeneral}/>
@@ -60,6 +61,7 @@ export const PublicacionGeneralAcudiente = () => {
                 
 
                     
+                </div>
                 </div>
             </div>
             <Navbar />

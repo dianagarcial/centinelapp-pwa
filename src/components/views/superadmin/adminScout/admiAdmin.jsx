@@ -31,13 +31,10 @@ export const AdminAdmins = () => {
             <div className="conte-general-home">
                 <Navbar />
                 <Header />
+                <div className="conte-marg-form">
                 <h1>Gestionar Administradores</h1>
                 <h3>Hola {user?.nombre}, usando esta tabla podras administrar los scouts creados en el sistema</h3>
-                {/* <div className="filtro-rama">
-                    <SelectRama idcls="idclass" id='rama' placeholder="Selecciona una opción" />
-                    <Button id='busq-filtro' type="submit" variant="contained" color="primary" onClick={buscar}><img id="lupa" src="https://i.ibb.co/Q8WyQVv/busqueda-de-lupa.png" alt="busqueda-de-lupa" /></Button>
-                </div> */}
-
+                
                 <div className="cab-tabla-scout">
                     <h3 className="cabtabla">Nombre</h3>
                     <h4 className="cabtabla">Ver mas</h4>
@@ -61,6 +58,7 @@ export const AdminAdmins = () => {
 
 
             </div>
+        </div>
         </div>
     )
 }

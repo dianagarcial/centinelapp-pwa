@@ -50,6 +50,7 @@ export const HomeAcudiente= ()=>{
          <div className="conte-general-home">
             <Navbar/>
             <Header/>
+            <div className="conte-marg-form">
             <h1>Inicio</h1>
             <h3>Hola {user?.nombre}, en este menu podras ver lo ultimo en tu feed</h3>
             <h1>Últimas publicaciones</h1>
@@ -95,6 +96,7 @@ export const HomeAcudiente= ()=>{
 
                 }
             
+            </div>
             </div>
             </div>
         )

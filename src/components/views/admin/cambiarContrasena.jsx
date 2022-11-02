@@ -86,27 +86,32 @@ export const CamContrasenaAdmin = () => {
       <div className="conte-general">
         <Header />
         <div className="conte-imp">
-          <h1>Cambiar contraseña*</h1>
-          <h2>Aquí puedes cambiar la contraseña, la contraseña original se encuentra en tu correo "{user?.email}", tiene que contener mayúsculas, minúsculas, símbolo y mínimo 8 caracteres de longitud </h2>
-          <br />
-          <form onSubmit={onSubmit}>
-            <h3>Contraseña actual*</h3>
-            <InputPassword name='currentPassword' value={currentPassword} placeholder="Contraseña actual" type="text" onChange={onInputChange} />
+          <div className="conte-marg-form">
+            <h1>Cambiar contraseña*</h1>
+            <h2>Aquí puedes cambiar la contraseña, la contraseña original se encuentra en tu correo "{user?.email}", tiene que contener mayúsculas, minúsculas, símbolo y mínimo 8 caracteres de longitud </h2>
             <br />
+            <form onSubmit={onSubmit}>
+              <div className="form-div">
+                <h3>Contraseña actual*</h3>
+                <InputPassword name='currentPassword' value={currentPassword} placeholder="Contraseña actual" type="text" onChange={onInputChange} />
+              </div>
+              <div className="form-div">
 
-            <h3>Nueva contraseña*</h3>
-            <InputPassword name='newPassword' value={newPassword} placeholder="Contraseña nueva " type="text" onChange={onInputChange} />
+                <h3>Nueva contraseña*</h3>
+                <InputPassword name='newPassword' value={newPassword} placeholder="Contraseña nueva " type="text" onChange={onInputChange} />
 
 
-            <br />
-            <h3>Confirmar nueva contraseña*</h3>
-            <InputPassword name='newPasswordC' value={newPasswordC} placeholder="Confirmacion de Contraseña nueva" type="text" onChange={onInputChange} />
+              </div>
+              <div className="form-div">
+                <h3>Confirmar nueva contraseña*</h3>
+                <InputPassword name='newPasswordC' value={newPasswordC} placeholder="Confirmacion de Contraseña nueva" type="text" onChange={onInputChange} />
 
-            <br />
-            <Button type="submit" variant="contained" color="primary">Cambiar contraseña</Button>
+              </div>
+              <Button type="submit" variant="contained" color="primary">Cambiar contraseña</Button>
 
-            <Button variant="outlined" color="primary" onClick={RegreNoG}>Cancelar</Button>
-          </form>
+              <Button variant="outlined" color="primary" onClick={RegreNoG}>Cancelar</Button>
+            </form>
+          </div>
         </div>
       </div>
       <Navbar />

@@ -49,6 +49,7 @@ export const AdminScouts = () => {
             <div className="conte-general-home">
                 <Navbar />
                 <Header />
+                <div className="conte-marg-form">
                 <h1>Gestionar scouts</h1>
                 <h3>Hola {user?.nombre}, usando esta tabla podras administrar los scouts creados en el sistema</h3>
                 <div className="filtro-rama">
@@ -82,6 +83,7 @@ export const AdminScouts = () => {
 
 
             </div>
+        </div>
         </div>
     )
 }

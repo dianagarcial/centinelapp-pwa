@@ -92,25 +92,33 @@ export const ActScout = () => {
             <div className="conte-general">
                 <Header />
                 <div className="conte-imp">
+                <div className="conte-marg-form">
                     <h1>Actualizar datos</h1>
                     <h2>Actualiza tus datos personales</h2>
                     <form onSubmit={onSubmit}>
+                    <div className="form-div">
                     <h3>Nombre</h3>
                     <Input name='nombre' value={nombre} type="text" onChange={onInputChange}  />
+                    </div>
 
-
+                    <div className="form-div">
                     <h3>Apellido</h3>
                     <Input name='apellido' value={apellido} type="text" onChange={onInputChange}  />
+                    </div>
 
+                    <div className="form-div">
                     <h3>Email</h3>
                     <InputD name='email' value={email} type="email" onChange={onInputChange} disabled />
+                    </div>
 
+                    <div className="form-div">
                     <h3>Fecha de nacimiento</h3>
                     <Input name='fecha_nacimiento' value={fecha_nacimiento} type="date" onChange={onInputChange}  />
-
+                    </div>
+                    <div className="form-div">
                     <h3>Numero de celular</h3>
                     <Input name='celular' value={celular} type="text" onChange={onInputChange}  />
-
+                    </div>
                     
 
                     <Button type="submit" variant="contained" color="primary">Guardar</Button>
@@ -119,6 +127,7 @@ export const ActScout = () => {
                     </form>
                 </div>
                 
+            </div>
             </div>
             <Navbar />
         </div>

@@ -44,6 +44,7 @@ export const EventoGeneralAcudiente = () => {
             <div className="conte-general-rela">
                 <Header />
                 <div className="conte-imp">
+                <div className="conte-marg-form">
                 <h1>Eventos</h1>
                     <h3>Selecciona una rama para ver sus eventos, en icono + púedes crear un nuevo evento</h3>
                     <SelectCreacion nombre="General" desc="Publicaciones para todos" onClick={general}/>
@@ -60,6 +61,7 @@ export const EventoGeneralAcudiente = () => {
 
                     
                 </div>
+            </div>
             </div>
             <Navbar />
         </div>

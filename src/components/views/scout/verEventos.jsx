@@ -70,6 +70,7 @@ export const VerEventoView = () => {
             <div className="conte-general">
                 <Header />
                 <div className="conte-publisel">
+             
                     <h1>{eventoActual?.titulo}</h1>
                     <h2>{eventoActual?.descripcion}</h2>
                     <div className='sub-conte-gen'>
@@ -92,6 +93,7 @@ export const VerEventoView = () => {
                 </div>
                 
             </div>
+           
             <Navbar />
         </div>
 

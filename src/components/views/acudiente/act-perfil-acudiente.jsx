@@ -93,34 +93,34 @@ export const ActAcudiente = () => {
       <div className="conte-general">
         <Header />
         <div className="conte-imp">
+        <div className="conte-marg-form">
           <h1>Actualizar datos</h1>
           <h2>Aqui estan tus datos personales</h2>
           <form onSubmit={onSubmit}>
+          <div className="form-div">
             <h3>Nombre</h3>
             <Input name='nombre' value={nombre} type="text" onChange={onInputChange} />
+          </div>
 
-
+          <div className="form-div">
             <h3>Apellido</h3>
             <Input name='apellido' value={apellido} type="text" onChange={onInputChange} />
-
+          </div>
+          <div className="form-div">
             <h3>Email</h3>
             <Input name='email' value={email} type="email" onChange={onInputChange} disabled/>
+          </div>
 
+          <div className="form-div">
             <h3>Fecha de nacimiento</h3>
             <Input name='fecha_nacimiento' value={fecha_nacimiento} type="date" onChange={onInputChange} />
+          </div>
 
+          <div className="form-div">
             <h3>Numero de celular</h3>
             <Input name='celular' value={celular} type="text" onChange={onInputChange} />
-
-            {/* <h3>Asignar scouts*</h3>
-            <div className="asigScout">
-              <SelectScout id='scouts1' placeholder="Selecciona una opción" />
-              <Button id='mas-scout' variant="contained" color="primary" onClick={mostrar1}><AddIcon /></Button>
-            </div>
-            <div className="asigScout" id="scout2">
-              <SelectScout id='scouts2' placeholder="Selecciona una opción" />
-              <Button id='mas-scout' variant="contained" color="primary" onClick={mostrar1}><AddIcon /></Button>
-            </div> */}
+          </div>
+            
 
             <Button type="submit" variant="contained" color="primary">Guardar</Button>
 
@@ -128,6 +128,7 @@ export const ActAcudiente = () => {
           </form>
         </div>
 
+      </div>
       </div>
       <Navbar />
     </div>

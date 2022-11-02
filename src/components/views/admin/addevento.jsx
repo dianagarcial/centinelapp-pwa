@@ -21,9 +21,9 @@ const Evento = {
   descripcion: '',
   fechaYHoraInicio: '',
   fechaYHoraFinal: '',
- 
 
-    
+
+
 }
 export const AddEventoAdmin = () => {
 
@@ -33,7 +33,7 @@ export const AddEventoAdmin = () => {
   let hoy = (fecha.toISOString()).toString().split('T')[0]
 
   const { startCrearEvento, startCrearEventoGeneral } = useEventoStore();
-  const {startAdminRama}=useAdminStore();
+  const { startAdminRama } = useAdminStore();
   const navigate = useNavigate();
   let isGeneral = false
 
@@ -63,15 +63,14 @@ export const AddEventoAdmin = () => {
     let autorNom = user?.nombre
     let autorId = user?.uid
     let autorApe = user?.apellido
-    
-    let idRama=null
 
-    
-    if(isGeneral=== false)
-    {
-      
+    let idRama = null
+
+
+    if (isGeneral === false) {
+
     }
-    
+
 
 
 
@@ -96,22 +95,20 @@ export const AddEventoAdmin = () => {
         return;
 
       } else {
-        const general= document.getElementById("general");
-    
-    if (general.checked === false) 
- 
-    {
-      idRama = document.getElementById("rama").value
-      startCrearEvento({ titulo, descripcion, linkImagen, autorNom, autorApe, autorId, fechaYHoraInicio, fechaYHoraFinal, idRama, isGeneral })
-    }else{
-      isGeneral=true
-      startCrearEventoGeneral({ titulo, descripcion, linkImagen, autorNom, autorApe, autorId, fechaYHoraInicio, fechaYHoraFinal, isGeneral })
+        const general = document.getElementById("general");
+
+        if (general.checked === false) {
+          idRama = document.getElementById("rama").value
+          startCrearEvento({ titulo, descripcion, linkImagen, autorNom, autorApe, autorId, fechaYHoraInicio, fechaYHoraFinal, idRama, isGeneral })
+        } else {
+          isGeneral = true
+          startCrearEventoGeneral({ titulo, descripcion, linkImagen, autorNom, autorApe, autorId, fechaYHoraInicio, fechaYHoraFinal, isGeneral })
 
 
-    }
-      
+        }
 
-        
+
+
         navigate(`/home`)
       }
 
@@ -139,33 +136,45 @@ export const AddEventoAdmin = () => {
       <div className="conte-general">
         <Header />
         <div className="conte-imp">
-          <h1>Crear un evento</h1>
-          <h2>En este formulario puedes crear un nuevo evento</h2>
-          <form onSubmit={onSubmit}>
-            <div className="sel-general">
-              <input type='checkbox' id="general" onChange={handleChange} /><h4 className="nom-sel">Evento general</h4>
-            </div>
-            <div id='ramaform'>
-              <h3>Rama del evento*</h3>
-              <SelectRamaAdmin id='rama' placeholder="Selecciona una opción" />
-            </div>
-            <h3>Titulo*</h3>
-            <Input name='titulo' value={titulo} onChange={onInputChange} placeholder="Nuevo evento" type="text" />
-            <h3>Mensaje*</h3>
-            <TextArea name='descripcion' value={descripcion} onChange={onInputChange} placeholder="Descripción del evento" type="text" />
-            <h3>Fecha de inicio*</h3>
-            <Input name='fechaYHoraInicio' value={fechaYHoraInicio} onChange={onInputChange} placeholder="Selecciona una fecha" type="date" min={hoy} />
-            <h3>Fecha de fin*</h3>
-            <Input name='fechaYHoraFinal' value={fechaYHoraFinal} onChange={onInputChange} placeholder="Selecciona una fecha" type="date" min={hoy} />
-            <br />
+          <div className="conte-marg-form">
+            <h1>Crear un evento</h1>
+            <h2>En este formulario puedes crear un nuevo evento</h2>
+            <form onSubmit={onSubmit}>
+              <div className="form-div">
+                <div className="sel-general">
+                  <input type='checkbox' id="general" onChange={handleChange} /><h4 className="nom-sel">Evento general</h4>
+                </div>
+              </div>
+              <div className="form-div">
+                <div id='ramaform'>
+                  <h3>Rama del evento*</h3>
+                  <SelectRamaAdmin id='rama' placeholder="Selecciona una opción" />
+                </div>
+              </div>
+              <div className="form-div">
+                <h3>Titulo*</h3>
+                <Input name='titulo' value={titulo} onChange={onInputChange} placeholder="Nuevo evento" type="text" />
+              </div>
+              <div className="form-div">
+                <h3>Mensaje*</h3>
+                <TextArea name='descripcion' value={descripcion} onChange={onInputChange} placeholder="Descripción del evento" type="text" />
+              </div>
+              <div className="form-div">
+                <h3>Fecha de inicio*</h3>
+                <Input name='fechaYHoraInicio' value={fechaYHoraInicio} onChange={onInputChange} placeholder="Selecciona una fecha" type="date" min={hoy} />
+              </div>
+              <div className="form-div">
+                <h3>Fecha de fin*</h3>
+                <Input name='fechaYHoraFinal' value={fechaYHoraFinal} onChange={onInputChange} placeholder="Selecciona una fecha" type="date" min={hoy} />
+              </div>
 
-            <Button type="submit" variant="contained" color="primary">Crear</Button>
-            <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
-          </form>
+              <Button type="submit" variant="contained" color="primary">Crear</Button>
+              <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
+            </form>
+          </div>
         </div>
       </div>
       <Navbar />
     </div>
   )
 }
- 

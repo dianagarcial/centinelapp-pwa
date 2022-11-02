@@ -102,6 +102,7 @@ export const VerEvento = () => {
         <div className="contenido">
             <div className="conte-general">
                 <Header />
+              
                 <div className="conte-publisel">
                     <h1>{eventoActual?.titulo}</h1>
                     <h2>{eventoActual?.descripcion}</h2>
@@ -167,6 +168,7 @@ export const VerEvento = () => {
                 </div>
                 <BotonFlotanteEdit onClick={rediEvento(eventoActual?._id)} />
             </div>
+    
             <Navbar />
         </div>
 

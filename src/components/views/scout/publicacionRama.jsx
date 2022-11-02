@@ -52,6 +52,7 @@ export const PublicacionRamaView = () => {
             <div className="conte-general-rela">
                 <Header />
                 <div className="conte-imp" id="conte-sel">
+                <div className="conte-marg-form">
                     <h1>Rama:{ramaSel?.nombre}</h1>
                     <h3>Aqui estan los mensajes de la rama {ramaSel?.nombre}</h3>
                     
@@ -86,6 +87,7 @@ export const PublicacionRamaView = () => {
                     
                     
                     
+                </div>
                 </div>
             </div>
             <Navbar />

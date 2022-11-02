@@ -297,19 +297,31 @@ export const AddUsuarioAcudiente = () => {
       <div className="conte-general">
         <Header />
         <div className="conte-imp">
+        <div className="conte-marg-form">
           <h1>Añadir un nuevo acudiente</h1>
           <h2>En este formulario puedes crear un nuevo usuario</h2>
           <form onSubmit={onSubmit}>
+          <div className="form-div">
             <h3>Nombre*</h3>
             <Input name='nombre' value={nombre} onChange={onInputChange} placeholder="Nombre del acudiente" type="text" />
+            </div>
+            <div className="form-div">
             <h3>Apellido*</h3>
             <Input name='apellido' value={apellido} onChange={onInputChange} placeholder="Apellido del acudiente" type="text" />
+            </div>
+            <div className="form-div">
             <h3>Correo electrónico*</h3>
             <Input name='email' value={email} onChange={onInputChange} placeholder="Correo" type="email" />
+            </div>
+            <div className="form-div">
             <h3>Fecha de nacimiento*</h3>
             <Input name='fecha_nacimiento' value={fecha_nacimiento} onChange={onInputChange} placeholder="Fecha de nacimiento" type="date" max={hoy} />
+            </div>
+            <div className="form-div">
             <h3>Número celular*</h3>
             <Input name='celular' value={celular} onChange={onInputChange} placeholder="Número de celular" type="number" />
+            </div>
+            <div className="form-div">
             <h3>Foto*</h3>
             <input
               type="file"
@@ -331,7 +343,8 @@ export const AddUsuarioAcudiente = () => {
               <h2 className="sel2" id="yes" >Archivo cargado</h2>
               <h2 className="sel" id="img-sel">Seleccione una foto de perfil*</h2>
             </button>
-            <br />
+            </div>
+            <div className="form-div">
             <h3>Asignar scouts*</h3>
             <div className="asigScout">
               <SelectScout id='scouts1-value' placeholder="Selecciona una opción" />
@@ -378,7 +391,7 @@ export const AddUsuarioAcudiente = () => {
                 <button className="elim" onClick={ocultar4}><HighlightOff /></button>
               </div>
             </div>
-
+              </div>
 
 
             <br />
@@ -386,6 +399,7 @@ export const AddUsuarioAcudiente = () => {
             <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
           </form>
         </div>
+      </div>
       </div>
       <Navbar />
     </div>

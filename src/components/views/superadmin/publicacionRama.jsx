@@ -56,7 +56,9 @@ export const PublicacionRama = () => {
     return (
         <div className="contenido">
             <div className="conte-general-rela">
+
                 <Header />
+                <div className="conte-marg-form">
                 <div className="conte-imp" id="conte-sel">
                     <h1>Rama:{ramaSel?.nombre}</h1>
                     <h3>Aqui estan los mensajes de la rama {ramaSel?.nombre}</h3>
@@ -94,6 +96,7 @@ export const PublicacionRama = () => {
 
                     
                 </div>
+            </div>
             </div>
             <Navbar />
         </div>

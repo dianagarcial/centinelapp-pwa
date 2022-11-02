@@ -67,7 +67,7 @@ export const HomeSuperAd = () => {
             <div className="conte-general-home">
                 <Navbar />
                 <Header />
-                <div className="conte-publisel">
+                <div className="conte-marg">
                 <h1>Inicio</h1>
                 <h3>Hola {user?.nombre}, en este menú podras ver lo último en tu feed</h3>
                 <h1>Últimas publicaciones</h1>

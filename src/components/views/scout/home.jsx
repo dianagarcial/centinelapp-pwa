@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 export const HomeScout = () => {
     const navigate = useNavigate();
     const { user } = useSelector(state => state.auth);
-    const { ramaIdScout } = useSelector(state => state.rama);
+    //const { ramaIdScout } = useSelector(state => state.rama);
     
     const { publicaciones } = useSelector(state => state.publicacion);
     const { eventos } = useSelector(state => state.evento);
@@ -58,8 +58,7 @@ export const HomeScout = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListEventoGeneral();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        
-    }, [])
+        }, [])
     
     
 
@@ -68,6 +67,7 @@ export const HomeScout = () => {
             <div className="conte-general-home">
                 <Navbar />
                 <Header />
+                <div className="conte-marg-form">
                 <h1>Inicio</h1>
                 <h3>Hola {user?.nombre}, en este menú podras ver lo último en tu feed</h3>
                 <h1>Últimas publicaciones</h1>
@@ -115,6 +115,7 @@ export const HomeScout = () => {
                 }
 
 
+            </div>
             </div>
         </div>
     )

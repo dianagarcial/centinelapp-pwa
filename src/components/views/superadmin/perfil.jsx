@@ -44,25 +44,30 @@ export const PerfilSuperAdmin= ()=>{
         <div className="conte-general">
         <Header/>
         <div className="conte-imp">
+        <div className="conte-marg-form">
         <h1>Hola, {user?.nombre}</h1>
         <h2>Aqui estan tus datos personales</h2>
         
         
-        
+        <div className="form-div">
         <h3>Nombre</h3>
         <h5>{superAdminAct?.nombre}</h5>
+        </div>
 
+        <div className="form-div">
         <h3>Apellido</h3>
         <h5>{superAdminAct?.apellido}</h5>
-
+        </div>
+        <div className="form-div">
         <h3>Email</h3>
         <h5>{superAdminAct?.email}</h5>
-
+        </div>
         
         <Button variant="contained" color="primary" onClick={contrasena} >Cambiar contraseña</Button>
         {/* <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button> */}
         <Button variant="outlined" color="primary" onClick={startLogout}>Cerrar sesión</Button>
       
+        </div>
         </div>
         </div>
         <Navbar/>

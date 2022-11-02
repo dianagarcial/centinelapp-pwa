@@ -9,7 +9,7 @@ import { SelectCreacion } from "../../selectCreacion"
 import { useRamasStore, useScoutStore } from "../../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
-import swal from 'sweetalert';
+
 
 import { useNavigate } from 'react-router-dom';
 
@@ -55,6 +55,7 @@ export const PublicacionGeneralScout = () => {
             <div className="conte-general-rela">
                 <Header />
                 <div className="conte-imp">
+                <div className="conte-marg-form">
                     <h1>Publicaciones</h1>
                     <h3>Selecciona una rama para ver sus mensajes</h3>
                     <SelectCreacion nombre="General" desc="Publicaciones para todos" onClick={publigeneral}/>
@@ -68,6 +69,7 @@ export const PublicacionGeneralScout = () => {
 
                     
                 </div>
+            </div>
             </div>
             <Navbar />
         </div>

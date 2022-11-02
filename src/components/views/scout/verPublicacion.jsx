@@ -40,6 +40,7 @@ export const VerPublicacionView = () => {
             <div className="conte-general">
                 <Header />
                 <div className="conte-publisel">
+                
                     <h1>{publicacionActual?.titulo}</h1>
                     <h2>{publicacionActual?.descripcion}</h2>
                     <div className='sub-conte-gen'>

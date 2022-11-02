@@ -281,26 +281,32 @@ export const ActPerfilAcudiente = () => {
     <div className="contenido">
       <div className="conte-general">
         <Header />
+        <div className="conte-marg-form">
         <div className="conte-imp">
           <h1>Actualizar datos</h1>
           <h2>Actualiza los datos personales del acudiente</h2>
           <form onSubmit={onSubmit}>
+          <div className="form-div">
             <h3>Nombre</h3>
             <Input name='nombre' value={nombre} type="text" onChange={onInputChange} />
-
-
+            </div>
+          <div className="form-div">
             <h3>Apellido</h3>
             <Input name='apellido' value={apellido} type="text" onChange={onInputChange} />
-
+          </div>
+          <div className="form-div">
             <h3>Email</h3>
             <InputD name='email' value={email} type="email" onChange={onInputChange} />
-
+          </div>
+          <div className="form-div">
             <h3>Fecha de nacimiento</h3>
             <Input name='fecha_nacimiento' value={fecha_nacimiento} type="date" onChange={onInputChange} />
-
+          </div>
+          <div className="form-div">
             <h3>Numero de celular</h3>
             <Input name='celular' value={celular} type="text" onChange={onInputChange} />
-
+          </div>
+          <div className="form-div">
             <h3>Asignar scouts*</h3>
             <div className="asigScout">
               <SelectScout id='scouts1-value' placeholder="Selecciona una opción" />
@@ -308,6 +314,7 @@ export const ActPerfilAcudiente = () => {
                 <Button id='mas-scout' variant="contained" color="primary" onClick={mostrar1}><AddIcon /></Button>
               </div>
             </div>
+          
             <div className="asigScout" id="scout2">
               <SelectScout id='scouts2-value' placeholder="Selecciona una opción" />
               <div className="btn-mas-div">
@@ -347,6 +354,7 @@ export const ActPerfilAcudiente = () => {
                 <button className="elim" onClick={ocultar4}><HighlightOff /></button>
               </div>
             </div>
+            </div>
             <br />
             <Button type="submit" variant="contained" color="primary">Guardar</Button>
 
@@ -354,6 +362,7 @@ export const ActPerfilAcudiente = () => {
           </form>
         </div>
 
+      </div>
       </div>
       <Navbar />
     </div>

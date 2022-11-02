@@ -125,15 +125,23 @@ export const AddUsuario = () => {
       <div className="conte-general">
         <Header />
         <div className="conte-imp">
+        <div className="conte-marg-form">
           <h1>Añadir un nuevo administrador</h1>
           <h2>En este formulario puedes crear un nuevo usuario</h2>
           <form onSubmit={onSubmit}>
+          <div className="form-div">
             <h3>Nombre*</h3>
             <Input name='nombre' value={nombre} onChange={onInputChange} placeholder="Nombre del administrador" type="text" />
+            </div>
+            <div className="form-div">
             <h3>Apellido*</h3>
             <Input name='apellido' value={apellido} onChange={onInputChange} placeholder="Apellido del administrador" type="text" />
+            </div>
+            <div className="form-div">
             <h3>Correo electrónico*</h3>
             <Input name='email' value={email} onChange={onInputChange} placeholder="Correo" type="email" />
+            </div>
+            <div className="form-div">
             <h3>Asignar rama*</h3>
 
             <div className="rama-in">
@@ -152,6 +160,8 @@ export const AddUsuario = () => {
 
 
             </div>
+            </div>
+            <div className="form-div">
             <h3>Foto*</h3>
             <input
               type="file"
@@ -173,12 +183,14 @@ export const AddUsuario = () => {
               <h2 className="sel2" id="yes" >Archivo cargado</h2>
               <h2 className="sel" id="img-sel">Seleccione una foto de perfil*</h2>
             </button>
+            </div>
             <br/>
 
             <Button type="submit" variant="contained" color="primary" disabled={isFileUploading} >Crear</Button>
             <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
           </form>
         </div>
+      </div>
       </div>
       <Navbar />
     </div>

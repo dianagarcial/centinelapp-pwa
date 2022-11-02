@@ -68,22 +68,24 @@ export const MostrarAdmin = () => {
             <div className="conte-general">
                 <Header />
                 <div className="conte-imp">
+                <div className="conte-marg-form">
                     <h1>Usuario:{`${adminActual?.nombre} ${adminActual?.apellido}`}</h1>
                     {/* AQUI VA LA FOTO DEL USUARIO */}
                     <img src={adminActual?.link_imagen} className='foto' alt="foto" />
 
-
+                    <div className="form-div">
                     <h3>Nombre</h3>
                     <h5>{adminActual?.nombre}</h5>
-
+                    </div>
+                    <div className="form-div">
                     <h3>Apellido</h3>
                     <h5>{adminActual?.apellido}</h5>
-
+                    </div>
+                    <div className="form-div">
                     <h3>Email</h3>
                     <h5>{adminActual?.email}</h5>
-
-                    {/* <h3>Numero de celular</h3>
-                    <h5>{adminActual?.celular}</h5> */}
+                    </div>
+                    <div className="form-div">
                     <div className="conte-ramas">
                         <h3>Ramas administradas</h3>
                         <ul>
@@ -99,10 +101,12 @@ export const MostrarAdmin = () => {
                         </ul>
 
                     </div>
+                    </div>
                     <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>
                     <Button variant="contained" color="primary" onClick={eliminar}>Eliminar usuario</Button>
 
                 </div>
+            </div>
             </div>
             <Navbar />
         </div>

@@ -14,10 +14,10 @@
   font-weight: 400;
   gap: 10px;
   line-height: 18px;
-  margin: auto;
+  
   order: 0;
   padding: 10px 12px;
-  width: 90%;
+  width: 92%;
   margin-bottom: 3%;
 }
 
@@ -42,10 +42,10 @@
   font-weight: 400;
   gap: 10px;
   line-height: 18px;
-  margin: auto;
+  /* margin: auto; */
   order: 0;
   padding: 10px 12px;
-  width: 94%;
+  width: 100%;
  
 
 }
@@ -92,7 +92,7 @@
   }
 
   .input-scouts {
-    width: 70%;
+    width: 80%;
 }
 button#mas-scout {
   width: 2%;

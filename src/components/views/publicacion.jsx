@@ -49,6 +49,7 @@ export const PublicacionGeneral = () => {
         <div className="contenido">
             <div className="conte-general-rela">
                 <Header />
+                <div className="conte-marg-form">
                 <div className="conte-imp">
                     <h1>Publicaciones</h1>
                     <h3>Selecciona una rama para ver sus mensajes, en icono + púedes crear una nueva publicacion</h3>
@@ -71,6 +72,7 @@ export const PublicacionGeneral = () => {
 
                     
                 </div>
+            </div>
             </div>
             <Navbar />
         </div>

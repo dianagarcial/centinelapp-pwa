@@ -16,18 +16,18 @@ import { SelectRamaAdmin } from "../../selectRamaAdmin"
 
 
 const Publicacion = {
-    titulo: '',
-    descripcion: '',
-    
-  
-  }
+  titulo: '',
+  descripcion: '',
+
+
+}
 export const AddPublicacionAdmin = () => {
 
-  
+
   let { titulo, descripcion, onInputChange } = useForm(Publicacion);
   const { user } = useSelector(state => state.auth);
   const { startCrearPublicacion, startCrearPublicacionGeneral } = usePublicacionStore();
-  const {startAdminRama}=useAdminStore();
+  const { startAdminRama } = useAdminStore();
 
   const navigate = useNavigate();
   var isGeneral = false
@@ -35,7 +35,7 @@ export const AddPublicacionAdmin = () => {
 
   const handleChange = () => {
 
-    const general= document.getElementById("general");
+    const general = document.getElementById("general");
     //general.checked = false;
     if (general.checked === true) {
       isGeneral = true
@@ -62,12 +62,12 @@ export const AddPublicacionAdmin = () => {
     let autorNom = user?.nombre
     let autorId = user?.uid
     let autorApe = user?.apellido
-    
+
     let date = new Date();
     let fecha = date.toDateString()
-    let ramaAsignada =null
-   
-    
+    let ramaAsignada = null
+
+
 
 
     if (titulo === '' || descripcion === '') {
@@ -81,19 +81,17 @@ export const AddPublicacionAdmin = () => {
 
     } else {
 
-    const general= document.getElementById("general");
-    
-    if (general.checked === false) 
- 
-    {
-      ramaAsignada = document.getElementById("rama").value
-      startCrearPublicacion({ titulo, descripcion, ramaAsignada, linkImagen, autorNom, autorId, autorApe, fecha, isGeneral })
-    }else{
-      isGeneral=true
+      const general = document.getElementById("general");
 
-      startCrearPublicacionGeneral({ titulo, descripcion, linkImagen, autorNom, autorId, autorApe, fecha, isGeneral })
-    }
-      
+      if (general.checked === false) {
+        ramaAsignada = document.getElementById("rama").value
+        startCrearPublicacion({ titulo, descripcion, ramaAsignada, linkImagen, autorNom, autorId, autorApe, fecha, isGeneral })
+      } else {
+        isGeneral = true
+
+        startCrearPublicacionGeneral({ titulo, descripcion, linkImagen, autorNom, autorId, autorApe, fecha, isGeneral })
+      }
+
       navigate(`/home`)
     }
 
@@ -117,27 +115,36 @@ export const AddPublicacionAdmin = () => {
       <div className="conte-general">
         <Header />
         <div className="conte-imp">
-          <h1>Crear una publicación</h1>
-          <h2>En este formulario puedes crear una nueva publicación</h2>
-          <form onSubmit={onSubmit}>
-            <div className="sel-general">
-              <input type='checkbox' id="general" 
-              onChange={handleChange} 
-               /><h4 className="nom-sel">Publicación general</h4>
-            </div>
-            <div id='ramaform'>
-              <h3>Rama del mensaje*</h3>
-              <SelectRamaAdmin id='rama' placeholder="Selecciona una opción" />
-            </div>
-            <h3>Titulo de la publicación*</h3>
-            <Input name='titulo' value={titulo} onChange={onInputChange} placeholder="Titulo de la publicación" type="text" />
-            <h3>Mensaje*</h3>
-            <TextArea name='descripcion' value={descripcion} onChange={onInputChange} placeholder="Descripción de la publicación" type="text" />
-            <br />
+          <div className="conte-marg-form">
+            <h1>Crear una publicación</h1>
+            <h2>En este formulario puedes crear una nueva publicación</h2>
+            <form onSubmit={onSubmit}>
+              <div className="form-div">
+                <div className="sel-general">
+                  <input type='checkbox' id="general"
+                    onChange={handleChange}
+                  /><h4 className="nom-sel">Publicación general</h4>
+                </div>
+              </div>
+              <div className="form-div">
+                <div id='ramaform'>
+                  <h3>Rama del mensaje*</h3>
+                  <SelectRamaAdmin id='rama' placeholder="Selecciona una opción" />
+                </div>
+              </div>
+              <div className="form-div">
+                <h3>Titulo de la publicación*</h3>
+                <Input name='titulo' value={titulo} onChange={onInputChange} placeholder="Titulo de la publicación" type="text" />
+              </div>
+              <div className="form-div">
+                <h3>Mensaje*</h3>
+                <TextArea name='descripcion' value={descripcion} onChange={onInputChange} placeholder="Descripción de la publicación" type="text" />
+              </div>
 
-            <Button type="submit" variant="contained" color="primary">Crear</Button>
-            <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
-          </form>
+              <Button type="submit" variant="contained" color="primary">Crear</Button>
+              <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
+            </form>
+          </div>
         </div>
       </div>
       <Navbar />
@@ -145,4 +152,4 @@ export const AddPublicacionAdmin = () => {
   )
 }
 
-    
+

@@ -32,6 +32,7 @@ export const AddUser = () => {
             <div className="conte-general-home">
                 <Navbar />
                 <Header />
+                <div className="conte-marg-form">
                 <h1>Registar usuario</h1>
                 <h3>Elige el tipo de usuario a registrar</h3>
 
@@ -39,7 +40,7 @@ export const AddUser = () => {
                 <SelectCreacion nombre="Scout" desc="Registra un nuevo scout" onClick={scout} />
                 <SelectCreacion nombre="Administrador" desc="Registra un nuevo administrador" onClick={administrador} />
                 <SelectCreacion nombre="Acudiente" desc="Registra un nuevo acudiente" onClick={acudiente} />
-
+                </div>
 
             </div>
         </div>

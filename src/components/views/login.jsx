@@ -67,18 +67,26 @@ export const Login = () => {
     return (
         <div className="Login">
             <div className="conte-login">
+            <div className="conte-marg-form">
                 <h1>Bienvenido de nuevo</h1>
                 <h2>Ingresa a tu cuenta</h2>
                 <form onSubmit={onSubmit}>
+                <div className="form-div">
                     <h3>Tipo de usuario</h3>
                     <Select id="tipo" />
+                    </div>
+                    <div className="form-div">
                     <h3>Correo electronico</h3>
                     <Input name="email" value={email} onChange={onInputChange} placeholder="example@mail.com" type="email" />
+                    </div>
+                    <div className="form-div">
                     <h3>Contraseña</h3>
                     <InputPassword name="password" value={password} onChange={onInputChange} placeholder="Tu contraseña" type="password" />
+                    </div>
                     <br/>
                     <Button type="submit" variant="contained" color="primary">Ingresa</Button>
                 </form>
+                </div>
             </div>
         </div>
 

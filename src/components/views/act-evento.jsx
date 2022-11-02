@@ -89,9 +89,11 @@ export const ActEvento = () => {
           <div className="conte-general">
             <Header />
             <div className="conte-imp">
+            <div className="conte-marg-form">
               <h1>Actualizar un evento</h1>
               <h2>En este formulario puedes actualizar evento</h2>
               <form onSubmit={onSubmit}>
+              <div className="form-div">
                 <h3>Rama del evento*</h3>
                 <select id='rama'  className='cajon-select'  >
                           <option value="">Seleccione una rama</option>
@@ -113,20 +115,29 @@ export const ActEvento = () => {
                               })
                           }
                       </select>
+                      </div>
+                      <div className="form-div">
                 <h3>Titulo*</h3>
                 <Input name='titulo' value={titulo} onChange={onInputChange} placeholder="Nuevo evento" type="text" />
+                </div>
+                <div className="form-div">
                 <h3>Mensaje*</h3>
                 <TextArea name='descripcion' value={descripcion} onChange={onInputChange} placeholder="Descripción del evento" type="text" />
+                </div>
+                <div className="form-div">
                 <h3>Fecha de inicio*</h3>
                 <Input name='fechaYHoraInicio' value={((fechaYHoraInicio).toString()).split('T')[0]} onChange={onInputChange} placeholder="Selecciona una fecha" type="date" min={hoy}/>
+                </div>
+                <div className="form-div">
                 <h3>Fecha de fin*</h3>
                 <Input name='fechaYHoraFinal' value={((fechaYHoraFinal).toString()).split('T')[0]} onChange={onInputChange} placeholder="Selecciona una fecha" type="date" min={hoy} />
-                <br/>             
+                </div>             
       
                 <Button type="submit" variant="contained" color="primary">Actualizar</Button>
                 <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
               </form>
             </div>
+          </div>
           </div>
           <Navbar />
         </div>

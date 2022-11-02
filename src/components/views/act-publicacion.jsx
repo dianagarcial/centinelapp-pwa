@@ -90,9 +90,11 @@ export const ActPublicacion = () => {
           <div className="conte-general">
             <Header />
             <div className="conte-imp">
+            <div className="conte-marg-form">
               <h1>Actualizar una publicación</h1>
               <h2>En este formulario puedes actualizar una nueva publicación</h2>
               <form onSubmit={onSubmit}>
+              <div className="form-div">
                 <h3>Rama del mensaje*</h3>
                 <select id='rama'  className='cajon-select'  >
                           <option value="">Seleccione una rama</option>
@@ -115,15 +117,22 @@ export const ActPublicacion = () => {
                               })
                           }
                       </select>
+                      </div>
+                      <div className="form-div">
                 <h3>Titulo de la publicación*</h3>
                 <Input name='titulo' value={titulo} onChange={onInputChange} placeholder="Titulo de la publicación" type="text" />
+                </div>
+                <div className="form-div">
                 <h3>Mensaje*</h3>
                 <TextArea name='descripcion' value={descripcion} onChange={onInputChange} placeholder="Descripción de la publicación" type="text" />
+                </div>
+
                  <br/>             
       
                 <Button type="submit" variant="contained" color="primary">Crear</Button>
                 <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
               </form>
+              </div>
             </div>
           </div>
           <Navbar />

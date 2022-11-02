@@ -9,7 +9,7 @@ button.btn-select {
     width: 100%;
     background-color: transparent;
     border: 0px;
-    margin: 4%;
+    margin-bottom: 1em;
 }
 .btn-select-s2 h3 {
     font-family: 'Ubuntu';
@@ -23,6 +23,12 @@ margin-top: 0px;
 /* Complementos/Negro/Negro1 */
 
 color: #292929;
+}
+.btn-select-s2 h3 {
+    margin-left: 3%;
+}
+.conte-publicacion h3 {
+    margin-left: 2%;
 }
 
 .btn-select-s2 h4 {

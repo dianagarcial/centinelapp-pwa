@@ -71,6 +71,7 @@ export const EventoRama = () => {
         <div className="contenido">
             <div className="conte-general-rela">
                 <Header />
+                <div className="conte-marg-form">
                 <div className="conte-imp" id="conte-sel">
                     <h1>Rama:{ramaSel?.nombre}</h1>
                     <h3>Aqui estan los eventos de la rama {ramaSel?.nombre}</h3>
@@ -109,6 +110,7 @@ export const EventoRama = () => {
 
                     
                 </div>
+            </div>
             </div>
             <Navbar />
         </div>

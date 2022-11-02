@@ -52,32 +52,48 @@ export const PerfilScout= ()=>{
         <div className="conte-general">
         <Header/>
         <div className="conte-imp">
+        <div className="conte-marg-form">
         <h1>Hola, {user?.nombre}</h1>
         <h2>Aquí están tus datos personales</h2>
         {/* AQUI VA LA FOTO DEL USUARIO */}
         <img src={ scoutActual?.link_imagen } className='foto' alt="foto"/>
+        
+        <div className="form-div">
         <h3>Nombre</h3>
         <h5>{scoutActual?.nombre}</h5>
+        </div>
 
+        <div className="form-div">
         <h3>Apellido</h3>
         <h5>{scoutActual?.apellido}</h5>
+        </div>
 
+        <div className="form-div">
         <h3>Email</h3>
         <h5>{scoutActual?.email}</h5>
+        </div>
 
+        <div className="form-div">
         <h3>Fecha de nacimiento</h3>
         <h5>{scoutActual?.fecha_nacimiento}</h5>
+        </div>
 
+
+        <div className="form-div">
         <h3>Número de celular</h3>
         <h5>{scoutActual?.celular}</h5>
+        </div>
 
+        <div className="form-div">
         <h3>Rama actual</h3>
         <h5>{ramaScout}</h5>
+        </div>
         
         <Button variant="contained" color="primary" onClick={contrasena}>Cambiar contraseña</Button>
         <Button type="submit" variant="contained" color="primary" onClick={actualizar}>Actualizar datos</Button>
         <Button variant="outlined" color="primary" onClick={startLogout}>Cerrar sesión</Button>
       
+        </div>
         </div>
         </div>
         <Navbar/>

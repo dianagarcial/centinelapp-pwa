@@ -114,29 +114,40 @@ export const AddPublicacion = () => {
     <div className="contenido">
       <div className="conte-general">
         <Header />
+        
         <div className="conte-imp">
+        <div className="conte-marg-form">
           <h1>Crear una publicación</h1>
           <h2>En este formulario puedes crear una nueva publicación</h2>
           <form onSubmit={onSubmit}>
+          <div className="form-div">
             <div className="sel-general">
               <input type='checkbox' id="general" 
               onChange={handleChange} 
                /><h4 className="nom-sel">Publicación general</h4>
             </div>
+            </div>
+            <div className="form-div">
             <div id='ramaform'>
               <h3>Rama del mensaje*</h3>
               <Select id='rama' placeholder="Selecciona una opción" />
             </div>
+            </div>
+            <div className="form-div">
             <h3>Titulo de la publicación*</h3>
             <Input name='titulo' value={titulo} onChange={onInputChange} placeholder="Titulo de la publicación" type="text" />
+            </div>
+            <div className="form-div">
             <h3>Mensaje*</h3>
             <TextArea name='descripcion' value={descripcion} onChange={onInputChange} placeholder="Descripción de la publicación" type="text" />
+            </div>
             <br />
 
             <Button type="submit" variant="contained" color="primary">Crear</Button>
             <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
           </form>
         </div>
+      </div>
       </div>
       <Navbar />
     </div>
