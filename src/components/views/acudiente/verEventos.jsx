@@ -24,11 +24,12 @@ export const VerEventoAcuView = () => {
 
 
     const { startListEventoGeneral, startListEventoBusca } = useEventoStore();
-    const {startListRamasAcudiente}=useAcudienteStore();
-    const {user} = useSelector(state=>state.auth);
+    const { startListRamasAcudiente } = useAcudienteStore();
+    const { user } = useSelector(state => state.auth);
     const { eventos } = useSelector(state => state.evento)
     const eventoActual = eventos.find(evento => evento._id === params._id);
-    const {acudienteScout}=useSelector(state => state.acudiente)
+    
+    const { acudienteScout } = useSelector(state => state.acudiente)
 
     function convertir(mes) {
         let res
@@ -89,13 +90,18 @@ export const VerEventoAcuView = () => {
 
                     </div>
                     <br />
+                    <div className="cab-tabla-scout">
+                        <h3 className="cabtabla">Nombre</h3>
+                        
+
+                    </div>
 
                     <div id="tabla-scouts" className="tabla-scout">
                         {
 
                             acudienteScout.map((acud) => (
-                                
-                                <ObjAcudienteInsc acudientes={acud}/>
+
+                                <ObjAcudienteInsc acudientes={acud} />
 
 
 

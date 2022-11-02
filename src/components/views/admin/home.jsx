@@ -20,7 +20,7 @@ export const HomeAdmin = () => {
     //const {ramasAdmin}=useSelector(state => state.admin)
     const { startAdminRama } = useAdminStore();
     const { startListPublicacionEsGeneral } = usePublicacionStore();
-    const { startListEventoGeneral } = useEventoStore();
+    const { startListEventoEsGeneral } = useEventoStore();
 
     const { publicaciones } = useSelector(state => state.publicacion)
     const { eventos } = useSelector(state => state.evento)
@@ -52,7 +52,7 @@ export const HomeAdmin = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListPublicacionEsGeneral();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListEventoGeneral();
+        startListEventoEsGeneral();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

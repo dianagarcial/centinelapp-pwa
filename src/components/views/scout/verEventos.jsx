@@ -13,6 +13,7 @@ import { useSelector } from "react-redux"
 
 import { useEventoStore } from "../../../Hooks/useEventoStore"
 import { Calendar } from "../../calendar"
+import { ObjScoutInsc } from "./objScout"
 
 export const VerEventoView = () => {
 
@@ -21,9 +22,11 @@ export const VerEventoView = () => {
     
     
 
-    const {startListEventoGeneral, startListEventoBusca}=useEventoStore();
-    // const {user} = useSelector(state=>state.auth);
+    const {startListEventoGeneral, startListEventoBusca, startIfInscritoEvento}=useEventoStore();
+    const {user} = useSelector(state=>state.auth);
     const { eventos } = useSelector(state => state.evento)
+    const { eventoScoutInscrito } = useSelector(state => state.evento)
+    
     const eventoActual = eventos.find(evento => evento._id === params._id);
 
     
@@ -58,6 +61,8 @@ export const VerEventoView = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         startListEventoBusca();
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        startIfInscritoEvento(user?.uid)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
     
@@ -87,7 +92,7 @@ export const VerEventoView = () => {
                     </div>
                     <br/>
                     
-                    {/* <Button variant="contained" color="primary" onClick={inscripcion} >Inscribirse</Button> */}
+                    <ObjScoutInsc scout={eventoScoutInscrito}/>
                     
 
                 </div>

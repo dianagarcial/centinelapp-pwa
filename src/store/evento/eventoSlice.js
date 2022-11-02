@@ -6,6 +6,7 @@ export const eventoSlice = createSlice({
          eventos: [],
          eventoSelect:[],
          eventoInscritos:[],
+         eventoScoutInscrito:'',
          eventoNroInscritos:'',
          errorMessage: null,
       },
@@ -19,6 +20,9 @@ export const eventoSlice = createSlice({
            onListInscritosEvento:(state, {payload=[]})=>{
             state.eventoInscritos=payload;
            },
+           onListScoutEvento:(state, {payload=[]})=>{
+            state.eventoScoutInscrito=payload;
+           },
            onListNroInscritosEvento:(state, {payload=[]})=>{
             state.eventoNroInscritos=payload;
            },
@@ -27,4 +31,4 @@ export const eventoSlice = createSlice({
        }
 })
 
-export const { onListEventos, onListEventoSelect, onListInscritosEvento, onListNroInscritosEvento } = eventoSlice.actions
+export const { onListEventos, onListEventoSelect, onListInscritosEvento,onListScoutEvento, onListNroInscritosEvento } = eventoSlice.actions

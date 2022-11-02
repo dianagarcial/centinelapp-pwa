@@ -98,3 +98,35 @@ form {
 .form-div {
     margin-bottom: 1em;
 }
+button#btn-inscrip {
+    background: #C1121F;
+    color: #ffff;
+    padding: 10%;
+    border-radius: 5px;
+    border: 0;
+}
+.conten-linea-insc {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 3%;
+    margin-top: 3%;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+}
+.conten-linea-insc h3 {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    align-content: center;
+    margin: auto;
+
+}
+.btn-in {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}

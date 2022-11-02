@@ -1,10 +1,15 @@
 import "../../../styles/styles.css"
 
 import { useEventoStore } from "../../../Hooks/useEventoStore";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export const ObjAcudienteInsc = ({ acudientes }) => {
+export const ObjAcudienteInsc = ({ acudientes}) => {
+    const params = useParams();
 
     const {startInscribirEvento} =useEventoStore();
+    const { eventos } = useSelector(state => state.evento)
+    const eventoActual = eventos.find(evento => evento._id === params._id);
 
     // function redireccion(e) {
     //     e.preventDefault();
@@ -14,13 +19,19 @@ export const ObjAcudienteInsc = ({ acudientes }) => {
         e.preventDefault();
         startInscribirEvento(id);
     }
+    if( eventoActual?.isGeneral === true || acudientes?.Rama === eventoActual?.ramaAsignada[0] ){
+        return (
+            <div className="conten-linea-insc">
+    
+                <h3>{`${acudientes?.Scout?.nombre} ${acudientes?.Scout?.apellido}`}</h3>
+                <div className="btn-in">
+                <button id="btn-inscrip" onClick={inscripcion(acudientes?.Scout?._id)}>Inscribir</button>
+                </div>
+    
+            </div>
+    
+        )
 
-    return (
-        <div className="conten-linea">
-            <h3>{`${acudientes.Scout}`}</h3>
-            <button onClick={inscripcion(acudientes.Scout)}>Inscribir</button>
-
-        </div>
-
-    )
+    }
+    
 }

@@ -1,6 +1,6 @@
 import { CentinelApi } from "../Api"
 import swal from 'sweetalert';
-import { onListEventos, onListEventoSelect, onListInscritosEvento, onListNroInscritosEvento } from "../store";
+import { onListEventos, onListEventoSelect, onListInscritosEvento, onListNroInscritosEvento, onListScoutEvento } from "../store";
 import { useDispatch } from "react-redux"
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -218,6 +218,20 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     }
 
   }
+  const startIfInscritoEvento= async(id) => {
+
+    try {
+      
+      const { data } = await CentinelApi.get(`evento/ScoutIsPresent/${params._id}/${id}`);
+     
+      dispatch( onListScoutEvento( data.isPresent) )
+
+    } catch (error) {
+      console.log(error)
+      
+    }
+
+  }
   
 
   const startUpdateEvento= async({titulo, descripcion, linkImagen, fechaYHoraInicio, fechaYHoraFinal, idRama}) => {
@@ -260,9 +274,18 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
       });  
       navigate(`/eventos`)
     } catch (error) {
+      if(error.response.status===400){
+        swal({
+          
+          title: "El scout ya ha sido inscrito anteriormente",
+          icon: "warning",
+        });  
+        return;
+
+      }
       console.log(error)
     }
 
   }
-  return { startCrearEvento,startCrearEventoGeneral,startListLastEvento,startListLastEventoRama, startListEventoGeneral, startListEvento, startListEventoBusca, startUpdateEvento, startDeleteEvento, startInscribirEvento, startListNroInscritosEvento, startListInscritosEvento, startListEventoEsGeneral}
+  return { startCrearEvento,startCrearEventoGeneral,startListLastEvento,startListLastEventoRama, startListEventoGeneral, startListEvento, startListEventoBusca, startUpdateEvento, startDeleteEvento, startInscribirEvento, startListNroInscritosEvento, startListInscritosEvento, startListEventoEsGeneral, startIfInscritoEvento}
 }
