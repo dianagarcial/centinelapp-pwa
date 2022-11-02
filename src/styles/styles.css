@@ -130,3 +130,11 @@ button#btn-inscrip {
     justify-content: center;
     align-content: center;
 }
+.inscrito-div {
+    background: #EEEEEE;
+    border-radius: 10px;
+    padding: 5%;
+}
+.inscrito-div h3 {
+    text-align: center;
+}
