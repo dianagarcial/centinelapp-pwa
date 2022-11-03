@@ -14,8 +14,8 @@ export const HomeAcudiente= ()=>{
     
     const navigate = useNavigate();
     const { user } = useSelector(state => state.auth);
-    const { startListPublicacionEsGeneral } = usePublicacionStore();
-    const { startListEventoEsGeneral } = useEventoStore();
+    const { startListPublicacionTwoGeneral } = usePublicacionStore();
+    const { startListEventoTwoEsGeneral } = useEventoStore();
     const { publicaciones } = useSelector(state => state.publicacion)
     const { eventos } = useSelector(state => state.evento)
     var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
@@ -39,9 +39,9 @@ export const HomeAcudiente= ()=>{
     }
 
     useEffect(() => {
-        startListPublicacionEsGeneral();
+        startListPublicacionTwoGeneral();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListEventoEsGeneral();
+        startListEventoTwoEsGeneral();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

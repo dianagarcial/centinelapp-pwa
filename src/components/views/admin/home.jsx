@@ -19,8 +19,8 @@ export const HomeAdmin = () => {
     const { user } = useSelector(state => state.auth);
     //const {ramasAdmin}=useSelector(state => state.admin)
     const { startAdminRama } = useAdminStore();
-    const { startListPublicacionEsGeneral } = usePublicacionStore();
-    const { startListEventoEsGeneral } = useEventoStore();
+    const { startListPublicacionTwoGeneral } = usePublicacionStore();
+    const { startListEventoTwoEsGeneral } = useEventoStore();
 
     const { publicaciones } = useSelector(state => state.publicacion)
     const { eventos } = useSelector(state => state.evento)
@@ -50,9 +50,9 @@ export const HomeAdmin = () => {
     useEffect(() => {
         startAdminRama(user?.uid);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListPublicacionEsGeneral();
+        startListPublicacionTwoGeneral();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListEventoEsGeneral();
+        startListEventoTwoEsGeneral();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

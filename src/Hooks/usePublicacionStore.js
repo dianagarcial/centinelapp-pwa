@@ -94,6 +94,23 @@ export const usePublicacionStore = () => {
 
   }
 
+  const startListPublicacionTwoGeneral = async () => {
+
+    try {
+
+      const { data } = await CentinelApi.get(`publicaciones/allGeneralTwoPosts`);
+      dispatch(onListPublicaciones(data.publicaciones_))
+
+
+
+    } catch (error) {
+
+
+
+    }
+
+  }
+
   const startListPublicacionEsGeneral = async () => {
 
     try {
@@ -197,5 +214,5 @@ export const usePublicacionStore = () => {
 
 
 
-  return { startCrearPublicacion, startCrearPublicacionGeneral, startListPublicacionGeneral, startListPublicacion, startListLastPublicacion, startListLastPublicacionRama, startListPublicacionBusca, startUpdatePublicacion, startDeletePublicacion, startListPublicacionEsGeneral }
+  return { startCrearPublicacion, startCrearPublicacionGeneral, startListPublicacionGeneral, startListPublicacion, startListLastPublicacion, startListLastPublicacionRama, startListPublicacionBusca, startUpdatePublicacion, startDeletePublicacion, startListPublicacionEsGeneral, startListPublicacionTwoGeneral }
 }
