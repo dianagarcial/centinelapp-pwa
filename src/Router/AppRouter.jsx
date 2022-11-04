@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { Layout } from "../components"
 import { useAuthStore } from "../Hooks"
+import React from "react";
 
 import {
     ActEvento, ActPublicacion, AddEvento, AddPublicacion,
