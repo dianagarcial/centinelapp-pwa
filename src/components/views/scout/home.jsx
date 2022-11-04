@@ -3,7 +3,7 @@
 import { Navbar } from "../../navbar"
 import "../../../styles/styles.css"
 import { Header } from "../../header"
-
+import React from "react";
 import { Publicacion } from "../../publicacion";
 import { Eventos } from "../../eventos";
 import { useSelector } from 'react-redux';

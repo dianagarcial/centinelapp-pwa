@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import '../styles/input.css'
+import React from "react";
 export function Select(props) {
 
     const { ramas } = useSelector(state => state.rama);

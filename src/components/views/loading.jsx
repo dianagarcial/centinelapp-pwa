@@ -1,7 +1,7 @@
 
 import '../../styles/loading.css'
 import LinearProgress from '@mui/material/LinearProgress';
-
+import React from "react";
 export const Loading = () => {
 
 

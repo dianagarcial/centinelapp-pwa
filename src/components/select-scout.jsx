@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import '../styles/input.css'
+import React from "react";
 export function SelectScout(props) {
 
     const { scouts } = useSelector(state => state.scout);

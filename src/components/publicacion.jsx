@@ -1,4 +1,5 @@
 import '../styles/publicacion.css'
+import React from "react";
 export function Publicacion(props) {
     return (
         <div className='btn-public'>

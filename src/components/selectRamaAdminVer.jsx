@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import '../styles/input.css'
+import React from "react";
 export function SelectRamaAdminVer(props) {
 
     const {ramasAdmin}=useSelector(state => state.admin)

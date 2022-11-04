@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 //import swal from 'sweetalert';
 
 
+
 export const MostrarScoutAdmin = () => {
     const params = useParams();
 

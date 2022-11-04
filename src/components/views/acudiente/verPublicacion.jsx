@@ -6,6 +6,7 @@ import "../../../styles/login.css"
 import "../../../styles/publicacionsel.css"
 
 import { useParams } from 'react-router-dom';
+import React from "react";
 
 import { Header } from "../../header"
 import { useEffect } from "react"

@@ -4,7 +4,7 @@ import "../../../styles/boton.css"
 import "../../../styles/styles.css"
 import "../../../styles/login.css"
 import "../../../styles/publicacionsel.css"
-
+import React from "react";
 import { useParams } from 'react-router-dom';
 
 import { Header } from "../../header"

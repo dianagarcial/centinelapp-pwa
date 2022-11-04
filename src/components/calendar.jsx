@@ -1,4 +1,5 @@
 import '../styles/calendar.css'
+import React from "react";
 export function Calendar(props) {
     return (
         <div className='conte-calendar'>

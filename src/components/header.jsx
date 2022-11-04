@@ -1,4 +1,5 @@
 import '../styles/header.css'
+import React from "react";
 export function Header() {
     return (
         <div className='Header'>

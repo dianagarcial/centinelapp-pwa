@@ -8,6 +8,7 @@ import { useForm, useRamasStore } from "../../Hooks"
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { Header } from "../header"
+import React from "react";
 
 const Rama = {
   nombre: '',

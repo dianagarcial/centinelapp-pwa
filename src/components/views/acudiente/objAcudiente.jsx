@@ -1,5 +1,5 @@
 import "../../../styles/styles.css"
-
+import React from "react";
 import { useEventoStore } from "../../../Hooks/useEventoStore";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";

@@ -15,6 +15,7 @@ import { useEffect } from 'react'
 import { useEventoStore } from "../../../Hooks/useEventoStore"
 import { Eventos } from "../../eventos"
 import { useNavigate } from "react-router-dom"
+import React from "react";
 
 
 export const EventoRamaGeneralAcuView = () => {

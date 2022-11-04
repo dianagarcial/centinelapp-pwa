@@ -12,7 +12,7 @@ import { useEffect } from 'react'
 //import { Select } from "../select"
 import { TextArea } from "../textArea"
 import { useSelector } from 'react-redux';
-
+import React from "react";
 
 export const ActPublicacion = () => {
   const params = useParams();

@@ -8,7 +8,7 @@ import swal from 'sweetalert';
 import { HighlightOff } from '@mui/icons-material';
 import { Header } from "../../header"
 import { useForm, useAcudienteStore, useScoutStore } from '../../../Hooks';
-
+import React from "react";
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'

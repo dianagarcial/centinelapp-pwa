@@ -10,7 +10,7 @@ import swal from 'sweetalert';
 import { Header } from "../../header"
 import { useSelector } from "react-redux"
 import { useEffect } from "react"
-
+import React from "react";
 
 export const ActRama = () => {
   const navigate = useNavigate();

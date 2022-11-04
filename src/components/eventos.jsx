@@ -1,4 +1,5 @@
 import '../styles/evento.css'
+import React from "react";
 export function Eventos(props) {
     return (
         <div className='btn-event' id='nohay'>

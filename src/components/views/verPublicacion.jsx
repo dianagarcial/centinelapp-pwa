@@ -4,7 +4,7 @@ import "../../styles/boton.css"
 import "../../styles/styles.css"
 import "../../styles/login.css"
 import "../../styles/publicacionsel.css"
-
+import React from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import swal from 'sweetalert';
 import { Header } from "../header"

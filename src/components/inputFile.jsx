@@ -1,4 +1,5 @@
 import '../styles/inputFile.css'
+import React from "react";
 export function InputFile() {
 
 

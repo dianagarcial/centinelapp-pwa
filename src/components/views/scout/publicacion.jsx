@@ -9,7 +9,7 @@ import { SelectCreacion } from "../../selectCreacion"
 import { useRamasStore, useScoutStore } from "../../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
-
+import React from "react";
 
 import { useNavigate } from 'react-router-dom';
 

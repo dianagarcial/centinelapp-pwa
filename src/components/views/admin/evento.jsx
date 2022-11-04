@@ -9,6 +9,7 @@ import { SelectCreacion } from "../../selectCreacion"
 import { useAdminStore } from "../../../Hooks"
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react'
+import React from "react";
 
 import { BotonFlotante } from "../../btn-flotante"
 import { useNavigate } from 'react-router-dom';

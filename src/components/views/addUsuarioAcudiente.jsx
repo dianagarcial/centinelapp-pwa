@@ -6,7 +6,7 @@ import "../../styles/styles.css"
 import "../../styles/login.css"
 import { Header } from "../header"
 import { Done, HighlightOff } from '@mui/icons-material';
-
+import React from "react";
 import { useEffect, useState, useRef } from 'react'
 import { useForm, useScoutStore, useAcudienteStore } from "../../Hooks"
 import swal from 'sweetalert';

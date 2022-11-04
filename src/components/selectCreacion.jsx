@@ -1,4 +1,5 @@
 import '../styles/selectCreacion.css'
+import React from "react";
 export function SelectCreacion(props) {
     return (
         <div className='btn-select'>

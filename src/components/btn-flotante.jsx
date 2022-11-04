@@ -1,6 +1,7 @@
 import '../styles/boton-flotante.css'
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
+import React from "react";
 export function BotonFlotante(props) {
     return (
         

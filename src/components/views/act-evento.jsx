@@ -12,7 +12,7 @@ import { useEffect } from 'react'
 import { TextArea } from "../textArea"
 import { useSelector } from 'react-redux';
 import { useEventoStore } from "../../Hooks/useEventoStore"
-
+import React from "react";
 
 export const ActEvento = () => {
   const params = useParams();

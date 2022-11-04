@@ -1,4 +1,5 @@
 import '../styles/input.css'
+import React from "react";
 export function InputD(props) {
     return (
         <div className='input' id={props.iddiv}>

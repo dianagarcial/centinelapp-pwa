@@ -10,6 +10,7 @@ import { Header } from "../../header"
 import { useSelector } from "react-redux"
 import { InputPassword } from "../../input-password"
 import { useNavigate } from "react-router-dom"
+import React from "react";
 
 const Acudiente = {
   newPassword: '',

@@ -1,7 +1,7 @@
 import "../../../styles/styles.css"
 
 import { useEventoStore } from "../../../Hooks/useEventoStore";
-
+import React from "react";
 import { useSelector } from "react-redux";
 import MoodBadIcon from '@mui/icons-material/MoodBad';
 import InsertEmoticon from '@mui/icons-material/InsertEmoticon';

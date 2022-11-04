@@ -1,5 +1,5 @@
 import { Navbar } from "../../navbar"
-
+import React from "react";
 import "../../../styles/boton.css"
 import "../../../styles/styles.css"
 import "../../../styles/login.css"

@@ -1,4 +1,5 @@
 import '../styles/input.css'
+import React from "react";
 import { useState } from "react";
 export function InputPassword(props) {
     const [showPwd, setShowPwd] = useState(false)

@@ -1,4 +1,5 @@
 import '../styles/boton.css'
+import React from "react";
 export function Boton(props) {
     return (
         <div className='Boton'>

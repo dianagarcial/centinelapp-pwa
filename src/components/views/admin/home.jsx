@@ -3,7 +3,7 @@
 import { Navbar } from "../../navbar"
 import "../../../styles/styles.css"
 import { Header } from "../../header"
-
+import React from "react";
 import { SelectCreacion } from "../../selectCreacion"
 import { useNavigate } from 'react-router-dom';
 import { Publicacion } from "../../publicacion";

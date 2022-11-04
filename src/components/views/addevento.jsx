@@ -13,7 +13,7 @@ import { Select } from "../select"
 import { TextArea } from "../textArea"
 import { useSelector } from 'react-redux';
 import { useEventoStore } from "../../Hooks/useEventoStore"
-
+import React from "react";
 
 const Evento = {
   titulo: '',

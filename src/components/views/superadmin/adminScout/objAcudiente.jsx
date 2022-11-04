@@ -1,6 +1,6 @@
 import "../../../../styles/styles.css"
 import { useNavigate } from 'react-router-dom';
-
+import React from "react";
 export const ObjAcudiente = ({ acudientes }) => {
 
     const navigate = useNavigate();

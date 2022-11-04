@@ -11,7 +11,7 @@ import { useEffect} from 'react'
 import { BotonFlotante } from "../../btn-flotante"
 import { useNavigate } from 'react-router-dom';
 import { Publicacion } from "../publicacioncompo"
-
+import React from "react";
 
 export const PublicacionRamaGeneral = () => {
     

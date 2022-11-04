@@ -12,7 +12,7 @@ import { useForm, useRamasStore, useScoutStore } from "../../Hooks"
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux"
-
+import React from "react";
 import { UploadFile } from '@mui/icons-material';
 import { CameraAlt } from '@mui/icons-material';
 const Scout = {
