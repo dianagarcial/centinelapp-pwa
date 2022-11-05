@@ -71,16 +71,15 @@ export const RamaSel = () => {
             <div className="conte-general-rela">
                 <Header />
                 <div className="conte-imp">
+                <div className="conte-marg">
                     <h1>{ramaActual?.nombre}</h1>
                     
-                   
-                    
-
-                    
+                
                 </div>
                 <Button variant="contained" color="primary" onClick={actualizar(ramaActual?._id)} >Actualizar</Button>
                 <Button variant="outlined" color="primary" onClick={eliminar} >Eliminar</Button>
 
+            </div>
             </div>
             <Navbar />
         </div>

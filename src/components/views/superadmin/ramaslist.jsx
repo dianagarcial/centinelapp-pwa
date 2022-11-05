@@ -45,6 +45,7 @@ export const RamasList = () => {
             <div className="conte-general-rela">
                 <Header />
                 <div className="conte-imp">
+                <div className="conte-marg">
                     <h1>Gestionar ramas</h1>
                     <h3>Selecciona una rama ver su informacion detallada</h3>
                    
@@ -65,6 +66,7 @@ export const RamasList = () => {
                     <BotonFlotante onClick={redireccion}/>
 
                     
+                </div>
                 </div>
             </div>
             <Navbar />

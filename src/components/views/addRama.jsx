@@ -74,6 +74,7 @@ export const AddRama = () => {
       <div className="conte-general">
         <Header />
         <div className="conte-imp">
+        <div className="conte-marg">
           <h1>Crear rama</h1>
           <h2>En este formulario puedes crear una nueva rama</h2>
           <form onSubmit={onSubmit}>
@@ -94,6 +95,7 @@ export const AddRama = () => {
             <Button type="submit" variant="contained" color="primary">Crear</Button>
             <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
           </form>
+          </div>
         </div>
       </div>
       <Navbar />
