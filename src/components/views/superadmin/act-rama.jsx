@@ -74,6 +74,7 @@ export const ActRama = () => {
         <div className="conte-general">
           <Header />
           <div className="conte-imp">
+          <div className="conte-marg">
             <h1>Actualizar rama</h1>
             <h2>En este formulario puedes actualizar una rama</h2>
             <form onSubmit={onSubmit}>
@@ -94,6 +95,7 @@ export const ActRama = () => {
               <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
             </form>
           </div>
+        </div>
         </div>
         <Navbar />
       </div>
