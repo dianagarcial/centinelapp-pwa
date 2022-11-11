@@ -77,7 +77,7 @@ export const Login = () => {
                     </div>
                     <div className="form-div">
                     <h3>Correo electronico</h3>
-                    <Input name="email" value={email} onChange={onInputChange} placeholder="example@mail.com" type="email" />
+                    <Input name="email" value={email} onChange={onInputChange} placeholder="example@mail.com" type="email" iddiv='int-login'/>
                     </div>
                     <div className="form-div">
                     <h3>Contraseña</h3>

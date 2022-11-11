@@ -119,6 +119,7 @@ export const ActPerfilAdmin = () => {
             <div className="conte-general">
                 <Header />
                 <div className="conte-imp">
+                <div className="conte-marg-form">
                     <h1>Actualizar datos</h1>
                     <h2>Actualiza los datos personales del administrador</h2>
                     <form onSubmit={onSubmit}>
@@ -163,7 +164,7 @@ export const ActPerfilAdmin = () => {
                     <Button variant="outlined" color="primary" onClick={RegreNoG}>Regresar</Button>
                     </form>
                 </div>
-                
+                </div>
             </div>
             <Navbar />
         </div>

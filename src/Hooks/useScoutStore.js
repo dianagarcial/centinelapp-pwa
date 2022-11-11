@@ -114,12 +114,12 @@ export const useScoutStore = () => {
   }
 
   
-  const startUpdateScout = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, idScout,idRama,idRamaNueva }) => {
+  const startUpdateScout = async ({ id, nombre, apellido, fecha_nacimiento, celular, idScout,idRama,idRamaNueva }) => {
     
     
     try {
 
-      await CentinelApi.put(`scouts/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular});
+      await CentinelApi.put(`scouts/${id}`, { id, nombre, apellido, fecha_nacimiento, celular});
       await CentinelApi.put(`rama/changeScoutBranch/${idRama}`, { idScout, idRamaNueva });
       
       swal({

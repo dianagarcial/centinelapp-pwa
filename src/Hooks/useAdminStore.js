@@ -96,11 +96,11 @@ export const useAdminStore = () => {
         }
     
       }
-      const startUpdateAdmin = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, RamasNuevas }) => {
+      const startUpdateAdmin = async ({ id, nombre, apellido, fecha_nacimiento, celular, RamasNuevas }) => {
         
         try {
     
-          await CentinelApi.put(`admin/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular });
+          await CentinelApi.put(`admin/${id}`, { id, nombre, apellido, fecha_nacimiento, celular });
        
           await CentinelApi.put(`admin/changeAdminBranch/${params._id}`, {RamasNuevas});
         
