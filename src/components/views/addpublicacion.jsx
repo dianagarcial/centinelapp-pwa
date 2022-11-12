@@ -85,7 +85,18 @@ export const AddPublicacion = () => {
  
     {
       ramaAsignada = document.getElementById("rama").value
+      if (ramaAsignada === '') {
+        swal({
+          title: "Ingrese una rama",
+          icon: "warning"
+
+        });
+
+        return;
+
+      } else {
       startCrearPublicacion({ titulo, descripcion, ramaAsignada, linkImagen, autorNom, autorId, autorApe, fecha, isGeneral })
+      }
     }else{
       isGeneral=true
 

@@ -22,11 +22,11 @@ export const ActEvento = () => {
   const navigate = useNavigate();
   const { eventos } = useSelector(state => state.evento)
   const eventoActual = eventos.find(evento => evento._id === params._id);
-  const { ramas } = useSelector(state => state.rama);
+  // const { ramas } = useSelector(state => state.rama);
 
   const fecha = new Date();
   let hoy=(fecha.toISOString()).toString().split('T')[0]
-  const { titulo= '', descripcion='', fechaYHoraInicio='', fechaYHoraFinal='', ramaAsignada='',  onInputChange } = useForm(eventoActual);
+  const { titulo= '', descripcion='', fechaYHoraInicio='', fechaYHoraFinal='',   onInputChange } = useForm(eventoActual);
       
     
     
@@ -42,7 +42,7 @@ export const ActEvento = () => {
         let linkImagen='no tiene'
        
       
-        let idRama= document.getElementById("rama").value
+ 
 
     
         
@@ -58,9 +58,19 @@ export const ActEvento = () => {
           return;
     
         }else{
+          if (fechaYHoraInicio > fechaYHoraFinal) {
+            swal({
+              title: "La fecha de inicio debe ser inferior a la fecha de finalizacion",
+              icon: "warning"
+    
+            });
+    
+            return;
+          }else{
           
-          startUpdateEvento({ titulo, descripcion, linkImagen,  fechaYHoraInicio, fechaYHoraFinal, idRama })
+          startUpdateEvento({ titulo, descripcion, linkImagen,  fechaYHoraInicio, fechaYHoraFinal })
           navigate(`/home`)
+          }
             }
             
     
@@ -93,7 +103,7 @@ export const ActEvento = () => {
               <h1>Actualizar un evento</h1>
               <h2>En este formulario puedes actualizar evento</h2>
               <form onSubmit={onSubmit}>
-              <div className="form-div">
+              {/* <div className="form-div">
                 <h3>Rama del evento*</h3>
                 <select id='rama'  className='cajon-select'  >
                           <option value="">Seleccione una rama</option>
@@ -115,7 +125,7 @@ export const ActEvento = () => {
                               })
                           }
                       </select>
-                      </div>
+                      </div> */}
                       <div className="form-div">
                 <h3>Titulo*</h3>
                 <Input name='titulo' value={titulo} onChange={onInputChange} placeholder="Nuevo evento" type="text" />

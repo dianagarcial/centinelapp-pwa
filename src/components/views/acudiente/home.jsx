@@ -53,7 +53,7 @@ export const HomeAcudiente= ()=>{
             <div className="conte-marg-form">
             <h1>Inicio</h1>
             <h3>Hola {user?.nombre}, en este menu podras ver lo ultimo en tu feed</h3>
-            <h1>Últimas publicaciones</h1>
+            <h1 id="publicaciones">Últimas publicaciones</h1>
                 {
 
                     publicaciones.map(publi => {
@@ -73,7 +73,7 @@ export const HomeAcudiente= ()=>{
                     })
 
                 }
-                <h1>Siguiente evento</h1>
+                <h1 id="eventos">Siguiente evento</h1>
                 {
 
                     eventos.map(event => {

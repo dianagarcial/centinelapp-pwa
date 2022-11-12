@@ -64,6 +64,7 @@ export const HomeAdmin = () => {
                 <div className="conte-marg">
                     <h1>Inicio</h1>
                     <h3>Hola {user?.nombre}, en este menú podras ver lo último en tu feed</h3>
+                    <div id="publicaciones">
                     {
 
                         publicaciones.map(publi => {
@@ -84,7 +85,8 @@ export const HomeAdmin = () => {
                         })
 
                     }
-                    <h1>Siguiente evento</h1>
+                    </div>
+                    <h1 id="eventos">Siguiente evento</h1>
                     {
 
                         eventos.map(event => {

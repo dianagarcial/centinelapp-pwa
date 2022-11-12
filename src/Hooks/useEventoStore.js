@@ -151,13 +151,8 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
 
     } catch (error) {
       if(error.response.status===404){
-     
-        // swal({
-          
-        //   title: "No existen eventos enviados de forma general actualmente",
-        //   icon: "warning",
-        // });  
-        // navigate('/eventos')
+        
+        document.getElementById('eventos').style.display='none'
 
       }
     }

@@ -122,16 +122,11 @@ export const usePublicacionStore = () => {
 
     } catch (error) {
 
-      // if (error.response.status === 404) {
+      if (error.response.status === 404) {
 
-      //   swal({
+        document.getElementById('publicaciones').style.display='none'
 
-      //     title: "No existen publicaciones enviadas de forma general actualmente",
-      //     icon: "warning",
-      //   });
-      //   navigate('/publicaciones')
-
-      // }
+      }
 
     }
 
@@ -186,6 +181,10 @@ export const usePublicacionStore = () => {
     try {
 
       await CentinelApi.put(`publicaciones/${params._id}`, { titulo, descripcion, ramaAsignada, linkImagen, fecha });
+      swal({
+        title: "La publicacion ha sido actualizada con éxito!",
+        icon: "success",
+      });
 
       navigate(`/verPublicacion/${params._id}`)
 

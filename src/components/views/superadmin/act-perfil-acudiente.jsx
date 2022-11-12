@@ -32,6 +32,8 @@ export const ActPerfilAcudiente = () => {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   }
+  const fecha = new Date();
+  let hoy=(fecha.toISOString()).toString().split('T')[0]
 
 
   let { nombre = '', apellido = '', email = '', fecha_nacimiento = '', celular = '', onInputChange } = useForm(acudienteActual);
@@ -300,7 +302,7 @@ export const ActPerfilAcudiente = () => {
           </div>
           <div className="form-div">
             <h3>Fecha de nacimiento</h3>
-            <Input name='fecha_nacimiento' value={fecha_nacimiento} type="date" onChange={onInputChange} />
+            <Input name='fecha_nacimiento' value={fecha_nacimiento} onChange={onInputChange} placeholder="Fecha de nacimiento" type="date" max={hoy}/>
           </div>
           <div className="form-div">
             <h3>Numero de celular</h3>

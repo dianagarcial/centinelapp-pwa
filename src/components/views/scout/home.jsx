@@ -70,7 +70,7 @@ export const HomeScout = () => {
                 <div className="conte-marg-form">
                 <h1>Inicio</h1>
                 <h3>Hola {user?.nombre}, en este menú podras ver lo último en tu feed</h3>
-                <h1>Últimas publicaciones</h1>
+                <h1 id="publicaciones">Últimas publicaciones</h1>
                 {
 
                     publicaciones.map(publi => {
@@ -92,7 +92,7 @@ export const HomeScout = () => {
 
 
                 }
-                <h1>Siguiente evento</h1>
+                <h1 id="eventos">Siguiente evento</h1>
                 {
 
                     eventos.map(event => {

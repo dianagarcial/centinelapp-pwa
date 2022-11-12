@@ -65,7 +65,7 @@ export const AddEventoAdmin = () => {
     let autorId = user?.uid
     let autorApe = user?.apellido
 
-    let idRama = null
+    let idRama = ''
 
 
     if (isGeneral === false) {
@@ -100,7 +100,20 @@ export const AddEventoAdmin = () => {
 
         if (general.checked === false) {
           idRama = document.getElementById("rama").value
+          
+          if(idRama===''){
+            swal({
+              title: "Ingrese una rama",
+              icon: "warning"
+      
+            });
+            return;
+
+          }else{
+          
+          
           startCrearEvento({ titulo, descripcion, linkImagen, autorNom, autorApe, autorId, fechaYHoraInicio, fechaYHoraFinal, idRama, isGeneral })
+          }
         } else {
           isGeneral = true
           startCrearEventoGeneral({ titulo, descripcion, linkImagen, autorNom, autorApe, autorId, fechaYHoraInicio, fechaYHoraFinal, isGeneral })

@@ -63,7 +63,7 @@ export const ActPublicacion = () => {
         }else{
           
           startUpdatePublicacion({ titulo, descripcion, ramaAsignada, linkImagen, fecha })
-              navigate(`/home`)
+         
             }
             
     
@@ -129,7 +129,7 @@ export const ActPublicacion = () => {
 
                  <br/>             
       
-                <Button type="submit" variant="contained" color="primary">Crear</Button>
+                <Button type="submit" variant="contained" color="primary">Actualizar</Button>
                 <Button variant="outlined" color="primary" onClick={redirect}>Cancelar</Button>
               </form>
               </div>

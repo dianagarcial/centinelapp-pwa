@@ -35,7 +35,9 @@ export const ActPerfilScout = () => {
       });
     }
     let { nombre='', apellido='', email='', fecha_nacimiento='', celular='', onInputChange } = useForm(scoutActual);
-    
+    const fecha = new Date();
+    let hoy=(fecha.toISOString()).toString().split('T')[0]
+
 
   
     
@@ -112,7 +114,7 @@ export const ActPerfilScout = () => {
                     <InputD name='email' value={email} type="email" onChange={onInputChange} disabled/>
 
                     <h3>Fecha de nacimiento</h3>
-                    <Input name='fecha_nacimiento' value={fecha_nacimiento} type="date" onChange={onInputChange}  />
+                    <Input name='fecha_nacimiento' value={fecha_nacimiento} onChange={onInputChange} placeholder="Fecha de nacimiento" type="date" max={hoy}/>
 
                     <h3>Numero de celular</h3>
                     <Input name='celular' value={celular} type="text" onChange={onInputChange}  />
