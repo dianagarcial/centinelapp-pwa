@@ -20,7 +20,7 @@ import React from "react";
 
 export const EventoRamaGeneralAcuView = () => {
     const navigate = useNavigate();    
-    const {startListEventoEsGeneral}=useEventoStore();
+    const {startListEventoEsGeneralLitHoy}=useEventoStore();
     const { startListSuperAdmin } = useSuperAdminStore();
     const { startListAdmin } = useAdminStore();
      
@@ -51,7 +51,7 @@ export const EventoRamaGeneralAcuView = () => {
     
     useEffect(() => {
         
-        startListEventoEsGeneral();
+        startListEventoEsGeneralLitHoy();
         // eslint-disable-next-line react-hooks/exhaustive-deps
         
         startListAdmin();

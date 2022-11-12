@@ -19,7 +19,7 @@ import { Eventos } from "../../eventos"
 export const EventoRamaView = () => {
     const params = useParams();
     const navigate = useNavigate();
-    const {startListEvento}=useEventoStore();
+    const {startListEventoLitHoy}=useEventoStore();
     const {startListarRamasSel}=useRamasStore();
     const { startListSuperAdmin } = useSuperAdminStore();
     const { startListAdmin } = useAdminStore();
@@ -54,7 +54,7 @@ export const EventoRamaView = () => {
     useEffect(() => {
         startListarRamasSel();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        startListEvento(idRama);
+        startListEventoLitHoy(idRama);
         // eslint-disable-next-line react-hooks/exhaustive-deps
         
         startListAdmin();

@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom"
 
 export const EventoRamaGeneralView = () => {
     const navigate = useNavigate();    
-    const {startListEventoEsGeneral}=useEventoStore();
+    const {startListEventoEsGeneralLitHoy}=useEventoStore();
     const { startListSuperAdmin } = useSuperAdminStore();
     const { startListAdmin } = useAdminStore();
      
@@ -50,7 +50,7 @@ export const EventoRamaGeneralView = () => {
     
     useEffect(() => {
         
-        startListEventoEsGeneral();
+        startListEventoEsGeneralLitHoy();
         // eslint-disable-next-line react-hooks/exhaustive-deps
         
         startListAdmin();

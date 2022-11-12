@@ -141,6 +141,29 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     }
 
   }
+
+  const startListEventoEsGeneralLitHoy= async() => {
+
+    try {
+      
+      const { data } = await CentinelApi.get(`evento/allGeneralEventsDate`);
+      
+      dispatch( onListEventos( data.eventos_) )
+
+    } catch (error) {
+      if(error.response.status===404){
+     
+        swal({
+          
+          title: "No existen eventos enviados de forma general actualmente",
+          icon: "warning",
+        });  
+        navigate('/eventos')
+
+      }
+    }
+
+  }
   const startListEventoTwoEsGeneral= async() => {
 
     try {
@@ -166,6 +189,33 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
           
            
       const { data } = await CentinelApi.get(`evento/getAllEventByBranch/${params._id}`);
+      
+      dispatch( onListEventos( data.Eventos_) )
+
+      if((data.Eventos_).length===0){
+     
+        swal({
+          
+          title: "No existen eventos actualmente para esta rama",
+          icon: "warning",
+        });  
+        navigate('/eventos')
+
+      }
+      
+
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
+  const startListEventoLitHoy= async() => {
+
+    try {
+          
+           
+      const { data } = await CentinelApi.get(`evento/getAllEventByBranchDate/${params._id}`);
       
       dispatch( onListEventos( data.Eventos_) )
 
@@ -312,5 +362,5 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
     }
 
   }
-  return { startCrearEvento,startCrearEventoGeneral,startListLastEvento,startListLastEventoRama, startListEventoGeneral, startListEvento, startListEventoBusca, startUpdateEvento, startDeleteEvento, startInscribirEvento, startListNroInscritosEvento, startListInscritosEvento, startListEventoEsGeneral, startIfInscritoEvento, startListEventoTwoEsGeneral}
+  return { startCrearEvento,startCrearEventoGeneral,startListLastEvento,startListLastEventoRama, startListEventoGeneral, startListEvento, startListEventoBusca, startUpdateEvento, startDeleteEvento, startInscribirEvento, startListNroInscritosEvento, startListInscritosEvento, startListEventoEsGeneral, startIfInscritoEvento, startListEventoTwoEsGeneral, startListEventoLitHoy, startListEventoEsGeneralLitHoy}
 }
