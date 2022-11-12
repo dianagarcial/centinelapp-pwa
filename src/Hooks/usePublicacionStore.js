@@ -122,16 +122,16 @@ export const usePublicacionStore = () => {
 
     } catch (error) {
 
-      if (error.response.status === 404) {
+      // if (error.response.status === 404) {
 
-        swal({
+      //   swal({
 
-          title: "No existen publicaciones enviadas de forma general actualmente",
-          icon: "warning",
-        });
-        navigate('/publicaciones')
+      //     title: "No existen publicaciones enviadas de forma general actualmente",
+      //     icon: "warning",
+      //   });
+      //   navigate('/publicaciones')
 
-      }
+      // }
 
     }
 
