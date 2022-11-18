@@ -92,12 +92,12 @@ export const useScoutStore = () => {
     }
 
   }
-  const startUpdateScoutSR = async ({ id, nombre, apellido, email, fecha_nacimiento, celular}) => {
+  const startUpdateScoutSR = async ({ id, nombre, apellido, fecha_nacimiento, celular}) => {
     
     
     try {
 
-      await CentinelApi.put(`scouts/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular});
+      await CentinelApi.put(`scouts/${id}`, { id, nombre, apellido, fecha_nacimiento, celular});
       
       
       swal({

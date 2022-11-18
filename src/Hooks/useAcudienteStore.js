@@ -112,11 +112,11 @@ export const useAcudienteStore = () => {
     
       }
       
-      const startUpdateAcudiente = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, Scout }) => {
+      const startUpdateAcudiente = async ({ id, nombre, apellido, fecha_nacimiento, celular, Scout }) => {
         
         try {
     
-          await CentinelApi.put(`acudientes/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular, Scout });
+          await CentinelApi.put(`acudientes/${id}`, { id, nombre, apellido, fecha_nacimiento, celular, Scout });
           // console.log(id, nombre, apellido, email, fecha_nacimiento, celular, Scouts)
          
           swal({

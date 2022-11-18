@@ -270,7 +270,7 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
 
     } catch (error) {
       if(error.response.status === 404){
-        console.log('nojj')
+      
 
 
       }

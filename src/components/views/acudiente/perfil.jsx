@@ -17,10 +17,10 @@ import { useSelector } from "react-redux"
 export const PerfilAcudiente= ()=>{
     const { startLogout } = useAuthStore();
     const {user} = useSelector(state=>state.auth);
-    console.log(user)
+ 
     const { acudientes } = useSelector(state => state.acudiente);
     const acudienteActual = acudientes.find(acudiente => acudiente._id === user.uid);
-    console.log(acudienteActual)
+   
     const { acudienteScout } = useSelector(state => state.acudiente);
    
     const { startListAcudientes, startListScoutsAcudienteUser } = useAcudienteStore();

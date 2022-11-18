@@ -57,7 +57,7 @@ export const ActAdmin = () => {
 
     } else {
 
-      startUpdateAdminPersonal({ id, nombre, apellido, email })
+      startUpdateAdminPersonal({ id, nombre, apellido })
       navigate(`/perfil`)
     }
   }
@@ -105,7 +105,7 @@ export const ActAdmin = () => {
               <h3>Email</h3>
               <InputD name='email' value={email} type="email" onChange={onInputChange} />
 
-
+              <br/>
               <Button type="submit" variant="contained" color="primary">Guardar</Button>
 
               <Button variant="outlined" color="primary" onClick={RegreNoG}>Regresar</Button>

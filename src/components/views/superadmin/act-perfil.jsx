@@ -53,7 +53,7 @@ export const ActPerfilScout = () => {
         nombre=nombrex
         apellido=apellidox
         const idRamaNueva = document.getElementById("rama").value
-        console.log(idRamaNueva)
+        
         if( nombre.trim() === '' || apellido.trim() === '' || email.trim() === ''||fecha_nacimiento.trim() === ''||celular.trim() === ''|| idRamaNueva.trim()==='' ){
           swal(
             'Error',

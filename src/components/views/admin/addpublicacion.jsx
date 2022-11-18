@@ -41,7 +41,7 @@ export const AddPublicacionAdmin = () => {
     if (general.checked === true) {
       isGeneral = true
       document.getElementById('ramaform').style.display = 'none'
-      console.log('gen')
+      
     } else {
       document.getElementById('ramaform').style.display = 'block'
       isGeneral = false

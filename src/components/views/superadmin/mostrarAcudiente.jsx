@@ -26,7 +26,7 @@ export const MostrarAcudiente = () => {
    
     function eliminar(e) {
         e.preventDefault();
-        console.log(params._id)
+        
         
         swal({
             title: "Borrar acudiente",

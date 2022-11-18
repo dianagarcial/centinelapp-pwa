@@ -22,7 +22,7 @@ export const RamaSel = () => {
     const { startListarRamas, startDeleteRama} = useRamasStore();
     const { ramas } = useSelector(state => state.rama);
     const ramaActual= ramas.find(rama => rama._id ===params._id)
-    console.log(ramaActual)
+    
 
     const actualizar = (idrama) => (e) => {
         e.preventDefault();

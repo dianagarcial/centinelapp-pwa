@@ -58,7 +58,7 @@ export const ActScout = () => {
             'error'
           )
         }else{
-          startUpdateScoutSR({ id,nombre,apellido,email,fecha_nacimiento,celular})
+          startUpdateScoutSR({ id,nombre,apellido,fecha_nacimiento,celular})
             
         }
       }

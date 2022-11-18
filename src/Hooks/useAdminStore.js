@@ -115,11 +115,11 @@ export const useAdminStore = () => {
         }
     
       }
-      const startUpdateAdminPersonal = async ({ id, nombre, apellido, email, fecha_nacimiento, celular, RamasNuevas }) => {
+      const startUpdateAdminPersonal = async ({ id, nombre, apellido, fecha_nacimiento, celular, RamasNuevas }) => {
         
         try {
     
-          await CentinelApi.put(`admin/${id}`, { id, nombre, apellido, email, fecha_nacimiento, celular });
+          await CentinelApi.put(`admin/${id}`, { id, nombre, apellido, fecha_nacimiento, celular });
           
           
           swal({

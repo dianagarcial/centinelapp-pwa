@@ -53,7 +53,7 @@ export const AddUsuarioFicha = () => {
     if (target.files === 0) return;
     const link = await startUploadingFiles(target.files, 'Fichas-Medicas')
     setlink_ficha_medica(link);
-    console.log(link.length)
+    
     if(link.length > 0){
       document.getElementById("yes2").style.display="block"
       document.getElementById("check-arch").style.display="block"
@@ -70,7 +70,7 @@ export const AddUsuarioFicha = () => {
     if (target.files === 0) return;
     const link = await startUploadingFiles(target.files, 'Imagenes')
     setLinkImagen(link);
-    console.log(link.length)
+   
     if(link.length > 0){
       document.getElementById("img-sel").style.display="none"
       document.getElementById("camaras").style.display="none"

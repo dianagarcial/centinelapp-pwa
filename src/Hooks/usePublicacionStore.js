@@ -12,7 +12,7 @@ export const usePublicacionStore = () => {
   const navigate = useNavigate();
   const startCrearPublicacion = async ({ titulo, descripcion, ramaAsignada, linkImagen, autorNom, autorId, autorApe, fecha, isGeneral }) => {
 
-    console.log(titulo, descripcion, ramaAsignada, linkImagen, autorNom, autorId, autorApe, fecha, isGeneral)
+    
     try {
       await CentinelApi.post('publicaciones/create-publicacion', { titulo, descripcion, ramaAsignada, linkImagen, autor: { id: autorId, nombre: autorNom, apellido: autorApe }, fecha, isGeneral })
 
@@ -104,6 +104,15 @@ export const usePublicacionStore = () => {
 
 
     } catch (error) {
+
+      if(error.response.status === 404){
+        document.getElementById('publicaciones').style.display='none'
+        dispatch( onListPublicaciones( ) )
+
+
+      }
+
+
 
 
 
