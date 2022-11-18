@@ -37,6 +37,9 @@ export const ActAcudiente = () => {
   //fecha_nacimiento=reformatDateString(fecha_nacimiento);
 
   //document.querySelector('#rama').value=ramaIdScout
+  const fecha = new Date();
+  let hoy=(fecha.toISOString()).toString().split('T')[0]
+
 
   
   const onSubmit = (e) => {
@@ -114,7 +117,7 @@ export const ActAcudiente = () => {
 
           <div className="form-div">
             <h3>Fecha de nacimiento</h3>
-            <Input name='fecha_nacimiento' value={fecha_nacimiento} type="date" onChange={onInputChange} />
+            <Input name='fecha_nacimiento' value={fecha_nacimiento} type="date" onChange={onInputChange} max={hoy}/>
           </div>
 
           <div className="form-div">

@@ -26,7 +26,9 @@ export const ActScout = () => {
     const {user} = useSelector(state=>state.auth);
     const { scouts } = useSelector(state => state.scout);
     const scoutActual = scouts.find(scout => scout._id === (user?.uid));
-    
+    const fecha = new Date();
+    let hoy=(fecha.toISOString()).toString().split('T')[0]
+
     
     function capitalizar(str) {
       return str.replace(/\w\S*/g, function(txt){
@@ -35,7 +37,7 @@ export const ActScout = () => {
     }
     let { nombre='', apellido='', email='', fecha_nacimiento='', celular='', onInputChange } = useForm(scoutActual);
     //fecha_nacimiento=reformatDateString(fecha_nacimiento);
-    //console.log(ramaIdScout)
+    
     //document.querySelector('#rama').value=ramaIdScout
 
     
@@ -113,7 +115,7 @@ export const ActScout = () => {
 
                     <div className="form-div">
                     <h3>Fecha de nacimiento</h3>
-                    <Input name='fecha_nacimiento' value={fecha_nacimiento} type="date" onChange={onInputChange}  />
+                    <Input name='fecha_nacimiento' value={fecha_nacimiento} type="date" onChange={onInputChange}  max={hoy}/>
                     </div>
                     <div className="form-div">
                     <h3>Numero de celular</h3>
