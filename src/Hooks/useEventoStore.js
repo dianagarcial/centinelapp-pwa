@@ -176,6 +176,7 @@ const startCrearEvento = async ({ titulo, descripcion, linkImagen, autorNom, aut
       if(error.response.status===404){
         
         document.getElementById('eventos').style.display='none'
+        dispatch( onListEventos( ) )
 
       }
     }
