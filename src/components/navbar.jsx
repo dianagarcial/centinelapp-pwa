@@ -30,13 +30,13 @@ export function Navbar() {
                 <div className='Iconos-Navbar'>
                     <div className="home" href="/home">
                         <button onClick={home} className="btn-nav">
-                            <img src='https://i.ibb.co/Lry8W0s/ci-home-alt-fill-1.png' alt='home' />
+                            <img src='https://res.cloudinary.com/scouts2022/image/upload/v1668790100/recursos/ci_home-alt-fill_2_dsexta.png' alt='home' />
 
                         </button>
                     </div>
                     <div className="messages">
                         <button onClick={messages} className="btn-nav">
-                            <img src='https://i.ibb.co/8mmRVPn/jam-messages-f-1.png' alt='mensaje' />
+                            <img src='https://res.cloudinary.com/scouts2022/image/upload/v1668790100/recursos/jam_messages-f_2_rhvmrr.png' alt='mensaje' />
 
                         </button>
 
@@ -44,12 +44,12 @@ export function Navbar() {
                     </div>
                     <div className="calendar">
                     <button onClick={calendar} className="btn-nav">
-                        <img src='https://i.ibb.co/Q8CvB2v/calendar.png' alt='calendario' />
+                        <img src='https://res.cloudinary.com/scouts2022/image/upload/v1668790100/recursos/ant-design_calendar-filled_3_fmrc1e.png' alt='calendario' />
                     </button>
                     </div>
                     <div className="person">
                         <button onClick={perfil} className="btn-nav">
-                            <img src='https://i.ibb.co/6wW5Q1m/bi-person-fill-2.png' alt='persona' />
+                            <img src='https://res.cloudinary.com/scouts2022/image/upload/v1668790100/recursos/bi_person-fill_3_gkdfox.png' alt='persona' />
 
                         </button>
                     </div>
