@@ -346,7 +346,7 @@ export const AddUsuarioAcudiente = () => {
             </div>
             <div className="form-div">
             <h3>Asignar scouts*</h3>
-            <div className="asigScout">
+            <div className="asigScout" id="scout1">
               <SelectScout id='scouts1-value' placeholder="Selecciona una opción" />
               <div className="btn-mas-div">
                 <Button id='mas-scout' variant="contained" color="primary" onClick={mostrar1}><AddIcon /></Button>

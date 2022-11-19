@@ -89,6 +89,7 @@ export const AddUsuario = () => {
     nombre=nombrex
     apellido=apellidox
     email=emailx
+    
     ramas.forEach(rama => {
       if (document.getElementById(rama._id).checked) {
 

@@ -65,6 +65,7 @@ button.btn-event {
     overflow: hidden;
     margin-left: 5%;
     text-overflow: ellipsis;
+    text-align: initial;
 }
 img.imgbtn {
     /* margin: auto; */
