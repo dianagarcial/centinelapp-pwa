@@ -130,7 +130,7 @@ div#pass-input {
 .position-absolute.pointer.pwd-icon {
   position: absolute;
   right: 0;
-  margin-right: 5%;
+  margin-right: 3%;
 }
 .cajon-input-pass {
   align-items: center;
@@ -151,7 +151,7 @@ div#pass-input {
   margin: auto;
   order: 0;
   padding: 10px 12px;
-  width: 90%;
+  width: 95%;
 }
 .cajon-input-pass:focus{
   border: none;
