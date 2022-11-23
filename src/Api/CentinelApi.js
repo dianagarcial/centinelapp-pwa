@@ -2,9 +2,10 @@ import axios from "axios";
 
 const CentinelApi = axios.create({
     
-    baseURL: 'https://192.99.247.71:3001/api/'
+    baseURL: 'https://centinelapp.scoutscentinelas113cali.org:3001/api'
+    //baseURL: 'https://192.99.247.71:3001/api/'
     //baseURL: 'https://scout-centinelas113-prueba1.herokuapp.com/api'
-    //baseURL:'http://localhost:3001/api'
+    //baseURL:'https://localhost:9001/api'
     
 });
 
